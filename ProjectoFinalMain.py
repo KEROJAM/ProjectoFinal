@@ -67,9 +67,9 @@ def Hoodies_Color_select():
             print("| " + colorV + ", " + colorB + ", " + colorN)
             colorP = input("| ")
             break
-def Color_Green_Size_Select():
-    if colorP == "Verde":
-        while True:
+    def Color_Green_Size_Select():
+        if colorP == "Verde":
+         while True:
             print(bar)
             print("| Elige la talla: ")
             print("| S, M, L")
@@ -85,7 +85,7 @@ def Color_Green_Size_Select():
             print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
         if colorP == "Blanco":
             while True:
-            print(bar)
+                print(bar)
         if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
             print("No hay stock ")
             break
