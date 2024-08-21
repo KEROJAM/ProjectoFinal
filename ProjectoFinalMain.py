@@ -58,12 +58,12 @@ if colorP == "Verde":
 
 
 print("| Tu  Carrito: ",  productlist.hoodieVSC)
-if TipoPro == "Hoodies" and colorP == "Verde":
-    print("| Tenemos este stock en verde", productlist.hoodies["cantidadVL"])
-if TipoPro == "Hoodies" and colorP == "Verde" :
-    print("| Tenemos este stock en verde ", productlist.hoodies["cantidadVM"])
-if TipoPro == "Hoodies" and colorP == "Verde":
-    print ("|Tenemos este stock en Verde", productlist.hoodies["cantidadVS"])
+if TipoPro == "Hoodies" and colorP == "Verde ":
+    print("| Tenemos este stock en verde talla L", productlist.hoodies["cantidadVL"])
+if TipoPro == "Hoodies" and colorP == "Verde " :
+    print("| Tenemos este stock en verde talla M ", productlist.hoodies["cantidadVM"])
+if TipoPro == "Hoodies" and colorP == "Verde ":
+    print ("|Tenemos este stock en Verde talla S", productlist.hoodies["cantidadVS"])
 
 if VentaC>10 :
     while True:
@@ -72,6 +72,7 @@ if VentaC>10 :
 if VentaC<10:
     while True:
         print("Si lo tenemos en stock")
+        break
 #print(productlist.hoodies)
 ventaV = productlist.hoodies.get("cantidadVM")
 ventaV = ventaV-VentaC
