@@ -95,6 +95,7 @@ if VentaC<10:
 ventaV = productlist.hoodies.get("cantidadVM")
 ventaV = ventaV-VentaC
 productlist.hoodies.update({"cantidadVM":ventaV})
+print("siuuuuuu")
 
 
 
