@@ -57,9 +57,9 @@ if colorP == "Verde":
             print("No hay Stock")        
             break
 
-VentaC=int(input("| Cantidad de productos que quieres: ")
-        )
-        break
+VentaC=int(input("| Cantidad de productos que quieres: "))
+print("| En tu carrito hay: ", VentaC, " articulos")
+break
 
 
 print("| Stock del articulo Seleccionado: ",  productlist.hoodieVSC)
