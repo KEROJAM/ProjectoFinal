@@ -20,7 +20,6 @@ hoodies={
 colorV = hoodies.get("colorV")
 colorB = hoodies.get("colorN")
 colorW = hoodies.get("colorB")
-hoodieVSC = hoodies.get("cantidadVS")
 camisetas={
     "Precio" : 350,
     "colorA" : "Azul",
