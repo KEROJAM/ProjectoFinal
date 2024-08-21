@@ -68,6 +68,7 @@ if VentaC>10 :
         print("No hay suficiente stock ")
         break
 print(9)
+print(8)
 
 #print(productlist.hoodies)
 ventaV = productlist.hoodies.get("cantidadVM")
