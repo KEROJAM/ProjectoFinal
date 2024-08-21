@@ -56,19 +56,19 @@ if colorP == "Verde":
         print(bar)
         if productlist.hoodies["cantidadVL" or "cantidadVM" or "cantidadVS"] == 0:
             print("No hay Stock") 
-            break       
+        break       
 if colorP == "Blanco"   :
     while True:
-            print (bar)  
-            if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0 :  
+        print (bar)  
+        if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0 :  
                 print("No hay stock ")   
-            break 
+        break 
 if colorP =="Negro  " :
     while True :
-            print (bar)     
-            if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] ==0 : 
+        print (bar)     
+        if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] ==0 : 
                 print("No hay stock ")           
-            break
+        break
            
 
 VentaC=int(input("| Cantidad de productos que quieres: "))
