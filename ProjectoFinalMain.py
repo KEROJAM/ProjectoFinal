@@ -67,9 +67,7 @@ if VentaC>10 :
     while True:
         print("No hay suficiente stock ")
         break
-print(9)
-print(8)
-
+# quite pirnt y seguir haciendo el menu
 #print(productlist.hoodies)
 ventaV = productlist.hoodies.get("cantidadVM")
 ventaV = ventaV-VentaC
