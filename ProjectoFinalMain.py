@@ -56,18 +56,24 @@ if colorP == "Verde":
         )
         break
 
-VentaC=int(input("| Cantidad de productos que quieres: ")
-        )
 
+<<<<<<< HEAD
 print("| Tu Carrito: ",  productlist.hoodieVSC)
+=======
+print("| Tu  Carrito: ",  productlist.hoodiesVSC)
+>>>>>>> refs/remotes/origin/main
 if TipoPro == "Hoodies" and colorP == "Verde":
-    print("| Tenemos este stock en verde", productlist.hoodies("cantidadVM"))
+    print("| Tenemos este stock en verde", productlist.hoodies("cantidadVL"))
+if TipoPro == "Hoodies" and colorP == "Verde" :
+    print("| Tenemos este stock en verde ", productlist.hoodies("cantidadVM"))
+if TipoPro == "Hoodies" and colorP == "Verde":
+    print ("|Tenemos este stock en Verde", productlist.hoodies("cantidasVS"))
 
 if VentaC>10 :
     while True:
         print("No hay suficiente stock ")
         break
-print(7)
+#quite el print7
 # quite pirnt y seguir haciendo el menu
 #print(productlist.hoodies)
 ventaV = productlist.hoodies.get("cantidadVM")
