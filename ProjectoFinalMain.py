@@ -57,11 +57,7 @@ if colorP == "Verde":
         break
 
 
-<<<<<<< HEAD
-print("| Tu Carrito: ",  productlist.hoodieVSC)
-=======
-print("| Tu  Carrito: ",  productlist.hoodiesVSC)
->>>>>>> refs/remotes/origin/main
+print("| Tu  Carrito: ",  productlist.hoodieVSC)
 if TipoPro == "Hoodies" and colorP == "Verde":
     print("| Tenemos este stock en verde", productlist.hoodies("cantidadVL"))
 if TipoPro == "Hoodies" and colorP == "Verde" :
