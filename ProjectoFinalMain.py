@@ -56,8 +56,6 @@ if colorP == "Verde":
         )
         break
 
-VentaC=int(input("| Cantidad de productos que quieres: ")
-        )
 
 print("| Tu Carrito: ",  productlist.hoodiesVSC)
 if TipoPro == "Hoodies" and colorP == "Verde":
