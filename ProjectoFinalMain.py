@@ -63,7 +63,7 @@ if TipoPro == "Hoodies" and colorP == "Verde":
 if TipoPro == "Hoodies" and colorP == "Verde" :
     print("| Tenemos este stock en verde ", productlist.hoodies["cantidadVM"])
 if TipoPro == "Hoodies" and colorP == "Verde":
-    print ("|Tenemos este stock en Verde", productlist.hoodies["cantidasVS"])
+    print ("|Tenemos este stock en Verde", productlist.hoodies["cantidadVS"])
 
 if VentaC>10 :
     while True:
