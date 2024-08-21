@@ -1,3 +1,19 @@
+nombre=input("porporcione un nombre")
+
+print("\nhola!", nombre, "que gusto verte por aqui, bienvenido a tecmi clothes") 
+
+print("\nestos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Zapatos ")
+
+print ("\n! A continuacion te mostraremos el catalogo para que selecciones tus productos !")
+
+import time
+
+def mensaje_espera():
+    print("Por favor, espera redirigiendo al menu ")
+    time.sleep(5)  
+    print("¡Gracias por esperar!")
+
+mensaje_espera()
 import productlist
 import time
 import sys
