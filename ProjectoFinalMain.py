@@ -59,6 +59,9 @@ if colorP == "Verde":
 
 VentaC=int(input("| Cantidad de productos que quieres: ")
         )
+        break
+
+
 print("| Tu  Carrito: ",  productlist.hoodieVSC)
 if TipoPro == "Hoodies" and colorP == "Verde ":
     print("| Tenemos este stock en verde talla L", productlist.hoodies["cantidadVL"])
