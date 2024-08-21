@@ -69,7 +69,9 @@ if VentaC>10 :
     while True:
         print("No hay suficiente stock ")
         break
-
+if VentaC<10:
+    while True:
+        print("Si lo tenemos en stock")
 #print(productlist.hoodies)
 ventaV = productlist.hoodies.get("cantidadVM")
 ventaV = ventaV-VentaC
