@@ -57,7 +57,7 @@ if colorP == "Verde":
         break
 
 
-print("| Tu  Carrito: ",  productlist.hoodieVSC)
+print("| Tu  Carrito: ",  productlist.hoodiesVSC)
 if TipoPro == "Hoodies" and colorP == "Verde":
     print("| Tenemos este stock en verde", productlist.hoodies("cantidadVL"))
 if TipoPro == "Hoodies" and colorP == "Verde" :
