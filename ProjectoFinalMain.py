@@ -39,6 +39,7 @@ if user_input == "C":
             print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
         else:
             print("| No tenemos tienes Ese producto")
+            break
 
 if user_input == "Q":
     sys.exit()
@@ -54,12 +55,14 @@ if colorP == "Verde":
     while True:
         print(bar)
         if productlist.hoodies["cantidadVL" or "cantidadVM" or "cantidadVS"] == 0:
-            print("No hay Stock")        
+            print("No hay Stock") 
+            break       
 if colorP == "Blanco"   :
     while True:
             print (bar)  
             if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0 :  
-                print("No hay stock ")    
+                print("No hay stock ")   
+                break 
 if colorP =="Negro  " :
     while True :
             print (bar)     
