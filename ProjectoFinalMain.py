@@ -80,8 +80,6 @@ def Hoodies_Color_select():
             print("| " + colorV + ", " + colorB + ", " + colorN)
             colorP
             break
-
-
 def Color_Green_Size_Select():
     if colorP == "Verde":
         while True:
@@ -98,23 +96,18 @@ def Color_Green_Size_Select():
             print("| Tenemos: ", productlist.hoodies["cantidadVM"], " en Talla M")
         if TallaV == "L":
             print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
-
-def Color_White_Size_Select():
-    if colorP == "Blanco":
-        while True:
+        if colorP == "Blanco":
+            while True:
             print(bar)
-            print("| Elige la Talla: ")
-            print("| S, M, L")
-            TallaV
-    if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
-                print("No hay stock ")
-    if colorP == "Negro  ":
-        while True:
-          print(bar)
-          break
-    if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
-       print("No hay stock ")
-
+        if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
+            print("No hay stock ")
+            break
+        if colorP == "Negro  ":
+    while True:
+        print(bar)
+        if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
+            print("No hay stock ")
+        break
 
 VentaC = int(input("| Cantidad de productos que quieres: "))
 print("| En tu carrito hay: ", VentaC, " articulos")
