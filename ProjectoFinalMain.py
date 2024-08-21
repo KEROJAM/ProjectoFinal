@@ -96,7 +96,7 @@ def Color_Green_Size_Select():
             print("No hay stock ")
         break
 
-
+print("kkk")
 VentaC = int(input("| Cantidad de productos que quieres: "))
 print("| En tu carrito hay: ", VentaC, " articulos")
 
