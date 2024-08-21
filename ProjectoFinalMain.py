@@ -35,6 +35,8 @@ if user_input == "C":
         TipoPro=input("| ")
         if TipoPro in product_type:
             break
+        elif TipoPro not in product_type:
+            print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
         else:
             print("| No tenemos tienes Ese producto")
 
@@ -48,15 +50,15 @@ if TipoPro == "Hoodies":
         print("| " + colorV + ", " + colorB + ", " + colorN)
         colorP = input("| ")
         break
-
 if colorP == "Verde":
     while True:
         print(bar)
-        VentaC=int(input("| Cantidad de productos que quieres: ")
+        if productlist.hoodies["cantidadVL"] == 0:
+            print("No hay Stock")        
+            break
+
+VentaC=int(input("| Cantidad de productos que quieres: ")
         )
-        break
-
-
 print("| Tu  Carrito: ",  productlist.hoodieVSC)
 if TipoPro == "Hoodies" and colorP == "Verde ":
     print("| Tenemos este stock en verde talla L", productlist.hoodies["cantidadVL"])
