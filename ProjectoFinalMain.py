@@ -38,7 +38,7 @@ mensaje_espera()
 while True:
     print(bar)
     print("|     *Menu*")
-    print("| V - Venta\n| C - Compra\n| Q - Salir ")
+    print("| 1 - Venta\n| 2 - Compra\n| Q - Salir ")
     print(bar)
     user_input = input("| Elige una opcion: ")
     if user_input in menu_options:
@@ -109,13 +109,12 @@ def Color_Green_Size_Select():
                 print(bar)
         if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
             print("No hay stock ")
-            break
-        if colorP == "Negro  ":
-    while True:
-        print(bar)
+        if Hoodies_Color_select(colorP) == "Negro  ":
+            while True:
+                print(bar)
         if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
             print("No hay stock ")
-        break
+
 
 Color_Green_Size_Select()
 VentaC = int(input("| Cantidad de productos que quieres: "))
