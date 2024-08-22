@@ -65,14 +65,12 @@ def Product_Type():
     return TipoPro
 
 
-TipoPro = Product_Type()
-
-
 def Quit_Menu():
     sys.exit()
 
 
 def Hoodies_Color_select():
+    TipoPro = Product_Type
     while True:
         if TipoPro == "Hoodies":
             print(bar)
@@ -84,7 +82,7 @@ def Hoodies_Color_select():
     return colorP
 
 
-colorP = Hoodies_Color_select()
+colorP = Hoodies_Color_select
 
 
 def Hoodies_Color_Green_Size_Select():
@@ -168,26 +166,30 @@ print("| En tu carrito hay: ", VentaC, " articulos")
 
 if user_input == "1":
     Product_Type()
-if user_input == "2":
+if user_input == "Q":
     Quit_Menu()
-if TipoPro == "Hoodies":
+if Product_Type == "Hoodies":
     Hoodies_Color_select()
 if colorP == "Verde":
     Hoodies_Color_Green_Size_Select()
+if colorP == "Negro":
+    Hoodies_Color_Black_Size_select()
+if colorP == "Blanco":
+    Hoodies_Color_White_Size_Select()
 
 
 
 
 #print("| Stock del los articulos Seleccionados: ",  productlist.hoodieVSC)
-if Product_Type() == "Hoodies" and Hoodies_Color_select() == "Verde ":
-    print("| Tenemos este stock en verde talla L",
-          productlist.hoodies["cantidadVL"])
-if TipoPro == "Hoodies" and colorP == "Verde ":
-    print("| Tenemos este stock en verde talla M ",
-          productlist.hoodies["cantidadVM"])
-if TipoPro == "Hoodies" and colorP == "Verde ":
-    print("|Tenemos este stock en Verde talla S",
-          productlist.hoodies["cantidadVS"])
+#if Product_Type == "Hoodies" and Hoodies_Color_select() == "Verde ":
+#    print("| Tenemos este stock en verde talla L",
+#          productlist.hoodies["cantidadVL"])
+#if TipoPro == "Hoodies" and colorP == "Verde ":
+#    print("| Tenemos este stock en verde talla M ",
+#          productlist.hoodies["cantidadVM"])
+#if TipoPro == "Hoodies" and colorP == "Verde ":
+#    print("|Tenemos este stock en Verde talla S",
+#          productlist.hoodies["cantidadVS"])
 
 
 # print(productlist.hoodies)
