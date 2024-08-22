@@ -30,7 +30,7 @@ print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus 
 
 def mensaje_espera():
     print("| Por favor, espera redirigiendo al menu ")
-    time.sleep(5)
+    time.sleep(2)
     print("| ¡Gracias por esperar!")
 
 
@@ -88,7 +88,6 @@ colorP = Hoodies_Color_select()
 
 
 def Hoodies_Color_Green_Size_Select():
-    if Hoodies_Color_select() == "Verde":
         while True:
             print(bar)
             print("| Elige la Talla: ")
@@ -109,10 +108,10 @@ def Hoodies_Color_Green_Size_Select():
                       productlist.hoodies["cantidadVL"], " en Talla L")
             elif TallaV == "L" and productlist.hoodies["cantidadVL"] == 0:
                 print(no_stock)
+            return TallaV
 
 
 def Hoodies_Color_White_Size_Select():
-    if Hoodies_Color_select() == "Blanco":
         while True:
             print(bar)
             print("| Elige la Talla: ")
@@ -133,10 +132,10 @@ def Hoodies_Color_White_Size_Select():
                       productlist.hoodies["cantidadBL"], " en Talla L")
             elif TallaB == "L" and productlist.hoodies["cantidadBL"] == 0:
                 print(no_stock)
+            return TallaB
 
 
 def Hoodies_Color_Black_Size_select():
-    if Hoodies_Color_select() == "Negro  ":
         while True:
             print(bar)
             print("| Elige la Talla: ")
@@ -160,7 +159,7 @@ def Hoodies_Color_Black_Size_select():
                       productlist.hoodies["cantidadNL"], " en Talla L")
             elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
                 print(no_stock)
-    return TallaN
+            return TallaN
 
     
 
@@ -179,7 +178,7 @@ if colorP == "Verde":
 
 
 
-print("| Stock del los articulos Seleccionados: ",  productlist.hoodieVSC)
+#print("| Stock del los articulos Seleccionados: ",  productlist.hoodieVSC)
 if Product_Type() == "Hoodies" and Hoodies_Color_select() == "Verde ":
     print("| Tenemos este stock en verde talla L",
           productlist.hoodies["cantidadVL"])
