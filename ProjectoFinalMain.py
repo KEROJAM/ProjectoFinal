@@ -114,9 +114,11 @@ def Color_Green_Size_Select():
                 print(bar)
         if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
             print("No hay stock ")
+        return TallaV
 
 
 Color_Green_Size_Select()
+
 VentaC = int(input("| Cantidad de productos que quieres: "))
 print("| En tu carrito hay: ", VentaC, " articulos")
 
