@@ -143,26 +143,26 @@ def Hoodies_Color_Black_Size_select():
             print("| S, M, L")
             TallaN = input("| ")
             if TallaN == "S":
+                TallaN = "S"; productlist.hoodies["cantidadNS"]
                 print("| Tenemos: ",
                       productlist.hoodies["cantidadNS"], " en Talla S")
             elif TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
                 print(no_stock)
             if TallaN == "M":
+                TallaN = "M"; productlist.hoodies["cantidadNM"]
                 print("| Tenemos: ",
                       productlist.hoodies["cantidadNM"], " en Talla M")
             elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
                 print(no_stock)
             if TallaN == "L":
+                TallaN = "L"; productlist.hoodies["cantidadNL"]
                 print("| Tenemos: ",
                       productlist.hoodies["cantidadNL"], " en Talla L")
             elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
                 print(no_stock)
+    return TallaN
 
-    if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
-        print("No hay stock ")
-
-
-Color_Green_Size_Select()
+    
 
 VentaC = int(input("| Cantidad de productos que quieres: "))
 print("| En tu carrito hay: ", VentaC, " articulos")
@@ -171,6 +171,12 @@ if user_input == "1":
     Product_Type()
 if user_input == "2":
     Quit_Menu()
+if TipoPro == "Hoodies":
+    Hoodies_Color_select()
+if colorP == "Verde":
+    Hoodies_Color_Green_Size_Select()
+
+
 
 
 print("| Stock del los articulos Seleccionados: ",  productlist.hoodieVSC)
