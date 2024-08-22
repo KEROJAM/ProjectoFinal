@@ -18,9 +18,9 @@ colorB = productlist.hoodies.get("colorB")
 
 
 print(bar)
-nombre = input("| Porporcione un nombre: ")
+nombre = input("| Porporcione el nombre del empleado : ")
 
-print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes")
+print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes", "listo para otro dia de trabajo?")
 
 print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Zapatos ")
 
@@ -93,29 +93,32 @@ def Color_Green_Size_Select():
             print("| S, M, L")
             TallaV = input("| ")
             if productlist.hoodies["cantidadVL"] == 0:
-                print("No hay Stock en esa Talla")
-            break
-        if TallaV == "S":
-            print("| Tenemos: ",
+                print("No hay Stock en esa Talla") 
+            if TallaV == "S":
+                print("| Tenemos: ",
                   productlist.hoodies["cantidadVS"], " en Talla S")
-        if TallaV == "M":
-            print("| Tenemos: ",
+            if TallaV == "M":
+                print("| Tenemos: ",
                   productlist.hoodies["cantidadVM"], " en Talla M")
-        if TallaV == "L":
-            print("| Tenemos: ",
+            if TallaV == "L":
+                print("| Tenemos: ",
                   productlist.hoodies["cantidadVL"], " en Talla L")
-        if Hoodies_Color_select(colorP) == "Blanco":
-            while True:
-                print(bar)
-        if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
-            print("No hay stock ")
-            break
-        if colorP == "Negro  ":
-    while True:
-        print(bar)
-        if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
-            print("No hay stock ")
+            if Hoodies_Color_select(colorP) == "Blanco":
+                while True:
+                    print(bar)
+            if productlist.hoodies["cantidadBL" or "cantidadBM" or "cantidadBS"] == 0:
+                print("No hay stock ")
+            
+            
+
+            if colorP == "Negro  ":
+                while True:
+                    print(bar)
+            if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
+                print("No hay stock ")
+                
         break
+
 
 Color_Green_Size_Select()
 VentaC = int(input("| Cantidad de productos que quieres: "))
