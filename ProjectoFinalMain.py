@@ -144,18 +144,18 @@ def Hoodies_Color_Black_Size_select():
             TallaN = input("| ")
             if TallaN == "S":
                 print("| Tenemos: ",
-                      productlist.hoodies["cantidadBS"], " en Talla S")
-            elif TallaN == "S" and productlist.hoodies["cantidadBS"] == 0:
+                      productlist.hoodies["cantidadNS"], " en Talla S")
+            elif TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
                 print(no_stock)
             if TallaN == "M":
                 print("| Tenemos: ",
-                      productlist.hoodies["cantidadBM"], " en Talla M")
-            elif TallaN == "M" and productlist.hoodies["cantidadBM"] == 0:
+                      productlist.hoodies["cantidadNM"], " en Talla M")
+            elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
                 print(no_stock)
             if TallaN == "L":
                 print("| Tenemos: ",
-                      productlist.hoodies["cantidadBL"], " en Talla L")
-            elif TallaN == "L" and productlist.hoodies["cantidadBL"] == 0:
+                      productlist.hoodies["cantidadNL"], " en Talla L")
+            elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
                 print(no_stock)
 
     if productlist.hoodies["cantidadNL" or "cantidadNM" or "cantidadNS"] == 0:
