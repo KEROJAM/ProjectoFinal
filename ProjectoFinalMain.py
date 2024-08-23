@@ -7,7 +7,7 @@ import sys
 # El programa es un sistema de ventas para la compañia Tecmi Clothes 
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 
-no_stock = "No hay Stock en esa Talla"
+no_stock = "| No hay Stock en esa Talla"
 bar = "|----------------------------------------------|"
 menu_options = ("1", "2", "Q",)
 product_type = ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Tenis")
@@ -93,24 +93,29 @@ def Hoodies_Color_select():
 
 
 def Hoodies_Color_Green_Size_Select():
-        while True:
+    while True:
             print(bar)
             print("| Elige la Talla: ")
             print("| S, M, L")
             TallaV = input("| ")
-            if TallaV == "S":
+            if TallaV not in size_options:
+                print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            if TallaV == "S" and productlist.hoodies["cantidadVS"] == 0:
+                print(no_stock)
+                print(bar)
+            else:
                 print("| Tenemos: ", productlist.hoodies["cantidadVS"], " en Talla S")
                 print(bar)
-            elif TallaV == "S" and productlist.hoodies["cantidadVS"] == 0:
-                print(no_stock)
-            if TallaV == "M":
-                print("| Tenemos: ", productlist.hoodies["cantidadVM"], " en Talla M")
             elif TallaV == "M" and productlist.hoodies["cantidadVM"] == 0:
                 print(no_stock)
-            if TallaV == "L":
-                print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
+            else:
+                print("| Tenemos: ", productlist.hoodies["cantidadVM"], " en Talla M")
+                print(bar)
             elif TallaV == "L" and productlist.hoodies["cantidadVL"] == 0:
                 print(no_stock)
+            else:
+                print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
+                print(bar)
             return TallaV
 
 
@@ -137,28 +142,32 @@ def Hoodies_Color_White_Size_Select():
 
 
 def Hoodies_Color_Black_Size_select():
-        while True:
+    while True:
+        print(bar)
+        print("| Elige la Talla: ")
+        print("| S, M, L")
+        TallaN = input("| ")
+        if TallaN not in size_options:
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+        if TallaN == "S":
+            TallaN == "S"; productlist.hoodies["cantidadNS"]
+            print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
             print(bar)
-            print("| Elige la Talla: ")
-            print("| S, M, L")
-            TallaN = input("| ")
-            if TallaN == "S":
-                TallaN = "S"; productlist.hoodies["cantidadNS"]
-                print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
-                print(bar)
-            elif TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
-                print(no_stock)
-            if TallaN == "M":
-                TallaN = "M"; productlist.hoodies["cantidadNM"]
-                print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
-            elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
-                print(no_stock)
-            if TallaN == "L":
-                TallaN = "L"; productlist.hoodies["cantidadNL"]
-                print("| Tenemos: ", productlist.hoodies["cantidadNL"], " en Talla L")
-            elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
-                print(no_stock)
-            return TallaN
+        if TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
+            print(no_stock)
+        if TallaN == "M":
+            TallaN == "M"; productlist.hoodies["cantidadNM"]
+            print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
+            print(bar)
+        elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
+            print(no_stock)
+        if TallaN == "L":
+            TallaN == "L"; productlist.hoodies["cantidadNL"]
+            print("| Tenemos: ", productlist.hoodies["cantidadNL"], " en Talla L")
+            print(bar)
+        elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
+            print(no_stock)
+        return TallaN
 
     
 
