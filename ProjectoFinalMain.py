@@ -193,6 +193,8 @@ if Menu_principal() == "1":
              
         elif Shopping_Cart > 10:
             print("No puedes comprar mas de 10 articulos  ")
+        elif Shopping_Cart <=10 :
+            print("En tu carrito hay : " , Shopping_Cart, "Articulos ")
    
 
 
