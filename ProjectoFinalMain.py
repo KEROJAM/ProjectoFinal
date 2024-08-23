@@ -122,14 +122,12 @@ def Hoodies_Color_White_Size_Select():
             print("| S, M, L")
             TallaB = input("| ")
             if TallaB == "S":
-                print("| Tenemos: ",
-                      productlist.hoodies["cantidadBS"], " en Talla S")
+                print("| Tenemos: ", productlist.hoodies["cantidadBS"], " en Talla S")
                 print(bar)
             elif TallaB == "S" and productlist.hoodies["cantidadBS"] == 0:
                 print(no_stock)
             if TallaB == "M":
-                print("| Tenemos: ",
-                      productlist.hoodies["cantidadBM"], " en Talla M")
+                print("| Tenemos: ", productlist.hoodies["cantidadBM"], " en Talla M")
             elif TallaB == "M" and productlist.hoodies["cantidadBM"] == 0:
                 print(no_stock)
             if TallaB == "L":
