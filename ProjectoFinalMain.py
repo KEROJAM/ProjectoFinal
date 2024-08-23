@@ -36,17 +36,18 @@ def mensaje_espera():
 
 mensaje_espera()
 
-while True:
-    print(bar)
-    print("|     *Menu*")
-    print("| 1 - Venta\n| 2 - Compra\n| Q - Salir ")
-    print(bar)
-    user_input = input("| Elige una opcion: ")
-    if user_input in menu_options:
-        break
-    else:
-        print("| Esa no es una Opcion")
-
+def Menu_principal():
+    while True:
+        print(bar)
+        print("|     *Menu*")
+        print("| 1 - Venta\n| 2 - Compra\n| Q - Salir ")
+        print(bar)
+        user_input = input("| Elige una opcion: ")
+        if user_input in menu_options:
+            break
+        else:
+            print("| Esa no es una Opcion")
+        return user_input
 
 def Product_Type():
     while True:
@@ -57,8 +58,7 @@ def Product_Type():
         if TipoPro in product_type:
             break
         elif TipoPro not in product_type:
-            print(
-                "| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
+            print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
         else:
             print("| No tenemos tienes Ese producto")
         break
@@ -70,19 +70,15 @@ def Quit_Menu():
 
 
 def Hoodies_Color_select():
-    TipoPro = Product_Type
     while True:
-        if TipoPro == "Hoodies":
-            print(bar)
-            print("| Elige que Color quieres: ")
-            print("| ", colorV, ", ", colorB, ", ",  colorN)
-            colorP = input("| ")
-            if colorP == colorV:
-                break
+        print(bar)
+        print("| Elige que Color quieres: ")
+        print("| ", colorV, ", ", colorB, ", ",  colorN)
+        colorP = input("| ")
+        if colorP == colorV:
+            break
     return colorP
 
-
-colorP = Hoodies_Color_select
 
 
 def Hoodies_Color_Green_Size_Select():
@@ -161,20 +157,19 @@ def Hoodies_Color_Black_Size_select():
 
     
 
-VentaC = int(input("| Cantidad de productos que quieres: "))
-print("| En tu carrito hay: ", VentaC, " articulos")
 
-if user_input == "1":
+Menu_principal()
+if Menu_principal in menu_options:
     Product_Type()
-if user_input == "Q":
+if Menu_principal in ["Q", "q"]:
     Quit_Menu()
-if Product_Type == "Hoodies":
+if Product_Type in product_type:
     Hoodies_Color_select()
-if colorP == "Verde":
+if Hoodies_Color_select == "Verde":
     Hoodies_Color_Green_Size_Select()
-if colorP == "Negro":
+if Hoodies_Color_select == "Negro":
     Hoodies_Color_Black_Size_select()
-if colorP == "Blanco":
+if Hoodies_Color_select == "Blanco":
     Hoodies_Color_White_Size_Select()
 
 
@@ -190,6 +185,9 @@ if colorP == "Blanco":
 #if TipoPro == "Hoodies" and colorP == "Verde ":
 #    print("|Tenemos este stock en Verde talla S",
 #          productlist.hoodies["cantidadVS"])
+
+VentaC = int(input("| Cantidad de productos que quieres: "))
+print("| En tu carrito hay: ", VentaC, " articulos")
 
 
 # print(productlist.hoodies)
