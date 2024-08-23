@@ -184,5 +184,3 @@ if Menu_principal() == "1":
 if Menu_principal == "Q" or "q":
     Quit_Menu()
     
-
-
