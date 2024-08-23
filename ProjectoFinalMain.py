@@ -175,7 +175,7 @@ if Menu_principal() == "1":
             Hoodies_Color_White_Size_Select()
 
 
-if Menu_principal == ["Q", "q"]:
+if Menu_principal == "Q" or "q":
     Quit_Menu()
     
 

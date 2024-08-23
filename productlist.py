@@ -39,7 +39,7 @@ camisetas={
 }
 
 Jeans={
-    "Precio"
+    "Precio" : 360,
     "colorV" : "Azul",
     "cantidadVS" : 10,
     "cantidadVM" : 10,
