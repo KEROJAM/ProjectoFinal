@@ -65,9 +65,9 @@ def Product_Type():
             break
         elif TipoPro not in product_type:
             print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
+            time.sleep(2)
         else:
             print("| No tenemos tienes Ese producto")
-        break
     return TipoPro
 
 
