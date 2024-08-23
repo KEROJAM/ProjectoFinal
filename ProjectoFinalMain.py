@@ -103,17 +103,17 @@ def Hoodies_Color_Green_Size_Select():
             if TallaV == "S" and productlist.hoodies["cantidadVS"] == 0:
                 print(no_stock)
                 print(bar)
-            else:
+            if TallaV == "S" and productlist.hoodies["cantidadVS"] != 0:
                 print("| Tenemos: ", productlist.hoodies["cantidadVS"], " en Talla S")
                 print(bar)
-            elif TallaV == "M" and productlist.hoodies["cantidadVM"] == 0:
+            if TallaV == "M" and productlist.hoodies["cantidadVM"] == 0:
                 print(no_stock)
-            else:
+            if TallaV =="M" and productlist.hoodies["cantidadVM"] != 0:
                 print("| Tenemos: ", productlist.hoodies["cantidadVM"], " en Talla M")
                 print(bar)
-            elif TallaV == "L" and productlist.hoodies["cantidadVL"] == 0:
+            if TallaV == "L" and productlist.hoodies["cantidadVL"] == 0:
                 print(no_stock)
-            else:
+            if TallaV == "L" and productlist.hoodies["cantidadVL"] != 0:
                 print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
                 print(bar)
             return TallaV
