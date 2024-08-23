@@ -2,6 +2,11 @@ import productlist
 import time
 import sys
 
+# Programa por Majorek Casas, Alan Anduaga
+# 2024/08/23
+# El programa es un sistema de ventas para la compañia Tecmi Clothes 
+# que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
+
 no_stock = "No hay Stock en esa Talla"
 bar = "|----------------------------------------------|"
 menu_options = ("1", "2", "Q",)
@@ -29,9 +34,9 @@ print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus 
 
 
 def mensaje_espera():
-    print("| Por favor, espera , redirigiendo al menu ")
+    print("| Por favor, espera redirigiendo al menu ")
     time.sleep(2)
-    print("| Todo listo , ¡Gracias por esperar!")
+    print("| ¡Gracias por esperar!")
 
 
 mensaje_espera()
@@ -175,7 +180,7 @@ if Menu_principal() == "1":
             Hoodies_Color_White_Size_Select()
 
 
-if Menu_principal == ["Q", "q"]:
+if Menu_principal == "Q" or "q":
     Quit_Menu()
     
 
