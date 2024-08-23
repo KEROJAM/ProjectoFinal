@@ -24,18 +24,19 @@ colorB = productlist.hoodies.get("colorB")
 
 print(bar)
 nombre = input("| Porporcione el nombre del empleado : ")
-
+#aqui pedimos el nombre del usuario
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
       "listo para otro dia de trabajo?")
-
+#mensaje de bienvenida
 print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Zapatos ")
-
+#ponemos una lista de los productos que hay en stock 
 print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus productos !")
 
 
 def mensaje_espera():
     print("| Por favor, espera redirigiendo al menu ")
-    time.sleep(2)
+    time.sleep(5)
+    #aqui ponemos un tiempo de espera de 5 segundos
     print("| ¡Gracias por esperar!")
 
 
