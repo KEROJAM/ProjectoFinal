@@ -169,18 +169,22 @@ def Hoodies_Color_Black_Size_select():
 
     
 
+    
+
 if Menu_principal() == "1":
     product_select=Product_Type()
     if product_select == "Hoodies":
         color_size_select=Hoodies_Color_select()
         if color_size_select == "Verde":
-            Green_size_select=Hoodies_Color_Green_Size_Select()
+            Hoodies_Color_Green_Size_Select()
         if color_size_select == "Negro":
-            Black_size_select=Hoodies_Color_Black_Size_select()
+            Hoodies_Color_Black_Size_select()
         if color_size_select == "Blanco":
-            White_size_select=Hoodies_Color_White_Size_Select()
+            Hoodies_Color_White_Size_Select()
 
 
 if Menu_principal == "Q" or "q":
     Quit_Menu()
     
+
+
