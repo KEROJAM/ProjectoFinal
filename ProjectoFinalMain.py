@@ -29,9 +29,9 @@ print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus 
 
 
 def mensaje_espera():
-    print("| Por favor, espera redirigiendo al menu ")
+    print("| Por favor, espera , redirigiendo al menu ")
     time.sleep(2)
-    print("| ¡Gracias por esperar!")
+    print("| Todo listo , ¡Gracias por esperar!")
 
 
 mensaje_espera()
@@ -175,7 +175,7 @@ if Menu_principal() == "1":
             Hoodies_Color_White_Size_Select()
 
 
-if Menu_principal == "Q" or "q":
+if Menu_principal == ["Q", "q"]:
     Quit_Menu()
     
 
