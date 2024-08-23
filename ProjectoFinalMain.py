@@ -81,12 +81,13 @@ def Hoodies_Color_select():
         print("| Elige que Color quieres: ")
         print("| ", colorV, ", ", colorB, ", ",  colorN)
         colorP = input("| ")
-        if colorP == colorV:
+        if colorP == colorV or colorB or colorN:
             break
-        if colorP == colorB:
-            break
-        if colorP == colorN:
-            break
+        elif colorP != colorV or colorB or colorN:
+            print("| Ese no es un color\n | (Revise si esta escrito como esta en la pantalla)")
+            time.sleep(2)
+        else:
+            print("| No tenemos ese color")
     return colorP
 
 
@@ -169,14 +170,15 @@ def Hoodies_Color_Black_Size_select():
     
 
 if Menu_principal() == "1":
-    if Product_Type() == "Hoodies":
+    product_select=Product_Type()
+    if product_select == "Hoodies":
         color_size_select=Hoodies_Color_select()
         if color_size_select == "Verde":
-            Hoodies_Color_Green_Size_Select()
+            Green_size_select=Hoodies_Color_Green_Size_Select()
         if color_size_select == "Negro":
-            Hoodies_Color_Black_Size_select()
+            Black_size_select=Hoodies_Color_Black_Size_select()
         if color_size_select == "Blanco":
-            Hoodies_Color_White_Size_Select()
+            White_size_select=Hoodies_Color_White_Size_Select()
 
 
 if Menu_principal == "Q" or "q":
