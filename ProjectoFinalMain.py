@@ -193,8 +193,7 @@ def shopping_cart():
             else:
                 print("| En tu carrito hay:", Shopping_Cart, "artículos.")
                 print(bar)
-                break
-            return Shopping_Cart
+                return Shopping_Cart
         except ValueError:
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
 
@@ -211,7 +210,6 @@ if Menu_principal() == "1":
             Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
 
         Shopping_Cart = shopping_cart()
-
 
 if Menu_principal == "Q" or "q":
     Quit_Menu()
