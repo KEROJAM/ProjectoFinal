@@ -190,10 +190,9 @@ def shopping_cart():
                 print("| No puedes comprar más de 10 artículos.")
                 print(bar)
             else:
-                print("| En tu carrito hay:", Shopping_Cart, "artículos.")
+                print("| En tu carrito hay:", Shopping_Cart, "artículo/s.")
                 print(bar)
-                break
-            return Shopping_Cart
+                return Shopping_Cart
         except ValueError:
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
 
