@@ -180,10 +180,24 @@ def Hoodies_Color_Black_Size_select():
 
 
 def shopping_cart():
+    while True:
+        try:
+            Shopping_Cart = int(
+                input("| ¿Cuántos artículos quieres agregar al carrito? "))
+            if Shopping_Cart <= 0:
+                print("| No tienes artículos en tu carrito.")
+                print(bar)
+            elif Shopping_Cart > 10:
+                print("| No puedes comprar más de 10 artículos.")
+                print(bar)
+            else:
+                print("| En tu carrito hay:", Shopping_Cart, "artículos.")
+                print(bar)
+                break
+            return Shopping_Cart
+        except ValueError:
+            print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
 
-    VentaC = int(input("| Cuantos productos desea comprar ? "))
-    return VentaC   
-    
 
 if Menu_principal() == "1":
     product_select = Product_Type()
@@ -194,30 +208,9 @@ if Menu_principal() == "1":
         if color_size_select == "Negro":
             Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
         if color_size_select == "Blanco":
-            Hoodie_White_Size_Select=Hoodies_Color_White_Size_Select()
-        def shopping_car():
-            while True:
-                
-                try:
-                        Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
-                        if Shopping_Cart <= 0:
-                            print("| No tienes artículos en tu carrito.")
-                        elif Shopping_Cart > 10:
-                                print("| No puedes comprar más de 10 artículos.")
-                        else:
-                            print("| En tu carrito hay:", Shopping_Cart, "artículos.")
-                            break 
-                except ValueError:
-                    print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
+            Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
 
-shopping_car()
-        
-
-
-            
-        
-        
-   
+        Shopping_Cart = shopping_cart()
 
 
 if Menu_principal == "Q" or "q":
