@@ -182,8 +182,7 @@ def Hoodies_Color_Black_Size_select():
 def shopping_cart():
     while True:
         try:
-            Shopping_Cart = int(
-                input("| ¿Cuántos artículos quieres agregar al carrito? "))
+            Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))                
             if Shopping_Cart <= 0:
                 print("| No tienes artículos en tu carrito.")
                 print(bar)
@@ -194,7 +193,7 @@ def shopping_cart():
                 print("| En tu carrito hay:", Shopping_Cart, "artículos.")
                 print(bar)
                 break
-            return Shopping_Cart
+          
         except ValueError:
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
 
