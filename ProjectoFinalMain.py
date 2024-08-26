@@ -173,7 +173,7 @@ def Hoodies_Color_Black_Size_select():
 def shopping_car():
    
     VentaC = int(input("| Cuantos productos desea comprar ? "))
-    return VentaC
+    return VentaC   
     
 
 if Menu_principal() == "1":
@@ -186,15 +186,28 @@ if Menu_principal() == "1":
             Hoodie_Black_Size_Select=Hoodies_Color_Black_Size_select()
         if color_size_select == "Blanco":
             Hoodie_White_Size_Select=Hoodies_Color_White_Size_Select()
-        Shopping_Cart=shopping_car()
+        def shopping_car():
+            while True:
+                
+                try:
+                        Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
+                        if Shopping_Cart <= 0:
+                            print("| No tienes artículos en tu carrito.")
+                        elif Shopping_Cart > 10:
+                                print("| No puedes comprar más de 10 artículos.")
+                        else:
+                            print("| En tu carrito hay:", Shopping_Cart, "artículos.")
+                            break 
+                except ValueError:
+                    print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
 
-        if Shopping_Cart <= 0  :
-            print("| No tienes articulos en tu carrito ")
-             
-        elif Shopping_Cart > 10:
-            print("No puedes comprar mas de 10 articulos  ")
-        elif Shopping_Cart <=10 :
-            print("En tu carrito hay : " , Shopping_Cart, "Articulos ")
+shopping_car()
+        
+
+
+            
+        
+        
    
 
 
