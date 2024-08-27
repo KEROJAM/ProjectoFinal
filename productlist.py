@@ -8,7 +8,7 @@ hoodies = {
 
     "colorN": "Negro",
     "cantidadNS": 10,
-    "cantidadNM": 10,
+    "cantidadNM": 0,
     "cantidadNL": 10,
 
     "colorB": "Blanco",

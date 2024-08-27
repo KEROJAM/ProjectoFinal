@@ -10,7 +10,7 @@ import sys
 no_stock = "| No hay Stock en esa Talla"
 bar = "|----------------------------------------------|"
 menu_options = ("1", "2", "Q",)
-product_type = ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Tenis")
+product_type = ("1", "2", "3", "4", "5")
 color_options_hoddies = ("Verde", "Negro", "Blanco",)
 color_options_camisetas = ("A", "N", "B",)
 color_options_calcetines = ("N", "B",)
@@ -47,7 +47,7 @@ def Menu_principal():
     while True:
         print(bar)
         print("|     *Menu*")
-        print("| 1 - Venta\n| 2 - Compra\n| Q - Salir ")
+        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
         print(bar)
         user_input = input("| Elige una opcion: ")
         if user_input in menu_options:
@@ -61,7 +61,7 @@ def Product_Type():
     while True:
         print(bar)
         print("| Elige que tipo de producto quieres: ")
-        print("| Hoodies, Camisetas, Calcetines, Jeans, Tenis ")
+        print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis ")
         TipoPro = input("| ")
         if TipoPro in product_type:
             break
@@ -82,7 +82,7 @@ def Hoodies_Color_select():
     while True:
         print(bar)
         print("| Elige que Color quieres: ")
-        print("|", colorV, ",", colorB, ",", colorN)
+        print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
         colorP = input("| ")
         if colorP in color_options_hoddies:
             break
@@ -212,13 +212,13 @@ def shopping_cart():
 
 if Menu_principal() == "1":
     product_select = Product_Type()
-    if product_select == "Hoodies":
+    if product_select == "1":
         color_size_select = Hoodies_Color_select()
-        if color_size_select == "Verde":
+        if color_size_select == "1":
             Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
-        if color_size_select == "Negro":
+        if color_size_select == "2":
             Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
-        if color_size_select == "Blanco":
+        if color_size_select == "3":
             Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
 
         Shopping_Cart = shopping_cart()
