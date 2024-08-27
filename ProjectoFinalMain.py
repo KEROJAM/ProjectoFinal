@@ -202,6 +202,7 @@ def shopping_cart():
             elif Shopping_Cart > 10:
                 print("| No puedes comprar más de 10 artículos.")
                 print(bar)
+                time.sleep(2)
             else:
                 print("| En tu carrito hay:", Shopping_Cart, "artículo/s.")
                 print(bar)
