@@ -187,6 +187,8 @@ def Hoodies_Color_Black_Size_select():
             print(no_stock)
         if TallaN in size_options:
             return TallaN
+        else:
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
 
 
 def shopping_cart():
