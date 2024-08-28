@@ -111,7 +111,7 @@ def Hoodies_Color_Green_Size_Select():
         if TallaV == "S" and productlist.hoodies["cantidadVS"] == 0:
             print(no_stock)
             print(bar)
-        if TallaV == "S" and productlist.hoodies["cantidadVS"] >= 0:
+        elif TallaV == "S" and productlist.hoodies["cantidadVS"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadVS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
@@ -119,14 +119,14 @@ def Hoodies_Color_Green_Size_Select():
             time.sleep(2)
         if TallaV == "M" and productlist.hoodies["cantidadVM"] == 0:
             print(no_stock)
-        if TallaV == "M" and productlist.hoodies["cantidadVM"] >= 0:
+        elif TallaV == "M" and productlist.hoodies["cantidadVM"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadVM"], " en Talla M")
             print(bar)
             time.sleep(2)
         if TallaV == "L" and productlist.hoodies["cantidadVL"] == 0:
             print(no_stock)
-        if TallaV == "L" and productlist.hoodies["cantidadVL"] >= 0:
+        elif TallaV == "L" and productlist.hoodies["cantidadVL"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadVL"], " en Talla L")
             print(bar)
@@ -140,21 +140,21 @@ def Hoodies_Color_White_Size_Select():
         print("| Elige la Talla: ")
         print("| S, M, L")
         TallaB = input("| ")
-        if TallaB == "S" and productlist.hoodies["cantidadBS"] < 0:
+        if TallaB == "S" and productlist.hoodies["cantidadBS"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadBS"], " en Talla S")
             print(bar)
             time.sleep(2)
         elif TallaB == "S" and productlist.hoodies["cantidadBS"] == 0:
             print(no_stock)
-        if TallaB == "M" and productlist.hoodies["cantidadBM"] < 0:
+        if TallaB == "M" and productlist.hoodies["cantidadBM"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadBM"], " en Talla M")
             print(bar)
             time.sleep(2)
         elif TallaB == "M" and productlist.hoodies["cantidadBM"] == 0:
             print(no_stock)
-        if TallaB == "L" and productlist.hoodies["cantiadBL"] < 0:
+        if TallaB == "L" and productlist.hoodies["cantiadBL"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadBL"], " en Talla L")
             print(bar)
@@ -170,21 +170,21 @@ def Hoodies_Color_Black_Size_select():
         print("| Elige la Talla: ")
         print("| S, M, L")
         TallaN = input("| ")
-        if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
+        if TallaN == "S" and productlist.hoodies["cantidadNS"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadNS"], " en Talla S")
             print(bar)
             time.sleep(2)
-        if TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
+        elif TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
             print(no_stock)
-        if TallaN == "M" and productlist.hoodies["cantidadNM"] < 0:
+        if TallaN == "M" and productlist.hoodies["cantidadNM"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadNM"], " en Talla M")
             print(bar)
             time.sleep(2)
         elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
             print(no_stock)
-        if TallaN == "L" and productlist.hoodies["cantidadNL"] < 0:
+        if TallaN == "L" and productlist.hoodies["cantidadNL"] > 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadNL"], " en Talla L")
             print(bar)
