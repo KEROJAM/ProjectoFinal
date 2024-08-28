@@ -48,6 +48,7 @@ def Menu_principal():
         print(bar)
         print("|     *Menu*")
         print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
+        # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
         print(bar)
         user_input = input("| Elige una opcion: ")
         if user_input in menu_options:
@@ -62,15 +63,17 @@ def Product_Type():
         print(bar)
         print("| Elige que tipo de producto quieres: ")
         print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis ")
+        # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         if TipoPro in product_type:
             break
         elif TipoPro not in product_type:
-            print(
-                "| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
+            print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
+            # si el usurio escribe mal una opcion aparecera el mesaje que se muestra arriba para que el usuario sea notificado de que escribio mal la opcion que deseaba elegir , por lo tanto tendra la oportunidad de escribirla nuevamente 
             time.sleep(2)
         else:
-            print("| No tenemos tienes Ese producto")
+            print("| No tenemos / tienes Ese producto")
+            #si no hay stock de un producto o el usuario escoge una opcion que no esta dentro del menu de opciones aparecea el mensaje que se muestra en la parte de arriba 
     return TipoPro
 
 
@@ -83,12 +86,13 @@ def Hoodies_Color_select():
         print(bar)
         print("| Elige que Color quieres: ")
         print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
+        # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorP = input("| ")
         if colorP in color_options_hoddies:
             break
         elif colorP not in color_options_hoddies:
-            print(
-                "| Ese no es un color\n| (Revise si esta escrito como esta en la pantalla)")
+            print("| Ese no es un color\n| (Revise si esta escrito como esta en la pantalla)")
+            #si el usuario escoge un color que no esta dentro del menu de opciones , el programa le notificara que ha escrito mal algo y le dara la oportunidad de volverlo a escribir
             time.sleep(2)
         else:
             print("| No tenemos ese color")
@@ -100,6 +104,7 @@ def Hoodies_Color_Green_Size_Select():
         print(bar)
         print("| Elige la Talla: ")
         print("| S, M, L")
+        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaV = input("| ")
         if TallaV not in size_options:
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
@@ -109,6 +114,7 @@ def Hoodies_Color_Green_Size_Select():
         if TallaV == "S" and productlist.hoodies["cantidadVS"] >= 0:
             print("| Tenemos: ",
                   productlist.hoodies["cantidadVS"], " en Talla S")
+            #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
             time.sleep(2)
         if TallaV == "M" and productlist.hoodies["cantidadVM"] == 0:
@@ -196,19 +202,25 @@ def shopping_cart():
         try:
             Shopping_Cart = int(
                 input("| ¿Cuántos artículos quieres agregar al carrito? "))
+            #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
+            
             if Shopping_Cart <= 0:
                 print("| No tienes artículos en tu carrito.")
+                # si el usuario no ha agregado ningun producto , se le notificara que no tiene ningun producto en el carrito 
                 print(bar)
             elif Shopping_Cart > 10:
                 print("| No puedes comprar más de 10 artículos.")
+                #como tenemos un stock de 10 para todos los productos no se le permitira comprar mas 10 productos simultaneamente
                 print(bar)
                 time.sleep(2)
             else:
                 print("| En tu carrito hay:", Shopping_Cart, "artículo/s.")
+                #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
                 print(bar)
                 return Shopping_Cart
         except ValueError:
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
+            #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion 
 
 
 if Menu_principal() == "1":
