@@ -1,7 +1,9 @@
 import productlist
+# Se importa el archivo de la lista de productos para usarse
 import time
+# Importamos time para poder tener tiempo de espera
 import sys
-
+# Importamos sys para poder salir del programa
 # Programa por Majorek Casas, Alan Anduaga
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
@@ -34,19 +36,23 @@ print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus 
 
 
 def mensaje_espera():
+# Aqui se define la funcion mensaje de espera prara poder usarla despues
     print("| Por favor, espera redirigiendo al menu ")
+    # Dentro de mensaje de espera estamos imprimiendo el mensaje de espera
     time.sleep(5)
     # aqui ponemos un tiempo de espera de 5 segundos
     print("| ¡Gracias por esperar!")
+    # Despues de esperar 5 segundos sale un agradecimiento por esperar
 
 
 mensaje_espera()
-
+# Ejecutamos la funcion mensaje de espera para que el mensaje de espera se vea
 def shopping_cart():
+    # Aqui se define un a funciion para el carrito de compras 
     while True:
+        # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try:
-            Shopping_Cart = int(
-                input("| ¿Cuántos artículos quieres agregar al carrito? "))
+            Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
             #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
             
             if Shopping_Cart <= 0:
