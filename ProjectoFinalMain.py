@@ -117,11 +117,14 @@ def Product_Type():
 
 
 def Quit_Menu():
+    # Se define la funcion de salir para usarla en el menu
     sys.exit()
-
+    # Este es un comando para que el programa termine
 
 def Hoodies_Color_select():
+    # Se define la funcion de seleccionar el color de hoodies para usarse en el menu
     while True:
+        # Se inica un ciclo para poder repetir el menu sin tener que escribirlo muchas veces
         print(bar)
         #imprime otra barra
         print("| Elige que Color quieres: ")
@@ -129,16 +132,19 @@ def Hoodies_Color_select():
         print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
         # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorP = input("| ")
+        # Se le pide al usuario insertar el color que desea y se guarda para usarse despues 
         if colorP in color_options_hoddies:
+            # Si el color que inserto el usuario esta en las opciones
             break
-        elif colorP not in color_options_hoddies:
+            # Se rompe el ciclo 
+        else:
+            #si el color no esta en las opciones
             print("| Ese no es un color\n| (Revise si esta escrito como esta en la pantalla)")
-            #si el usuario escoge un color que no esta dentro del menu de opciones , el programa le notificara que ha escrito mal algo y le dara la oportunidad de volverlo a escribir
+            #el programa le notificara que ha escrito mal algo y le dara la oportunidad de volverlo a escribir
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-        else:
-            print("| No tenemos ese color")
     return colorP
+    # Se regresa el color que el usuario decidio para usarlo despues
 
 
 def Hoodies_Color_Green_Size_Select():
