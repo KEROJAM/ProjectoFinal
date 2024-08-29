@@ -77,22 +77,29 @@ def shopping_cart():
 def Menu_principal():
     while True:
         print(bar)
+        #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
         print("|     *Menu*")
         print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
         print(bar)
+        #se vuelve a imprimir una barra
         user_input = input("| Elige una opcion: ")
+        #aqui le da al usuario la indicacion de que ya puede empezar a escoger una indicacion 
         if user_input in menu_options:
             break
+        #se rompe el ciclo para que continue con lo que sigue del programa 
         else:
             print("| Esa no es una Opcion")
+            #si el usuario escribio aml una opcion en el menu se le avisara que hay que corregir lo que escribio
     return user_input
 
 
 def Product_Type():
     while True:
         print(bar)
+        #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
+        #aqui empieza la interaccion del usuario con el menu de productos
         print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis ")
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
@@ -116,7 +123,9 @@ def Quit_Menu():
 def Hoodies_Color_select():
     while True:
         print(bar)
+        #imprime otra barra
         print("| Elige que Color quieres: ")
+        #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
         print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
         # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorP = input("| ")
@@ -135,7 +144,9 @@ def Hoodies_Color_select():
 def Hoodies_Color_Green_Size_Select():
     while True:
         print(bar)
+        #imprime una barra
         print("| Elige la Talla: ")
+        #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
         print("| S, M, L")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaV = input("| ")
