@@ -267,13 +267,17 @@ def Hoodies_Color_Black_Size_select():
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
         elif TallaN == "L" and productlist.hoodies["cantidadNL"] == 0:
-            print(no_stock)
             #si no hay existencias en la talla sellecionada se le informara al usario que no hay existencias disponibles
+            print(no_stock)
+            #se muestra la pantalla que que no hay inventario 
         if TallaN in size_options:
+            # Se verifica si la opcion de Talla esta en las opciones
             return TallaN
+            # Si esta en las opciones se devuelve el valor para usarlo despues
         else:
+            # Si no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
-            # si el usuario no escribio o selecciono mal una opcion se le mostrara un mensaje para que corrobore si escribio bien si opcion
+            # se le mostrara un mensaje para que corrobore si escribio bien si opcion
 
 
 
