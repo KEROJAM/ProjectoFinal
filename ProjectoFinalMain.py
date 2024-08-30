@@ -4,6 +4,7 @@ import time
 # Importamos time para poder tener tiempo de espera
 import sys
 # Importamos sys para poder salir del programa
+
 # Programa por Majorek Casas, Alan Anduaga
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
