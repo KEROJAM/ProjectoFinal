@@ -10,9 +10,13 @@ import sys
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 
 no_stock = "| No hay Stock en esa Talla"
+# Declaramos la variable no_stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
+# Una bara para para que se vea bien y separa secciones del menu
 menu_options = ("1", "2", "Q",)
-product_type = ("1", "2", "3", "4", "5")
+# Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
+product_type = ("1", "2", "3", "4", "5", "R")
+
 color_options_hoddies = ("1", "2", "3",)
 color_options_camisetas = ("A", "N", "B",)
 color_options_calcetines = ("N", "B",)
@@ -93,14 +97,13 @@ def Menu_principal():
             #si el usuario escribio aml una opcion en el menu se le avisara que hay que corregir lo que escribio
     return user_input
 
-
 def Product_Type():
     while True:
         print(bar)
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis ")
+        print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis\n| R- Regresar", )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         if TipoPro in product_type:
@@ -288,20 +291,19 @@ def Hoodies_Color_Black_Size_select():
 
 
 
-
-if Menu_principal() == "1":
-    product_select = Product_Type()
-    if product_select == "1":
-        color_size_select = Hoodies_Color_select()
-        if color_size_select == "1":
-            Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
-        if color_size_select == "2":
-            Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
-        if color_size_select == "3":
-            Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
-
-        Shopping_Cart = shopping_cart()
+while True:
+    if Menu_principal() == "1":
+        product_select = Product_Type()
+        if product_select == "1":
+            color_size_select = Hoodies_Color_select()
+            if color_size_select == "1":
+                Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
+            if color_size_select == "2":
+                Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
+            if color_size_select == "3":
+                Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
+            Shopping_Cart = shopping_cart()
         
 
-if Menu_principal == "Q" or "q":
-    Quit_Menu()
+    if Menu_principal == "Q" or "q":
+        Quit_Menu()
