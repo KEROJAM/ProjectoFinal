@@ -17,13 +17,19 @@ bar = "|----------------------------------------------|"
 menu_options = ("1", "2", "Q",)
 # Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ("1", "2", "3", "4", "5", "R")
-
+# Esta variable esta para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ("1", "2", "3",)
+# Esta variable Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("A", "N", "B",)
+# Esta variable sirve para verificar si es un color en camisetas
 color_options_calcetines = ("N", "B",)
+# Esta variable esta para verificar el color de calcetines
 color_options_tenis = ("B", "N", "B/N",)
+# Se declara esta variable para verificar los colores de los tenis
 color_options_jeans = ("A", "N",)
+# Se nombra esa variable para verificar los colores de jeans
 size_options = ("S", "M", "L",)
+# Se nombra la variable para verificar las tallas de los productos
 colorV = productlist.hoodies.get("colorV")
 colorN = productlist.hoodies.get("colorN")
 colorB = productlist.hoodies.get("colorB")
@@ -52,33 +58,6 @@ def mensaje_espera():
 
 mensaje_espera()
 # Ejecutamos la funcion mensaje de espera para que el mensaje de espera se vea
-def shopping_cart():
-    # Aqui se define un a funciion para el carrito de compras 
-    while True:
-        # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
-        try:
-            Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
-            #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
-            
-            if Shopping_Cart <= 0:
-                print("| No tienes artículos en tu carrito.")
-                # si el usuario no ha agregado ningun producto , se le notificara que no tiene ningun producto en el carrito 
-                print(bar)
-            elif Shopping_Cart > 10:
-                print("| No puedes comprar más de 10 artículos.")
-                #como tenemos un stock de 10 para todos los productos no se le permitira comprar mas 10 productos simultaneamente
-                print(bar)
-                time.sleep(2)
-                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-            else:
-                print("| En tu carrito hay:", Shopping_Cart, "artículo/s.")
-                #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
-                print(bar)
-                return Shopping_Cart
-        except ValueError:
-            print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
-            #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
-
 def Menu_principal():
     while True:
         print(bar)
@@ -169,8 +148,7 @@ def Hoodies_Color_Green_Size_Select():
             print(bar)
             #se imprime una barra
         if TallaV == "S" and productlist.hoodies["cantidadVS"] >= 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadVS"], " en Talla S")
+            print("| Tenemos: ", productlist.hoodies["cantidadVS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
             #se imprime una barra
@@ -181,8 +159,7 @@ def Hoodies_Color_Green_Size_Select():
             # si no hay existencia o se agota la cantidad de productos de la talla que el usuario selecciono , se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
         
         if TallaV == "M" and productlist.hoodies["cantidadVM"] > 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadVM"], " en Talla M")
+            print("| Tenemos: ", productlist.hoodies["cantidadVM"], " en Talla M")
             # si hay existencias en la talla del producto que selecciono el usuario , se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio 
             print(bar)
             #se imprime una barra
@@ -192,44 +169,48 @@ def Hoodies_Color_Green_Size_Select():
             print(no_stock)
             #si no hay existencias de hoodies en talla 'L' se le avisara al usuario que no hay existencias disponibles
         if TallaV == "L" and productlist.hoodies["cantidadVL"] >= 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadVL"], " en Talla L")
+            print("| Tenemos: ", productlist.hoodies["cantidadVL"], " en Talla L")
             #si tenemos existencias de hoodies de talla 'L' se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio 
             print(bar)
             #se imprime una barra
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
         return TallaV
-
+        # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
 def Hoodies_Color_White_Size_Select():
+    #Se declara la funcion para poder seleccionar la Talla de las Hoodies Blancas
     while True:
+        # Se inicia ciclo para que el menu reaparesca si el usuario puso una opcion que no existe
         print(bar)
-        print("| Elige la Talla: ")    
+        # Se impirme una barra para separar contenidos
+        print("| Elige la Talla: ")
+        # Se impirme la primera parte de las opciones de elegir talla
         print("| S, M, L")
         #en los dos prints anteriores se le muestra al usuario un menu para elegir la talla del producto que quiere adquirir
         TallaB = input("| ")
+        #Con la Talla que decidio el usuario se le asigna a TallaB
         if TallaB == "S" and productlist.hoodies["cantidadBS"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadBS"], " en Talla S")
+            # Si el usuario Eligio Talla S verifica si tenemos mayor cantidad que 0 en el stock
+            print("| Tenemos: ", productlist.hoodies["cantidadBS"], " en Talla S")
             #si selecciona la talla 'S' se le mostrara al usario cuantas existencias tenemos en esa talla
             print(bar)
+            # Se impirme barra para separar los datos
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
         elif TallaB == "S" and productlist.hoodies["cantidadBS"] == 0:
+            # Si el usuario eligio talla S pero no hay inventario se imprime
             print(no_stock)
-            #si no tenemos existencias en la talla seleccionada por el usuario se le mostrara un mensaje que le notifiqueal usuario que no tenemos stock en la talla del producto que selecciono 
+            #notifica al usuario que no tenemos stock en la talla del producto que selecciono
         if TallaB == "M" and productlist.hoodies["cantidadBM"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadBM"], " en Talla M")
+            print("| Tenemos: ", productlist.hoodies["cantidadBM"], " en Talla M")
             print(bar)
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
         elif TallaB == "M" and productlist.hoodies["cantidadBM"] == 0:
             print(no_stock)
         if TallaB == "L" and productlist.hoodies["cantiadBL"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadBL"], " en Talla L")
+            print("| Tenemos: ", productlist.hoodies["cantidadBL"], " en Talla L")
             print(bar)
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
@@ -248,8 +229,7 @@ def Hoodies_Color_Black_Size_select():
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
         if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadNS"], " en Talla S")
+            print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
             #se le mostrara al usuario el stock que tenemos de la talla seleccionada
             print(bar)
             time.sleep(2)
@@ -258,8 +238,7 @@ def Hoodies_Color_Black_Size_select():
             print(no_stock)
             #si no hay existencias en la talla que el usuario selecciono se le mostrara un mensaje que le hara saber que no contamos con productos disponibes de la talla que eligio 
         if TallaN == "M" and productlist.hoodies["cantidadNM"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadNM"], " en Talla M")
+            print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
             #el print de arriba le dira al usuario cuantas tallas tenemos en talla 'M' del producto que selecciono
             print(bar)
             #imprimira una barra por cuestiones esteticas del programa 
@@ -269,8 +248,7 @@ def Hoodies_Color_Black_Size_select():
             print(no_stock)
             #si no hay existencias de la talla seleccionada para que el usuario sepa que no contamos con productos disponibles en la talla que escogio 
         if TallaN == "L" and productlist.hoodies["cantidadNL"] < 0:
-            print("| Tenemos: ",
-                  productlist.hoodies["cantidadNL"], " en Talla L")
+            print("| Tenemos: ", productlist.hoodies["cantidadNL"], " en Talla L")
             #se le mostrara al usuario la cantidad de productos talla 'L' que hay en stock 
             print(bar)
             #se imprimira una barra para que el programa se vea mas ordenado
@@ -289,6 +267,33 @@ def Hoodies_Color_Black_Size_select():
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             # se le mostrara un mensaje para que corrobore si escribio bien si opcion
 
+def shopping_cart():
+    # Aqui se define un a funciion para el carrito de compras 
+    while True:
+        # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
+        try:
+            Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
+            #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
+            
+            if Shopping_Cart <= 0:
+                print("| No tienes artículos en tu carrito.")
+                # si el usuario no ha agregado ningun producto , se le notificara que no tiene ningun producto en el carrito 
+                print(bar)
+            elif Shopping_Cart > 10:
+                print("| No puedes comprar más de 10 artículos.")
+                #como tenemos un stock de 10 para todos los productos no se le permitira comprar mas 10 productos simultaneamente
+                print(bar)
+                time.sleep(2)
+                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+            else:
+                print("| En tu carrito hay:", Shopping_Cart, "artículo/s.")
+                #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
+                print(bar)
+                return Shopping_Cart
+        except ValueError:
+            print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
+            #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
+
 
 
 
@@ -303,8 +308,7 @@ while True:
                 Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
             if color_size_select == "3":
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
-            Shopping_Cart = shopping_cart()
-        
-
     if Menu_principal == "Q" or "q":
         Quit_Menu()
+
+Shopping_Cart = shopping_cart()
