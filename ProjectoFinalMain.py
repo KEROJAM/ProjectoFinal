@@ -36,6 +36,7 @@ colorB = productlist.hoodies.get("colorB")
 
 
 print(bar)
+# Se imprime la barra para poder separar el contenido y que se vea mejor
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
@@ -44,7 +45,7 @@ print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi cloth
 print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Zapatos ")
 # ponemos una lista de los productos que hay en stock
 print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus productos !")
-
+# Se impirme este mensaje para informar al usuario de lo que va a pasar despues
 
 def mensaje_espera():
 # Aqui se define la funcion mensaje de espera prara poder usarla despues
@@ -59,10 +60,13 @@ def mensaje_espera():
 mensaje_espera()
 # Ejecutamos la funcion mensaje de espera para que el mensaje de espera se vea
 def Menu_principal():
+    # Declaramos la funcion de mensaje de espera para poner todo el menu principal en una que sea mas accesible
     while True:
+        # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
         print(bar)
         #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
         print("|     *Menu*")
+        # Se impirme el titulo del menu
         print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
         print(bar)
@@ -76,6 +80,7 @@ def Menu_principal():
             print("| Esa no es una Opcion")
             #si el usuario escribio aml una opcion en el menu se le avisara que hay que corregir lo que escribio
     return user_input
+    # Se regresa el valor que el usuario selecciono para usarlo en el siguiente menu
 
 def Product_Type():
     while True:
@@ -217,7 +222,7 @@ def Hoodies_Color_White_Size_Select():
         elif TallaB == "L" and productlist.hoodies["cantidadBL"] == 0:
             print(no_stock)
         return TallaB
-
+        # Se Regresa el valor de la variable para poder usarala en el menu y carrito de compras
 
 def Hoodies_Color_Black_Size_select():
     while True:
@@ -248,6 +253,7 @@ def Hoodies_Color_Black_Size_select():
             print(no_stock)
             #si no hay existencias de la talla seleccionada para que el usuario sepa que no contamos con productos disponibles en la talla que escogio 
         if TallaN == "L" and productlist.hoodies["cantidadNL"] < 0:
+            # Si tallaN es L y tenemos mas productos en L que 0
             print("| Tenemos: ", productlist.hoodies["cantidadNL"], " en Talla L")
             #se le mostrara al usuario la cantidad de productos talla 'L' que hay en stock 
             print(bar)
