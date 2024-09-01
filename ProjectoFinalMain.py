@@ -110,7 +110,13 @@ def Product_Type():
 
 def Quit_Menu():
     # Se define la funcion de salir para usarla en el menu
-    sys.exit()
+    print("| Adios.")
+    # imprimimos un mensaje en la pantalla antes de salir
+    print(bar)
+    # imprimmos una barra para mostrar que es el final
+    time.sleep(1)
+    # Le agregamos un segundo de espera para que el usuario lo lea
+    sys.exit(1)
     # Este es un comando para que el programa termine
 
 def Hoodies_Color_select():
