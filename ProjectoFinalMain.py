@@ -367,7 +367,9 @@ while True:
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
                 # Se ejecuta la funcion de Selecion de talla para el color blanco y se guarda su resultado en una variable para poder usarse
         if product_select == "R":
+            # Si el usuario eligio Regresar en la seleccion de productos
             continue
+            # Se regresa al menu principal
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
