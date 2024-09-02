@@ -16,10 +16,12 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ("1", "2", "Q",)
 # Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
-options = ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
+options_menu = ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
+# Esta variable esta para mostrar las opciones del menu principal
 product_type = ("1", "2", "3", "4", "5", "R")
+type_product = ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Regresar")
 # Esta variable esta para verificar que sea realmente un producto que tenemos
-color_options_hoddies = ("1", "2", "3",)
+color_options_hoodies = ("1", "2", "3",),("Verde", "Blanco", "Negro")
 # Esta variable Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("1", "2", "3",)
 # Esta variable sirve para verificar si es un color en camisetas
@@ -131,13 +133,13 @@ def Hoodies_Color_select():
         #imprime otra barra
         print("| Elige que Color quieres: ")
         #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
-        print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
+        print(color_options_hoodies[1][:3])
         # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorH = input("| ")
         # Se le pide al usuario insertar el color que desea y se guarda para usarse despues 
-        if colorH in color_options_hoddies:
+        if colorH in color_options_hoodies[0]:
             # Si el color que inserto el usuario esta en las opciones
-            return colorP
+            return colorH
             # Se regresa el color que el usuario decidio para usarlo despues
         else:
             #si el color no esta en las opciones
