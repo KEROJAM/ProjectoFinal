@@ -16,6 +16,7 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ("1", "2", "Q",)
 # Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
+options = ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
 product_type = ("1", "2", "3", "4", "5", "R")
 # Esta variable esta para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ("1", "2", "3",)
@@ -73,7 +74,7 @@ def Menu_principal():
         #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
         print("|     *Menu*")
         # Se impirme el titulo del menu
-        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
+        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| 3- Imprimir Inventario\n| Imprimir Monto Total de Ventas\n| Q - Salir ")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
         print(bar)
         #se vuelve a imprimir una barra
