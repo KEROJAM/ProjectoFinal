@@ -312,6 +312,7 @@ def shopping_cart():
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try:
+            # nos deja probar si el codigo de abajo funciona para dectectar errores
             Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
             #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
             
@@ -338,6 +339,7 @@ def shopping_cart():
                 return Shopping_Cart
                 # Regresa el valor de tu carrito
         except ValueError:
+            # Nos deja solucionar cualquier error que tengamos en este caso que el usuario selecciono una cantidad superior a la que tenemos
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
 
