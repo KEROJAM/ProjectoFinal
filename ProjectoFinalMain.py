@@ -145,6 +145,23 @@ def Hoodies_Color_select():
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
 
+def camisetas_color_select ():
+    # Se inicia el menu de seleccionar color en camisetas
+    while True :
+        # Se inicia un ciclo para poder poner el menu otravez si el usuario se equivoco
+        print(bar)
+        # Se impirme una barra para separar conenido
+        print("Elige que color quieres :")
+        # Se imprime las instrucciones que el usuario deve de poner
+        print("| 1- Azul\n| 2- Blanco\n| 3- Negro ")
+        # Se imprime las opciones para que el usuario pueda elegir
+        colorC= input("| ")
+        # Se guarda la opcion que el usuario eligio para poder usuarla
+        if colorC in color_options_camisetas:
+            # Si la opcion que el usuario eligio esta en las opciones
+            return colorC
+            # Se regresa el color que el usuario decidio para usarlo despues
+
 def Jeans_Color_select():
     # Declaramos la funcion de seleccion de color de Jeans para tenerla como producto
     while True:
@@ -620,6 +637,23 @@ while True:
                 # la opcion de la seleccion de colores es 3 (Blanco)
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
                 # Se ejecuta la funcion de Selecion de talla para el color blanco y se guarda su resultado en una variable para poder usarse
+        if product_select == "2" :
+             # Si la opcion del producto es igual a 1 que es hoodies
+            camisetas_color_size_select=camisetas_color_select()
+            # Se ejecuta la funcion del menu de color de camisetas y se guarda el resultado en una variable
+            if camisetas_color_size_select== "1":
+                # Si la opcion del menu de colores es 1 (Azul)
+                camisetas_blue_size_select=Camisetas_Color_Blue_Size_Select()
+                # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una variable para poder usarse
+            if camisetas_color_size_select ==  "2":
+                # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
+                camisetas_black_size_select = Camisetas_Color_Black_Size_Select()
+                # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una variable para poder usarse
+            if camisetas_color_size_select== "3" :
+                #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco 
+                camisetas_white_size_select =Camisetas_Color_White_Size_Select()
+                # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una variable para poder usarse
+
         if product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
