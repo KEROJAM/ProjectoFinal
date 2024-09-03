@@ -11,25 +11,25 @@ import sys
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 
 no_stock = "| No hay Stock en esa Talla"
-# Declaramos la variable no_stock para no tener que esribirlo muchas veces
+# Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
-menu_options = ("1", "2", "3", "4", "Q",), ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
-# Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ("1", "2", "3", "4", "5", "R"), ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Regresar")
-# Esta variable esta para verificar que sea realmente un producto que tenemos
-color_options_hoodies = ["1", "2", "3",],["Verde", "Blanco", "Negro"]
-# Esta variable Sirve para verificar si es un color en Hoodies
+menu_options = ("1", "2", "Q",)
+# Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
+product_type = ("1", "2", "3", "4", "5", "R")
+# Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
+color_options_hoddies = ("1", "2", "3",)
+# Este texto Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("1", "2", "3",)
-# Esta variable sirve para verificar si es un color en camisetas
+# Este enunciado sirve para verificar si es un color en camisetas
 color_options_calcetines = ("N", "B",)
-# Esta variable esta para verificar el color de calcetines
+# Esta  esta para verificar el color de calcetines
 color_options_tenis = ("B", "N", "B/N",)
-# Se declara esta variable para verificar los colores de los tenis
-color_options_jeans = ("1", "2",)
-# Se nombra esa variable para verificar los colores de jeans
+# Se declara esta enunciado para verificar los colores de los tenis
+color_options_jeans = ("A", "N",)
+# Se nombra esa enunciado para verificar los colores de jeans
 size_options = ("S", "M", "L",)
-# Se nombra la variable para verificar las tallas de los productos
+# Se nombra la enunciado para verificar las tallas de los productos
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
 colorN = productlist.hoodies.get("colorN")
@@ -54,7 +54,7 @@ print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus 
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
 
 def mensaje_espera():
-# Aqui se define la funcion mensaje de espera prara poder usarla despues
+# Aqui se define la texto mensaje de espera prara poder usarla despues
     print("| Por favor, espera redirigiendo al menu ")
     # Dentro de mensaje de espera estamos imprimiendo el mensaje de espera
     time.sleep(5)
@@ -64,16 +64,16 @@ def mensaje_espera():
 
 
 mensaje_espera()
-# Ejecutamos la funcion mensaje de espera para que el mensaje de espera se vea
+# Ejecutamos el texto mensaje de espera para que el mensaje de espera se vea
 def Menu_principal():
-    # Declaramos la funcion de mensaje de espera para poner todo el menu principal en una que sea mas accesible
+    # Declaramos el texto de mensaje de espera para poner todo el menu principal en una que sea mas accesible
     while True:
         # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
         print(bar)
         #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
         print("|     *Menu*")
         # Se impirme el titulo del menu
-        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| 3- Imprimir Inventario\n| Imprimir Monto Total de Ventas\n| Q - Salir ")
+        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
         print(bar)
         #se vuelve a imprimir una barra
@@ -89,7 +89,7 @@ def Menu_principal():
             #le avisara que hay que corregir lo que escribio
 
 def Product_Type():
-# definimos la funcion Product_Type para preguntar el usuario cual es el producto que quiere
+# definimos el texto Product_Type para preguntar el usuario cual es el producto que quiere
     while True:
         # Iniciamos el loop para volver a impirmir el menu si el usuario se equivoca
         print(bar)
@@ -99,7 +99,7 @@ def Product_Type():
         print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis\n| R- Regresar", )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
-        # Esta variable esta para guardar la opcion que el usuario decidio
+        # Esta enunciado esta para guardar la opcion que el usuario decidio
         if TipoPro in product_type:
             # Si la opcion que eligio el usuario esta en las opciones
             return TipoPro
@@ -112,7 +112,7 @@ def Product_Type():
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
 
 def Quit_Menu():
-    # Se define la funcion de salir para usarla en el menu
+    # Se define el texto de salir para usarla en el menu
     print("| Adios.")
     # imprimimos un mensaje en la pantalla antes de salir
     print(bar)
@@ -123,18 +123,18 @@ def Quit_Menu():
     # Este es un comando para que el programa termine
 
 def Hoodies_Color_select():
-    # Se define la funcion de seleccionar el color de hoodies para usarse en el menu
+    # Se define el texto de seleccionar el color de hoodies para usarse en el menu
     while True:
         # Se inica un ciclo para poder repetir el menu sin tener que escribirlo muchas veces
         print(bar)
         #imprime otra barra
         print("| Elige que Color quieres: ")
         #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
-        print(color_options_hoodies[1][:3])
+        print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
         # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorH = input("| ")
         # Se le pide al usuario insertar el color que desea y se guarda para usarse despues 
-        if colorH in color_options_hoodies[0]:
+        if colorH in color_options_hoddies:
             # Si el color que inserto el usuario esta en las opciones
             return colorH
             # Se regresa el color que el usuario decidio para usarlo despues
@@ -146,96 +146,20 @@ def Hoodies_Color_select():
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
 
 def camisetas_color_select ():
-    # Se inicia el menu de seleccionar color en camisetas
     while True :
-        # Se inicia un ciclo para poder poner el menu otravez si el usuario se equivoco
         print(bar)
-        # Se impirme una barra para separar conenido
         print("Elige que color quieres :")
-        # Se imprime las instrucciones que el usuario deve de poner
         print("| 1- Azul\n| 2- Blanco\n| 3- Negro ")
-        # Se imprime las opciones para que el usuario pueda elegir
         colorC= input("| ")
-        # Se guarda la opcion que el usuario eligio para poder usuarla
         if colorC in color_options_camisetas:
-            # Si la opcion que el usuario eligio esta en las opciones
             return colorC
             # Se regresa el color que el usuario decidio para usarlo despues
-
-def Jeans_Color_select():
-    # Declaramos la funcion de seleccion de color de Jeans para tenerla como producto
-    while True:
-        # Iniciamos el ciclo para repetir el menu si el usuario se equivoco
-        print(bar)
-        # Imprimimos la barra para separ contenidos
-        print("| Elige que Color quieres: ")
-        # Imprimimos el encabesado del menu para dar insrucciones
-        print("| 1- Azul \n| 2- Negro")
-        # Se muestran las dos Opciones de color
-        colorJ = input("| Escriba el numero: ")
-        # Se declara una variable para guardar la opcion del usuario
-        if colorJ in color_options_jeans:
-            # Si el color esta en las opciones de color
-            return colorJ
-            # Se regresa el valor de la opcion del usuario
         else:
-            # Si no es una opcion
+            #si el color no esta en las opciones
             print("| Ese no es un color\n| (Revise si esta escrito como esta en la pantalla)")
-            # Se imprime que no es una opcion
+            #el programa le notificara que ha escrito mal algo y le dara la oportunidad de volverlo a escribir
             time.sleep(2)
-            # Se sepera 2 segundos para darle tiempo al usuario de leer
-
-def Jeans_Color_Blue_Size_select():
-    # Se definela funcion para seleccionar la talla de los Jeans azules
-    while True:
-        # Se inicia el loop para que el menu reaparesca si el usuario puso una opcion equivocada
-        print(bar)
-        # Se imprime una barra para separar contenido
-        print("| Elige la Talla que quieres ")
-        # Se impirme el encabesado del menu para dar instruciones
-        print("| S, M, L ")
-        # Se imprimen las tallas para los jeans
-        SizeBlueJeans = input("| Escirba la letra de la Talla: ")
-        # Se guarda la opcion del usuario en una variable para guardaarla
-        if SizeBlueJeans not in size_options:
-            # Si la opcion no es parte de las opciones
-            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
-            # Se le notifica al usuario que no es un producto
-        if SizeBlueJeans == "S" and productlist.Jeans["cantidadAS"] == 0:
-            # Si la talla de los Jeans es S y no hay inventario
-            print(no_stock)
-            # Se le notifica al usuario que no hay stock
-            print(bar)
-            # Se imprime barra para separ contenidos
-        if SizeBlueJeans == "S" and productlist.Jeans["cantidadAS"] > 0:
-            # Si la talla que eligio S y hay inventario
-            print("| Tenemos: ", productlist.Jeans["cantidadAS"], " en Talla S")
-            # Se impime en pantalla la cantidad de Jeans que hay en talla S
-            print(bar)
-            # Se impirme barra para separar contenido
-            time.sleep(2)
-            # Se espera 2 segundos para darle al usuario tiempo de leer
-        return SizeBlueJeans
-    # Se regresa la opcion de que eligio el usuario para usarlo despues
-
-def Jeans_Color_Black_Size_select():
-    # Se define la funcion de color negro y seleccionar talla
-    while True:
-        # Se inicia un ciclo para reimpirmir el menu si el usuario puso una opcion incorrecta
-        print(bar)
-        # Se impirme una barra para separar contenido
-        print("| Elige la Talla que quieres")
-        # Se impirime las instrucciones de que hacer en este menu
-        print("| S, M, L ")
-        # Se muestran las tallas que hay en color negro
-        SizeBlackJeans = input("| Escriba la letra de la Talla: ")
-        # Se guarda la talla que eligio el usuari para poder usuarlo
-        if SizeBlackJeans == "S" and productlist.Jeans["cantidadNS"] == 0:
-            # Si la talla es S y no hay inventario
-            print(no_stock)
-            # Se le informa al usuario que no hay inventario
-            print(bar)
-            # Se impirme una barra para separar el contenido
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
 
 def Hoodies_Color_Green_Size_Select():
     # Se define la opcion de hoodies verde para que el usuario seleccione la talla
@@ -295,7 +219,7 @@ def Hoodies_Color_Green_Size_Select():
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
 def Hoodies_Color_White_Size_Select():
-    #Se declara la funcion para poder seleccionar la Talla de las Hoodies Blancas
+    #Se declara el texto para poder seleccionar la Talla de las Hoodies Blancas
     while True:
         # Se inicia ciclo para que el menu reaparesca si el usuario puso una opcion que no existe
         print(bar)
@@ -343,10 +267,10 @@ def Hoodies_Color_White_Size_Select():
             print(no_stock)
             # Se le informa al usuario que no hay inventario
         return TallaB
-        # Se Regresa el valor de la variable para poder usarala en el menu y carrito de compras
+        # Se Regresa el valor de la enunciado para poder usarala en el menu y carrito de compras
 
 def Hoodies_Color_Black_Size_select():
-    # Se define la funcion de Seleccionar la talla del color negro para Hoodies
+    # Se define el texto de Seleccionar la talla del color negro para Hoodies
     while True:
         # Se inicia el ciclo para poder mostar el menu otravez si el usuario se equivoco
         print(bar)
@@ -356,7 +280,7 @@ def Hoodies_Color_Black_Size_select():
         print("| S, M, L")
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
-        # Se guarda la talla que eligio el usuario en la variable TallaN
+        # Se guarda la talla que eligio el usuario en la enunciado TallaN
         if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
             #Si la Talla es S y el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
@@ -580,7 +504,7 @@ def shopping_cart():
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try:
-            # nos deja probar si el codigo de abajo funciona para dectectar errores
+            # nos deja probar si el codigo de abajo textoa para dectectar errores
             Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
             #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras 
             
@@ -620,40 +544,41 @@ while True:
     if Menu_principal() == "1":
         # Se ejecuta el menu Principal y Si la opcion del menu es 1
         product_select = Product_Type()
-        # Se declara una variable para guardar el resultado de la funcion que contiene el menu de los usuarios
+        # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
         if product_select == "1":
             # Si la opcion del producto es igual a 1 que es hoodies
-            Hoodie_color_size_select = Hoodies_Color_select()
-            # Se ejecuta la funcion del menu de color de hoodies y se guarda el resultado en una variable
-            if Hoodie_color_size_select == "1":
+            color_size_select = Hoodies_Color_select()
+            # Se ejecuta la texto del menu de color de hoodies y se guarda el resultado en una enunciado
+            if color_size_select == "1":
                 # Si la opcion del menu de colores es 1 (Verde)
                 Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
-                # Se ejecuta el menu de seleccion de talla para el color verde y se guarda su resultado en una variable para poder usarse
-            if Hoodie_color_size_select == "2":
+                # Se ejecuta el menu de seleccion de talla para el color verde y se guarda su resultado en una enunciado para poder usarse
+            if color_size_select == "2":
                 # Si la opcion del menu de colores es 2 (Negro)
                 Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
-                # Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una variable para poder usarse
-            if Hoodie_color_size_select == "3":
+                # Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
+            if color_size_select == "3":
                 # la opcion de la seleccion de colores es 3 (Blanco)
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
-                # Se ejecuta la funcion de Selecion de talla para el color blanco y se guarda su resultado en una variable para poder usarse
+                # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
         if product_select == "2" :
              # Si la opcion del producto es igual a 1 que es hoodies
             camisetas_color_size_select=camisetas_color_select()
-            # Se ejecuta la funcion del menu de color de camisetas y se guarda el resultado en una variable
+            # Se ejecuta la texto del menu de color de camisetas y se guarda el resultado en una enunciado
             if camisetas_color_size_select== "1":
                 # Si la opcion del menu de colores es 1 (Azul)
                 camisetas_blue_size_select=Camisetas_Color_Blue_Size_Select()
-                # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una variable para poder usarse
+                # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una enunciado para poder usarse
             if camisetas_color_size_select ==  "2":
                 # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
                 camisetas_black_size_select = Camisetas_Color_Black_Size_Select()
-                # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una variable para poder usarse
+                # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una enunciado para poder usarse
             if camisetas_color_size_select== "3" :
                 #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco 
                 camisetas_white_size_select =Camisetas_Color_White_Size_Select()
-                # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una variable para poder usarse
-
+                # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
+                
+        
         if product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
@@ -661,7 +586,7 @@ while True:
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
-        # Se ejectua la funcion de salir del programa
+        # Se ejectua la texto de salir del programa
 
     Shopping_Cart = shopping_cart()
-# Se ejecuta la funcion de carrito de compras y se guarda su resultado en una variable para poder usarse
+# Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
