@@ -14,14 +14,11 @@ no_stock = "| No hay Stock en esa Talla"
 # Declaramos la variable no_stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
-menu_options = ("1", "2", "Q",)
+menu_options = ("1", "2", "3", "4", "Q",), ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
 # Esta variable esta para verificar si la respuesta que dio el usuario esta en las opciones
-options_menu = ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
-# Esta variable esta para mostrar las opciones del menu principal
-product_type = ("1", "2", "3", "4", "5", "R")
-type_product = ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Regresar")
+product_type = ("1", "2", "3", "4", "5", "R"), ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Regresar")
 # Esta variable esta para verificar que sea realmente un producto que tenemos
-color_options_hoodies = ("1", "2", "3",),("Verde", "Blanco", "Negro")
+color_options_hoodies = ["1", "2", "3",],["Verde", "Blanco", "Negro"]
 # Esta variable Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("1", "2", "3",)
 # Esta variable sirve para verificar si es un color en camisetas
