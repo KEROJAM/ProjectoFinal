@@ -79,7 +79,7 @@ def Menu_principal():
         #se vuelve a imprimir una barra
         user_input = input("| Elige una opcion: ")
         #aqui le da al usuario la indicacion de que ya puede empezar a escoger una indicacion 
-        if user_input in menu_options:
+        if user_input in menu_options[0]:
             # Si la opcion que eligio el usuario esa en el menu
             return user_input
             # Se regresa el valor que el usuario selecciono para usarlo en el siguiente menu
@@ -100,7 +100,7 @@ def Product_Type():
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
-        if TipoPro in product_type:
+        if TipoPro in product_type[0]:
             # Si la opcion que eligio el usuario esta en las opciones
             return TipoPro
             # Regresa la opcion que eligio el usuario y rompe el cicl
