@@ -113,7 +113,7 @@ Calcetines = {
 }
 # Aqui se termina el diccionario de calcetines para ya no introducir mas datos y no generar errores
 
-Tenis = {
+Pants = {
     # Este es el inico del diccionaro de tenis para poder accesar los detalles como color, talla y percio mas facil
     "Precio": 400,
     # Este es el precio de los tenis puesto de una manera mas accesible
