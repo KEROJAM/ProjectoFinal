@@ -14,17 +14,17 @@ no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
-menu_options = ("1", "2", "Q",), ("Ordenar Productos","Agregar Inventario","Imprimir Nota","Imprimir Monto total de Ventas","Salir")
+menu_options = ["1", "2", "3", "4", "Q",], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ("1", "2", "3", "4", "5", "R"), ("Hoodies", "Camisetas", "Calcetines", "Jeans", "Regresar")
+product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Tenis", "R- Regresar"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3",],["Verde", "Blanco", "Negro"]
 # Este texto Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("1", "2", "3",)
 # Este enunciado sirve para verificar si es un color en camisetas
-color_options_calcetines = ("N", "B",)
+color_options_calcetines = ("N", "B",), ["Negro", "Blanco"]
 # Esta  esta para verificar el color de calcetines
-color_options_tenis = ("B", "N", "B/N",)
+color_options_tenis = ("B", "N", "B/N",), ["Blanco", "Negro", "Blanco y Negro"]
 # Se declara esta enunciado para verificar los colores de los tenis
 color_options_jeans = ("A", "N",)
 # Se nombra esa enunciado para verificar los colores de jeans
@@ -39,8 +39,6 @@ colorB = productlist.hoodies.get("colorB")
 colorazul_camisetas=productlist.camisetas.get("colorA")
 colornegro_camisetas=productlist.camisetas.get("colorN")
 colorblanco_camisetas=productlist.camisetas.get("Blanco")
-colorblacksocks=productlist.Calcetines.get("Negro")
-colorwhitesocks=productlist.Calcetines.get("Blanco")
 
 
 print(bar)
@@ -50,7 +48,7 @@ nombre = input("| Porporcione el nombre del empleado : ")
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
       "listo para otro dia de trabajo?")
 # mensaje de bienvenida
-print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Zapatos ")
+print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Tenis")
 # ponemos una lista de los productos que hay en stock
 print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
@@ -67,16 +65,18 @@ def mensaje_espera():
 
 mensaje_espera()
 # Ejecutamos el texto mensaje de espera para que el mensaje de espera se vea
+
 def Menu_principal():
     # Declaramos el texto de mensaje de espera para poner todo el menu principal en una que sea mas accesible
     while True:
         # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
         print(bar)
+        print("|    Tecmi Clothes")
         #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
         print("|     *Menu*")
-        # Se impirme el titulo del menu
-        print("| 1 - Ordenar Porductos\n| 2 - Agregar Inventario\n| Q - Salir ")
-        # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa 
+        # Se impirme el titulo del menu principal
+        print("\n| ".join(menu_options[1]), end="\n")
+        # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa
         print(bar)
         #se vuelve a imprimir una barra
         user_input = input("| Elige una opcion: ")
