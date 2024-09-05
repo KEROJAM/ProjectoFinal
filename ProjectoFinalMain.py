@@ -1147,8 +1147,8 @@ while True:
             continue
             # Se regresa al menu principal
     if Menu_principal == "3":
-        # Si el usuario eligio 3 en el menu principal
-        Imprimir_Nota()
+       # Si el usuario eligio 3 en el menu principal
+       Imprimir_Nota()
        # Se imprime la nota de todo el inventario
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
