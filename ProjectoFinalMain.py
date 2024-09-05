@@ -21,11 +21,11 @@ menu_options = ["1", "2", "3", "4", "Q",], ["1- Ordenar Productos","2- Agregar I
 product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"]
 product_prices = ["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
-color_options_hoddies = ["1", "2", "3","R"],["Verde", "Blanco", "Negro", "R- Regresar"]
+color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "2- Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
-color_options_camisetas = ("1", "2", "3","R"),["Azul", "Negro", "Blanco"]
+color_options_camisetas = ("1", "2", "3","R"),["1- Azul", "2- Negro", "3- Blanco", "R- Regresar"]
 # Este enunciado sirve para verificar si es un color en camisetas
-color_options_calcetines = ("1", "2","R"), ["Negro", "Blanco", "R- Regresar"]
+color_options_calcetines = ("1", "2","R"), ["1- Negro", "2- Blanco", "R- Regresar"]
 # Esta  esta para verificar el color de calcetines
 color_options_Pants = ("1", "2", "3","R"), ["1- Negro y Blanco", "2- Negro", "3- Blanco", "R- Regresar"]
 # Se declara esta enunciado para verificar los colores de los pants
@@ -101,7 +101,7 @@ def Menu_principal():
         print("|    Hola ", nombre)
         print("|     *Menu*")
         # Se impirme el titulo del menu principal
-        print("\n| ".join(menu_options[1]), end="\n")
+        print("|","\n| ".join(menu_options[1]), end="\n")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa
         print(bar)
         #se vuelve a imprimir una barra
@@ -125,7 +125,7 @@ def Product_Type():
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("\n| ".join(product_type[1]), zip(product_type,product_prices), end="\n" )
+        print("|","\n| ".join(product_type[1]), zip(product_type,product_prices), end="\n" )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
@@ -160,7 +160,7 @@ def Hoodies_Color_select():
         #imprime otra barra
         print("| Elige que Color quieres: ")
         #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
-        print("| 1-", colorV, "\n| 2-", colorB, "\n| 3-", colorN)
+        print("|","\n| ".join(color_options_hoddies[1]),end="\n")
         # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies 
         colorH = input("| ")
         # Se le pide al usuario insertar el color que desea y se guarda para usarse despues 
@@ -184,11 +184,11 @@ def camisetas_color_select ():
         #se imprime una barra
         print("Elige que color quieres :")
         #es el titulo del menu para empezar a elegir el color del producto que selecciono el usuario
-        print("| 1- Azul\n| 2- Blanco\n| 3- Negro ")
+        print("|","\n| ".join(color_options_camisas[1]),end="\n")
         # estas son las colores que tiene como opciones el usuario para escoger para su producto
         colorC= input("| ")
         #se le pide al usuario seleccionar el color que desea y se guarda aqui para usarse mas tarde
-        if colorC in color_options_camisas:
+        if colorC in color_options_camisas[0]:
             #aqui se guardo el color que selecciono el usuario
             return colorC
             # Se regresa el color que el usuario decidio para usarlo despues
@@ -208,11 +208,11 @@ def calcetines_color_select():
         #se imprime una barra
         print("| Elige que color quieres : ")
         #es el titulo del menu 
-        print("| 1-Negro\n| 2-Blanco\n")
+        print("|","\n| ".join(color_options_calcetines[1]),end="\n")
         #estas son las opciones que tiene el usuario para escoger con su producto
         colorCalcetines= input("|")
         #se le pide al usuario que seleccione el color que el usuario quiere para su producto
-        if colorCalcetines in color_options_calcetines :
+        if colorCalcetines in color_options_calcetines[0] :
             #aqui se guarda el color que selecciono el usuario
             return colorCalcetines
         #se regresa el color que eligio el usuario para usarlo despues
@@ -232,11 +232,11 @@ def jeans_color_select():
         #se imprime una barra
         print("| Elige que color quieres : ")
         #se imprime el titulo del menu
-        print("| 1-Azul\n| 2-Negro\n|")
+        print("|","\n| ".join(color_options_jeans),end="\n")
         #estas son las opciones que el usuario tiene para escoger un color para sus jeans
         colorJeans= input ("|")
         #se le pide al usuario que seleccione el color que quiere
-        if colorJeans :
+        if colorJeans in color_options_jeans:
         #guarda el color que selecciono el usuario para los jeans
             return colorJeans
         #se regresa el color que eligio el usuario
@@ -256,11 +256,11 @@ def Pants_color_select () :
         #se imprime una barra
         print("| Elige que color quieres : ")
         #se imprime el titulo del menu
-        print("| 1-Blanco/negro\n| 2-Negro\n| 3-Blanco\n")
+        print("|","\n| ".join(color_options_Pants[1]),end="\n")
         #estas son las opciones que el usuario tiene para escoger un color para sus tenis
         colorPants= input ("|")
         #se le pide al usuario que seleccione el color que quiere
-        if colorPants :
+        if colorPants in color_options_Pants:
         #guarda el color que selecciono el usuario para los tenis
             return colorPants
         #se regresa el color que eligio el usuario
@@ -280,7 +280,7 @@ def Hoodies_Color_Green_Size_Select():
         #imprime una barra
         print("| Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("\n| ".join(size_options[1][:5]), end="\n")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaV = input("| ")
         # Se guarda la talla que eligio el usario en TallaV
@@ -338,7 +338,7 @@ def Hoodies_Color_White_Size_Select():
         # Se impirme una barra para separar contenidos
         print("| Elige la Talla: ")
         # Se impirme la primera parte de las opciones de elegir talla
-        print("| S, M, L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         #en los dos prints anteriores se le muestra al usuario un menu para elegir la talla del producto que quiere adquirir
         TallaB = input("| ")
         #Con la Talla que decidio el usuario se le asigna a TallaB
@@ -390,7 +390,7 @@ def Hoodies_Color_Black_Size_select():
         #aqui se imprime una barra por cuestiones esteticas del programa 
         print("| Elige la Talla: ")
         #este es el titulo del menu para empezar a escoger la talla del producto 
-        print("| S, M, L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
         # Se guarda la talla que eligio el usuario en la enunciado TallaN
@@ -448,8 +448,8 @@ def Camisetas_Color_Blue_Size_Select():
         #imprime una barra
         print("| Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("| S, M, L")
-        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
+        print("|","\n| ".join(size_options[1]), end="\n")
+        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaAzul = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
         if TallaAzul not in size_options:
@@ -506,7 +506,7 @@ def Camisetas_Color_Black_Size_Select():
         #imprime una barra
         print("| Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("| S, M, L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaNegro = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
@@ -564,8 +564,8 @@ def Camisetas_Color_White_Size_Select():
         #imprime una barra
         print("| Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("| S, M, L")
-        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
+        print("|","\n| ".join(size_options[1]), end="\n")
+        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaBlanco = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
         if TallaBlanco not in size_options:
@@ -622,7 +622,7 @@ def calcetines_color_black_size_select():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaBlackcalcetines=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
@@ -679,7 +679,7 @@ def Calcetines_color_white_size_select():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallawhitecalcetines=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
@@ -736,7 +736,7 @@ def Jeans_color_blue_size_select():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallabluejeans=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
@@ -793,7 +793,7 @@ def Jeans_color_black_size_select():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackjeans=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
@@ -850,7 +850,7 @@ def pants_color_black_and_white_size_select ():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackandwhitepants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
@@ -907,7 +907,7 @@ def pants_color_black_size_select () :
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackpants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
@@ -964,7 +964,7 @@ def pants_color_white_size_select():
         #se imprime una barra
         print("|Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("|S , M , L")
+        print("|","\n| ".join(size_options[1]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallawhitepants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
@@ -1012,9 +1012,6 @@ def pants_color_white_size_select():
         return Tallawhitepants
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
-
-
-
 def shopping_cart():
     # Aqui se define un a funciion para el carrito de compras
     ClearTer()
@@ -1051,9 +1048,6 @@ def shopping_cart():
             # Nos deja solucionar cualquier error que tengamos en este caso que el usuario selecciono una cantidad superior a la que tenemos
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
-
-
-
 
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
