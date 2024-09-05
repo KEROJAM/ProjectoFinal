@@ -4,7 +4,8 @@ import time
 # Importamos time para poder tener tiempo de espera
 import sys
 # Importamos sys para poder salir del programa
-
+import os
+# Importamso os para poder limpiar la pantalla cuando corramos un comando
 # Programa por Majorek Casas, Alan Anduaga
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
@@ -16,19 +17,20 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ["1", "2", "3", "4", "Q",], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Tenis", "R- Regresar"], ["600", "350", "360", "40", "400"]
+product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Tenis", "R- Regresar"]
+product_prices = ["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
-color_options_hoddies = ["1", "2", "3",],["Verde", "Blanco", "Negro"]
+color_options_hoddies = ["1", "2", "3","R"],["Verde", "Blanco", "Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
-color_options_camisetas = ("1", "2", "3",)
+color_options_camisetas = ("1", "2", "3","R")
 # Este enunciado sirve para verificar si es un color en camisetas
-color_options_calcetines = ("N", "B",), ["Negro", "Blanco"]
+color_options_calcetines = ("N", "B","R"), ["Negro", "Blanco"]
 # Esta  esta para verificar el color de calcetines
-color_options_tenis = ("B", "N", "B/N",), ["Blanco", "Negro", "Blanco y Negro"]
+color_options_tenis = ("B", "N", "B/N","R"), ["Blanco", "Negro", "Blanco y Negro"]
 # Se declara esta enunciado para verificar los colores de los tenis
-color_options_jeans = ("A", "N",)
+color_options_jeans = ("A", "N","R")
 # Se nombra esa enunciado para verificar los colores de jeans
-size_options = ("S", "M", "L",)
+size_options = ("S", "M", "L","R")
 # Se nombra la enunciado para verificar las tallas de los productos
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
@@ -39,7 +41,7 @@ colorB = productlist.hoodies.get("colorB")
 colorazul_camisetas=productlist.camisetas.get("colorA")
 colornegro_camisetas=productlist.camisetas.get("colorN")
 colorblanco_camisetas=productlist.camisetas.get("Blanco")
-
+i = 0
 
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
@@ -72,7 +74,8 @@ def Menu_principal():
         # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
         print(bar)
         print("|    Tecmi Clothes")
-        #con ese print imprime una barra que en total formara una pequeña interfaz para el programa 
+        #con ese print imprime una barra que en total formara una pequeña interfaz para el programa
+        print("|    Hola ", nombre)
         print("|     *Menu*")
         # Se impirme el titulo del menu principal
         print("\n| ".join(menu_options[1]), end="\n")
@@ -98,7 +101,7 @@ def Product_Type():
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("\n| ".join(product_type[1]), zip(product_type[1],product_type[2]), end="\n" )
+        print("\n| ".join(product_type[1]), zip(product_type[1],product_prices), end="\n" )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
@@ -123,6 +126,12 @@ def Quit_Menu():
     # Le agregamos un segundo de espera para que el usuario lo lea
     sys.exit(1)
     # Este es un comando para que el programa termine
+
+def ClearTer():
+    if os.name == "nt":
+        _ = os.system('cls')
+    else:
+        _ = os.system('clear')
 
 def Hoodies_Color_select():
     # Se define el texto de seleccionar el color de hoodies para usarse en el menu
@@ -688,6 +697,11 @@ while True:
                 # la opcion de la seleccion de colores es 3 (Blanco)
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
                 # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
+            if color_size_select == "R":
+                # Si la opcion es R se
+                ClearTer()
+                continue
+                # Regresa al menu principal
         if product_select == "2" :
              # Si la opcion del producto es igual a 2 quiere decir que el usuario selecciono camisetas
             camisetas_color_size_select=camisetas_color_select()
@@ -722,6 +736,7 @@ while True:
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
             # Se regresa al menu principal
+
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
