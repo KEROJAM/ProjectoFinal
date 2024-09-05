@@ -31,6 +31,7 @@ hoodies = {
     # Esta es la cantidad de Hoodies en talla L y color Negro
 }
 # Este es el final del diccionario para cerrarlo
+Hoodie_total_stock=hoodies.get("cantidadVS")+hoodies.get("cantidadVM")+hoodies.get("cantidadVL")+hoodies.get("cantidadNS")+hoodies.get("cantidadNM")+hoodies.get("cantidadNL")+hoodies.get("cantidadBS")+hoodies.get("cantidadBM")+hoodies.get("cantidadBL")
 
 camisetas = {
     # Este es el Diccionario de camisetas para guardar tallas colores y precios
@@ -64,6 +65,7 @@ camisetas = {
     # Este es el numero de Camisetas en color Blanco y en Talla L que hay en el inventario
 }
 # Aqui se cierra el diccionario para ya no agregar mas valores a las camisetas
+Camisetas_total_stock=camisetas.get("cantidadAS")+camisetas.get("cantidadAM")+camisetas.get("cantidadAL")+camisetas.get("cantidadNS")+camisetas.get("cantidadNM")+camisetas.get("cantidadNL")+camisetas.get("cantidadBS")+camisetas.get("cantidadBM")+camisetas.get("cantidadBL")
 
 Jeans = {
     # Este es el inico del Diccionario de Jeans, su precio, color y talla
@@ -88,6 +90,7 @@ Jeans = {
     # Esta es la cantidad de Jeans que hay en Negro y en talla L
 }
 # Este es el final del diccionario de Jeans para ya no introducir mas elementos
+Jeans_total_stock=Jeans.get("cantidadAS")+Jeans.get("cantidadAM")+Jeans.get("cantidadAL")+Jeans.get("cantidadNS")+Jeans.get("cantidadNM")+Jeans.get("cantidadNL")
 
 Calcetines = {
     # El inicio del diccionario de calcetines para poner el precio, color y talla
@@ -112,6 +115,7 @@ Calcetines = {
     # Cantidad de calcentines que hay en el inventario en Blanco y en talla L
 }
 # Aqui se termina el diccionario de calcetines para ya no introducir mas datos y no generar errores
+Calcetines_total_stock=Calcetines.get("cantidadNS")+Calcetines.get("cantidadNM")+Calcetines.get("cantidadNL")+Calcetines.get("cantidadBS")+Calcetines.get("cantidadBM")+Calcetines.get("cantidadBL")
 
 Pants = {
     # Este es el inico del diccionaro de tenis para poder accesar los detalles como color, talla y percio mas facil
@@ -145,3 +149,4 @@ Pants = {
     # Es la cantidad de tenis que tenemos para tenis en color blanco en talla L
 }
 # Y Este es el final del diccionario para tenis
+Pants_total_stock=Pants.get("cantidadBNS")+Pants.get("cantidadBNM")+Pants.get("cantidadBNL")+Pants.get("cantidadNS")+Pants.get("cantidadNM")+Pants.get("cantidadNL")+Pants.get("cantidadBS")+Pants.get("cantidadBM")+Pants.get("cantidadBL")

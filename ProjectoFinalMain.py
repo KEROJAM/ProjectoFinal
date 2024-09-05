@@ -60,7 +60,6 @@ color_negro_calcetines=productlist.Calcetines.get("Negro")
 #se importa un valor desde la lsta de productos y se le asigna a los calcetines de color negro
 color_white_calcetines=productlist.Calcetines.get("Blanco")
 
-
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
 nombre = input("| Porporcione el nombre del empleado : ")
@@ -138,7 +137,14 @@ def Product_Type():
             print("| Ese no es un producto\n| (Revise si esta escrito como esta en la pantalla)")
             # el usuario sea notificado de que escribio mal la opcion que deseaba elegir , por lo tanto tendra la oportunidad de escribirla nuevamente
             time.sleep(2)
-            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
+
+def Imprimir_Nota():
+    print("|",product_type[1][0],productlist.Hoodie_total_stock)
+    print("|",product_type[1][1],productlist.Camisetas_total_stock)
+    print("|",product_type[1][2],productlist.Jeans_total_stock)
+    print("|",product_type[1][3],productlist.Calcetines.Jeans_total_stock)
+    print("|",product_type[1][4],productlist.Pants_total_stock)
 
 def Quit_Menu():
     # Se define el texto de salir para usarla en el menu
@@ -1134,12 +1140,16 @@ while True:
             if pants_color_size_select == "R":
                 ClearTer()
                 continue
-        
+
+
         if product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
             # Se regresa al menu principal
-
+    if Menu_principal == "3":
+        # Si el usuario eligio 3 en el menu principal
+        Imprimir_Nota()
+       # Se imprime la nota de todo el inventario
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
