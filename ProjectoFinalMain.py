@@ -16,7 +16,7 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ["1", "2", "3", "4", "Q",], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Tenis", "R- Regresar"]
+product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Tenis", "R- Regresar"], ["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3",],["Verde", "Blanco", "Negro"]
 # Este texto Sirve para verificar si es un color en Hoodies
@@ -98,7 +98,7 @@ def Product_Type():
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("| 1- Hoodies\n| 2- Camisetas\n| 3- Calcetines\n| 4- Jeans\n| 5- Tenis\n| R- Regresar", )
+        print("\n| ".join(product_type[1]), zip(product_type[1],product_type[2]), end="\n" )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
