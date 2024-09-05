@@ -6,6 +6,7 @@ import sys
 # Importamos sys para poder salir del programa
 import os
 # Importamso os para poder limpiar la pantalla cuando corramos un comando
+
 # Programa por Majorek Casas, Alan Anduaga
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
@@ -124,7 +125,7 @@ def Product_Type():
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("\n| ".join(product_type[1]), zip(product_type[1],product_prices), end="\n" )
+        print("\n| ".join(product_type[1]), zip(product_type,product_prices), end="\n" )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
@@ -279,11 +280,11 @@ def Hoodies_Color_Green_Size_Select():
         #imprime una barra
         print("| Elige la Talla: ")
         #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-        print("| S, M, L")
+        print("\n| ".join(size_options[1][:5]), end="\n")
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaV = input("| ")
         # Se guarda la talla que eligio el usario en TallaV
-        if TallaV not in size_options:
+        if TallaV not in size_options[0]:
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
