@@ -22,19 +22,15 @@ product_prices = ["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3","R"],["Verde", "Blanco", "Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
-color_options_camisetas = ("1", "2", "3","R")
-color_options_camisas = ("1", "2", "3",)
+color_options_camisetas = ("1", "2", "3","R"),["Azul", "Negro", "Blanco"]
 # Este enunciado sirve para verificar si es un color en camisetas
-color_options_calcetines = ("N", "B","R"), ["Negro", "Blanco"]
-color_options_calcetines = ("1", "2",), ["Negro", "Blanco"]
+color_options_calcetines = ("1", "2","R"), ["Negro", "Blanco", "R- Regresar"]
 # Esta  esta para verificar el color de calcetines
-color_options_Pants = ("B/N", "B", "N","R"), ["Negro y Blanco", "Negro", "Blanco"]
-color_options_Pants = ("1", "2", "3",), ["Negro y Blanco", "Negro", "Blanco "]
+color_options_Pants = ("1", "2", "3","R"), ["1- Negro y Blanco", "2- Negro", "3- Blanco", "R- Regresar"]
 # Se declara esta enunciado para verificar los colores de los pants
-color_options_jeans = ("A", "N","R")
-color_options_jeans = ("1", "2",),["Azul","Negro"]
+color_options_jeans = ("1", "2","R"),["1- Azul","2- Negro", "R- Regresar"]
 # Se nombra esa enunciado para verificar los colores de jeans
-size_options = ("S", "M", "L","R")
+size_options = ("S", "M", "L","R"),["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
@@ -85,6 +81,11 @@ def mensaje_espera():
     print("| ¡Gracias por esperar!")
     # Despues de esperar 5 segundos sale un agradecimiento por esperar
 
+def ClearTer():
+    if os.name == "nt":
+        _ = os.system('cls')
+    else:
+        _ = os.system('clear')
 
 mensaje_espera()
 # Ejecutamos el texto mensaje de espera para que el mensaje de espera se vea
@@ -116,6 +117,7 @@ def Menu_principal():
 
 def Product_Type():
 # definimos el texto Product_Type para preguntar el usuario cual es el producto que quiere
+    ClearTer()
     while True:
         # Iniciamos el loop para volver a impirmir el menu si el usuario se equivoca
         print(bar)
@@ -148,14 +150,9 @@ def Quit_Menu():
     sys.exit(1)
     # Este es un comando para que el programa termine
 
-def ClearTer():
-    if os.name == "nt":
-        _ = os.system('cls')
-    else:
-        _ = os.system('clear')
-
 def Hoodies_Color_select():
     # Se define el texto de seleccionar el color de hoodies para usarse en el menu
+    ClearTer()
     while True:
         # Se inica un ciclo para poder repetir el menu sin tener que escribirlo muchas veces
         print(bar)
@@ -178,7 +175,8 @@ def Hoodies_Color_select():
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
 
 def camisetas_color_select (): 
-    #se define el texto de seleccionar el color de camisetas para usarse en el menu   
+    #se define el texto de seleccionar el color de camisetas para usarse en el menu
+    ClearTer()
     while True :
         # se inicia un ciclo para poder repetir el menu sin tener que escribirlo tan seguido
         print(bar)
@@ -202,6 +200,7 @@ def camisetas_color_select ():
 
 def calcetines_color_select():
     #se define un texto para seleccionar el color de calcetines para usarse en el menu
+    ClearTer()
     while True :
         #se inicia un ciclo para poder repetir el menu en caso de errores del usuario o fallas 
         print(bar)
@@ -225,6 +224,7 @@ def calcetines_color_select():
 
 def jeans_color_select():
     #se define un tecto para seleccionar el color de jeans
+    ClearTer()
     while True :
         #se inicia un ciclo para poder repetir el menu en caso de errores
         print(bar)
@@ -248,6 +248,7 @@ def jeans_color_select():
 
 def Pants_color_select () :
     #se define un tecto para seleccionar el color de Tenis
+    ClearTer()
     while True :
         #se inicia un ciclo para poder repetir el menu en caso de errores
         print(bar)
@@ -271,6 +272,7 @@ def Pants_color_select () :
 
 def Hoodies_Color_Green_Size_Select():
     # Se define la opcion de hoodies verde para que el usuario seleccione la talla
+    ClearTer()
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -328,6 +330,7 @@ def Hoodies_Color_Green_Size_Select():
 
 def Hoodies_Color_White_Size_Select():
     #Se declara el texto para poder seleccionar la Talla de las Hoodies Blancas
+    ClearTer()
     while True:
         # Se inicia ciclo para que el menu reaparesca si el usuario puso una opcion que no existe
         print(bar)
@@ -379,6 +382,7 @@ def Hoodies_Color_White_Size_Select():
 
 def Hoodies_Color_Black_Size_select():
     # Se define el texto de Seleccionar la talla del color negro para Hoodies
+    ClearTer()
     while True:
         # Se inicia el ciclo para poder mostar el menu otravez si el usuario se equivoco
         print(bar)
@@ -436,6 +440,7 @@ def Hoodies_Color_Black_Size_select():
 
 def Camisetas_Color_Blue_Size_Select():
     # Se define la opcion de camisetas aZUL para que el usuario seleccione la talla
+    ClearTer()
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -493,6 +498,7 @@ def Camisetas_Color_Blue_Size_Select():
 
 def Camisetas_Color_Black_Size_Select():
     # Se define la opcion de camisetas Negro para que el usuario seleccione la talla
+    ClearTer()
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -550,6 +556,7 @@ def Camisetas_Color_Black_Size_Select():
 
 def Camisetas_Color_White_Size_Select():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -607,6 +614,7 @@ def Camisetas_Color_White_Size_Select():
 
 def calcetines_color_black_size_select():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -661,8 +669,9 @@ def calcetines_color_black_size_select():
         return TallaBlackcalcetines
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
-def Calcetines_color_white_size_select ():
+def Calcetines_color_white_size_select():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -719,6 +728,7 @@ def Calcetines_color_white_size_select ():
 
 def Jeans_color_blue_size_select():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -775,6 +785,7 @@ def Jeans_color_blue_size_select():
 
 def Jeans_color_black_size_select():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -831,6 +842,7 @@ def Jeans_color_black_size_select():
 
 def pants_color_black_and_white_size_select ():
     # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -887,6 +899,7 @@ def pants_color_black_and_white_size_select ():
 
 def pants_color_black_size_select () :
      # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -943,6 +956,7 @@ def pants_color_black_size_select () :
 
 def pants_color_white_size_select():
      # Se define la opcion de camisetas Blanco para que el usuario seleccione la talla
+    ClearTer()
     while True :
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -1001,7 +1015,8 @@ def pants_color_white_size_select():
 
 
 def shopping_cart():
-    # Aqui se define un a funciion para el carrito de compras 
+    # Aqui se define un a funciion para el carrito de compras
+    ClearTer()
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try:
@@ -1066,11 +1081,12 @@ while True:
                 ClearTer()
                 continue
                 # Regresa al menu principal
+
         if product_select == "2" :
              # Si la opcion del producto es igual a 2 quiere decir que el usuario selecciono camisetas
             camisetas_color_size_select=camisetas_color_select()
             # Se ejecuta la texto del menu de color de camisetas y se guarda el resultado en una enunciado
-            if camisetas_color_size_select== "1":
+            if camisetas_color_size_select == "1":
                 # Si la opcion del menu de colores es 1 (Azul)
                 camisetas_blue_size_select=Camisetas_Color_Blue_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una enunciado para poder usarse
@@ -1078,10 +1094,14 @@ while True:
                 # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
                 camisetas_black_size_select = Camisetas_Color_Black_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una enunciado para poder usarse
-            if camisetas_color_size_select== "3" :
+            if camisetas_color_size_select == "3" :
                 #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco 
                 camisetas_white_size_select =Camisetas_Color_White_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
+            if camisetas_color_size_select == "R":
+                 ClearTer()
+                 continue
+
         if product_select == "3":
             #si el usuario selecciona la opcion tres lo redirigira al menu para elegir calcetines
             calcetines_color_size_select=calcetines_color_select()
@@ -1094,12 +1114,19 @@ while True:
                 #si la opcion seleccionada es igal a 2 quiere decir que el usuario esta eligiendo el color negro para sus calcetines
                 calcetines_color_white_size_select=Calcetines_color_white_size_select()
                 #se ejecuta el menu de seleecion de tallas para el color blanco para calcetines y se guarda el resultado
+            if calcetines_color_size_select == "R":
+                ClearTer()
+                continue
+
         if product_select == "4":
             jeans_color_size_select =jeans_color_select()
             if jeans_color_size_select == "1":
                 jeans_color_blue_size_select=Jeans_color_blue_size_select()
             if jeans_color_size_select== "2" :
                 jeans_colr_black_size_select=Jeans_color_black_size_select()
+            if jeans_color_size_select == "R":
+                ClearTer()
+                continue
 
         if product_select == "5":
             pants_color_size_select=Pants_color_select()
@@ -1108,7 +1135,10 @@ while True:
             if pants_color_size_select== "2":
                 pants_color_black_sizeselect= pants_color_black_size_select()
             if pants_color_size_select == "3":
-                pants_color_white_sizeselect= pants_color_white_size_select()             
+                pants_color_white_sizeselect= pants_color_white_size_select()
+            if pants_color_size_select == "R":
+                ClearTer()
+                continue
         
         if product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
