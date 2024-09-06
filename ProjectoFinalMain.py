@@ -60,6 +60,7 @@ color_negro_calcetines=productlist.Calcetines.get("Negro")
 #se importa un valor desde la lsta de productos y se le asigna a los calcetines de color negro
 color_white_calcetines=productlist.Calcetines.get("Blanco")
 
+
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
 nombre = input("| Porporcione el nombre del empleado : ")
@@ -1038,7 +1039,9 @@ def pants_color_white_size_select():
         return Tallawhitepants
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
-def shopping_cart(n):
+j = 0
+Shopping_Cart_List=[]
+def shopping_cart(n,j):
     # Aqui se define un a funciion para el carrito de compras
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
@@ -1083,20 +1086,27 @@ def shopping_cart(n):
                 #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
             else:
                 # Si no es menor o igual a cero y no es mayor a 10
-                print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName,"$",ProductPrice)
+                TotalProductPrice = Shopping_Cart_Amount*ProductPrice
+                Shopping_Cart_List.append([])
+                print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName,"$",TotalProductPrice)
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
+                Shopping_Cart_List[j].append(Shopping_Cart_Amount)
+                Shopping_Cart_List[j].append(ProductName)
+                Shopping_Cart_List[j].append(TotalProductPrice)
+                print(Shopping_Cart_List)
                 print(bar)
                 # Imprime la barra para separar los menus
-                return Shopping_Cart_Amount, ProductName, ProductPrice
+                return Shopping_Cart_List
                 # Regresa el valor de tu carrito
         except ValueError:
             # Nos deja solucionar cualquier error que tengamos en este caso que el usuario selecciono una cantidad superior a la que tenemos
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
-
 Shopping_Cart = 0
 # Se define la variable Shopping cart para usar el carrito de compras
 
+def MontoTotalVentas():
+    print(Shopping_Cart)
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
     MenuPrincipal = Menu_principal(Shopping_Cart)
@@ -1196,15 +1206,18 @@ while True:
     elif MenuPrincipal == "3":
        # Si el usuario eligio 3 en el menu principal
          ClearTer()
+         # Se limpia la pantalla para que se vea mas limpio
          Imprimir_Nota_Res = Imprimir_Nota()
        # Se imprime la nota de todo el inventario
          if Imprimir_Nota_Res == "R":
+             # Si la opcion en Imprimir nota es R
              continue
+            # Se regresa al menu principal
     elif MenuPrincipal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
         # Se ejectua la texto de salir del programa
 
-    Shopping_Cart = shopping_cart(product_select)
-
-# Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
+    Shopping_Cart = shopping_cart(product_select,j)
+    j+=1
+    # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
