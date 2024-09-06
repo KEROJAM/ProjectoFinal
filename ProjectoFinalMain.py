@@ -412,7 +412,7 @@ def Hoodies_Color_Black_Size_select():
             # Se imprime una barra para separar los menus
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-        if TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
+        elif TallaN == "S" and productlist.hoodies["cantidadNS"] == 0:
             # Si la talla es S y no hay inventario es 0
             print(no_stock)
             #se le mostrara un mensaje que le hara saber que no contamos con productos disponibes de la talla que eligio
@@ -470,7 +470,7 @@ def Camisetas_Color_Blue_Size_Select():
             #se le notificara al usuario que no tenemos existencias de ese producto
             print(bar)
             #se imprime una barra
-        if TallaAzul == "S" and productlist.camisetas["cantidadAS"] > 0:
+        elif TallaAzul == "S" and productlist.camisetas["cantidadAS"] > 0:
             # Si la talla es S y hay mas inventario que 0
             print("| Tenemos: ", productlist.camisetas["cantidadAS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
@@ -482,7 +482,7 @@ def Camisetas_Color_Blue_Size_Select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if TallaAzul == "M" and productlist.camisetas["cantidadAM"] > 0:
+        elif TallaAzul == "M" and productlist.camisetas["cantidadAM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.camisetas["cantidadAM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -494,7 +494,7 @@ def Camisetas_Color_Blue_Size_Select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if TallaAzul == "L" and productlist.camisetas["cantidadAL"] > 0:
+        elif TallaAzul == "L" and productlist.camisetas["cantidadAL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.camisetas["cantidadAL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -528,7 +528,7 @@ def Camisetas_Color_Black_Size_Select():
             #se le notificara al usuario que no tenemos existencias de ese producto
             print(bar)
             #se imprime una barra
-        if TallaNegro == "S" and productlist.camisetas["cantidadNS"] > 0:
+        elif TallaNegro == "S" and productlist.camisetas["cantidadNS"] > 0:
             # Si la talla es S y hay mas inventario que 0
             print("| Tenemos: ", productlist.camisetas["cantidadNS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
@@ -540,7 +540,7 @@ def Camisetas_Color_Black_Size_Select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if TallaNegro == "M" and productlist.camisetas["cantidadNM"] > 0:
+        elif TallaNegro == "M" and productlist.camisetas["cantidadNM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.camisetas["cantidadNM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -552,7 +552,7 @@ def Camisetas_Color_Black_Size_Select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if TallaNegro == "L" and productlist.camisetas["cantidadNL"] > 0:
+        elif TallaNegro == "L" and productlist.camisetas["cantidadNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.camisetas["cantidadNL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -586,7 +586,7 @@ def Camisetas_Color_White_Size_Select():
             #se le notificara al usuario que no tenemos existencias de ese producto
             print(bar)
             #se imprime una barra
-        if TallaBlanco == "S" and productlist.camisetas["cantidadBS"] > 0:
+        elif TallaBlanco == "S" and productlist.camisetas["cantidadBS"] > 0:
             # Si la talla es S y hay mas inventario que 0
             print("| Tenemos: ", productlist.camisetas["cantidadBS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
@@ -598,7 +598,7 @@ def Camisetas_Color_White_Size_Select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if TallaBlanco == "M" and productlist.camisetas["cantidadBM"] > 0:
+        elif TallaBlanco == "M" and productlist.camisetas["cantidadBM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.camisetas["cantidadBM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -610,7 +610,7 @@ def Camisetas_Color_White_Size_Select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if TallaBlanco == "L" and productlist.camisetas["cantidadBL"] > 0:
+        elif TallaBlanco == "L" and productlist.camisetas["cantidadBL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.camisetas["cantidadBL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -644,7 +644,7 @@ def calcetines_color_black_size_select():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if TallaBlackcalcetines == "S" and productlist.Calcetines["cantidadNS"] > 0:
+        elif TallaBlackcalcetines == "S" and productlist.Calcetines["cantidadNS"] > 0:
             print("| Tenemos: ", productlist.camisetas["cantidadNS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -655,7 +655,7 @@ def calcetines_color_black_size_select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if TallaBlackcalcetines == "M" and productlist.Calcetines["cantidadNM"] > 0:
+        elif TallaBlackcalcetines == "M" and productlist.Calcetines["cantidadNM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Calcetines["cantidadNM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -667,7 +667,7 @@ def calcetines_color_black_size_select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if TallaBlackcalcetines == "L" and productlist.Calcetines["cantidadNL"] > 0:
+        elif TallaBlackcalcetines == "L" and productlist.Calcetines["cantidadNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Calcetines["cantidadNL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -701,7 +701,7 @@ def Calcetines_color_white_size_select():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallawhitecalcetines == "S" and productlist.Calcetines["cantidadBS"] > 0:
+        elif Tallawhitecalcetines == "S" and productlist.Calcetines["cantidadBS"] > 0:
             print("| Tenemos: ", productlist.camisetas["cantidadBS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -712,7 +712,7 @@ def Calcetines_color_white_size_select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallawhitecalcetines == "M" and productlist.Calcetines["cantidadBM"] > 0:
+        elif Tallawhitecalcetines == "M" and productlist.Calcetines["cantidadBM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Calcetines["cantidadBM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -724,7 +724,7 @@ def Calcetines_color_white_size_select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallawhitecalcetines == "L" and productlist.Calcetines["cantidadBL"] > 0:
+        elif Tallawhitecalcetines == "L" and productlist.Calcetines["cantidadBL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Calcetines["cantidadBL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -758,7 +758,7 @@ def Jeans_color_blue_size_select():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallabluejeans == "S" and productlist.Jeans["cantidadAS"] > 0:
+        elif Tallabluejeans == "S" and productlist.Jeans["cantidadAS"] > 0:
             print("| Tenemos: ", productlist.Jeans["cantidadAS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -769,7 +769,7 @@ def Jeans_color_blue_size_select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallabluejeans == "M" and productlist.Jeans["cantidadAM"] > 0:
+        elif Tallabluejeans == "M" and productlist.Jeans["cantidadAM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Jeans["cantidadAM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -781,7 +781,7 @@ def Jeans_color_blue_size_select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallabluejeans == "L" and productlist.Jeans["cantidadAL"] > 0:
+        elif Tallabluejeans == "L" and productlist.Jeans["cantidadAL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Jeans["cantidadAL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -815,7 +815,7 @@ def Jeans_color_black_size_select():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallablackjeans == "S" and productlist.Jeans["cantidadNS"] > 0:
+        elif Tallablackjeans == "S" and productlist.Jeans["cantidadNS"] > 0:
             print("| Tenemos: ", productlist.Jeans["cantidadNS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -826,7 +826,7 @@ def Jeans_color_black_size_select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallablackjeans == "M" and productlist.Jeans["cantidadNM"] > 0:
+        elif Tallablackjeans == "M" and productlist.Jeans["cantidadNM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Jeans["cantidadNM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -838,7 +838,7 @@ def Jeans_color_black_size_select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallablackjeans == "L" and productlist.Jeans["cantidadNL"] > 0:
+        elif Tallablackjeans == "L" and productlist.Jeans["cantidadNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Jeans["cantidadNL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -872,7 +872,7 @@ def pants_color_black_and_white_size_select ():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallablackandwhitepants == "S" and productlist.Pants["cantidadBNS"] > 0:
+        elif Tallablackandwhitepants == "S" and productlist.Pants["cantidadBNS"] > 0:
             print("| Tenemos: ", productlist.Pants["cantidadBNS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -883,7 +883,7 @@ def pants_color_black_and_white_size_select ():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallablackandwhitepants == "M" and productlist.Pants["cantidadBNM"] > 0:
+        elif Tallablackandwhitepants == "M" and productlist.Pants["cantidadBNM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Pants["cantidadBNM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -895,7 +895,7 @@ def pants_color_black_and_white_size_select ():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallablackandwhitepants == "L" and productlist.Pants["cantidadBNL"] > 0:
+        elif Tallablackandwhitepants == "L" and productlist.Pants["cantidadBNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Pants["cantidadBNL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -929,7 +929,7 @@ def pants_color_black_size_select () :
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallablackpants == "S" and productlist.Pants["cantidadNS"] > 0:
+        elif Tallablackpants == "S" and productlist.Pants["cantidadNS"] > 0:
             print("| Tenemos: ", productlist.Pants["cantidadNS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -940,7 +940,7 @@ def pants_color_black_size_select () :
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallablackpants == "M" and productlist.Pants["cantidadNM"] > 0:
+        elif Tallablackpants == "M" and productlist.Pants["cantidadNM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Pants["cantidadNM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -952,7 +952,7 @@ def pants_color_black_size_select () :
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallablackpants == "L" and productlist.Pants["cantidadNL"] > 0:
+        elif Tallablackpants == "L" and productlist.Pants["cantidadNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Pants["cantidadNL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -986,7 +986,7 @@ def pants_color_white_size_select():
         #se le notificara al usuario que no tenemos existencias de ese producto
                 print(bar)
                 #se imprime una barra
-        if Tallawhitepants == "S" and productlist.Pants["cantidadBS"] > 0:
+        elif Tallawhitepants == "S" and productlist.Pants["cantidadBS"] > 0:
             print("| Tenemos: ", productlist.Pants["cantidadBS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
@@ -997,7 +997,7 @@ def pants_color_white_size_select():
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-        if Tallawhitepants == "M" and productlist.Pants["cantidadBM"] > 0:
+        elif Tallawhitepants == "M" and productlist.Pants["cantidadBM"] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos: ", productlist.Pants["cantidadBM"], " en Talla M")
             # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
@@ -1009,7 +1009,7 @@ def pants_color_white_size_select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-        if Tallawhitepants == "L" and productlist.Pants["cantidadBL"] > 0:
+        elif Tallawhitepants == "L" and productlist.Pants["cantidadBL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos: ", productlist.Pants["cantidadBL"], " en Talla L")
             #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
@@ -1153,6 +1153,7 @@ while True:
        # Si el usuario eligio 3 en el menu principal
          Imprimir_Nota()
        # Se imprime la nota de todo el inventario
+
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
