@@ -18,8 +18,7 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ["1", "2", "3", "4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"]
-product_prices = ["600", "350", "360", "40", "400"]
+product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"],["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "3- Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
@@ -125,7 +124,7 @@ def Product_Type():
         #imprime una barra por tema estetico del programa
         print("| Elige que tipo de producto quieres: ")
         #aqui empieza la interaccion del usuario con el menu de productos
-        print("|","\n| ".join(product_type[1]), zip(product_type,product_prices), end="\n" )
+        print("|","\n| ".join(product_type[1]), end="\n" )
         # aqui es otro menu para que el usuario pueda escoger que tipo de prenda de vestir desesa adquirir
         TipoPro = input("| ")
         # Esta variable esta para guardar la opcion que el usuario decidio
@@ -416,15 +415,11 @@ def Hoodies_Color_Black_Size_select():
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
         # Se guarda la talla que eligio el usuario en la enunciado TallaN
-<<<<<<< HEAD
         if TallaN not in size_options[0]:
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
-        if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
-=======
         if TallaN == "S" and productlist.hoodies["cantidadNS"] > 0:
->>>>>>> 51f616faadf636ce746920e1a0e90347f72212b1
             #Si la Talla es S y el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
             #se le mostrara al usuario el stock que tenemos de la talla seleccionada
@@ -1045,6 +1040,7 @@ def shopping_cart():
     ClearTer()
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
+        print("|","\n| ".join(product_type[1]), end="\n" )
         try:
             # nos deja probar si el codigo de abajo textoa para dectectar errores
             Shopping_Cart = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
@@ -1123,8 +1119,11 @@ while True:
                 camisetas_white_size_select =Camisetas_Color_White_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
             elif camisetas_color_size_select == "R":
+                # Si el usuario selecciono la opcion R
                  ClearTer()
+                 # Se limpia la pantalla
                  continue
+                 # Y regresa al menu principal
 
         elif product_select == "3":
             #si el usuario selecciona la opcion tres lo redirigira al menu para elegir calcetines
