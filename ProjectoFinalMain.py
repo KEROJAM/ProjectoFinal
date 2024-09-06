@@ -16,7 +16,7 @@ no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
-menu_options = ["1", "2", "3", "4", "Q",], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
+menu_options = ["1", "2", "3", "4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"]
 product_prices = ["600", "350", "360", "40", "400"]
@@ -143,8 +143,9 @@ def Imprimir_Nota():
     print("|",product_type[1][0],productlist.Hoodie_total_stock)
     print("|",product_type[1][1],productlist.Camisetas_total_stock)
     print("|",product_type[1][2],productlist.Jeans_total_stock)
-    print("|",product_type[1][3],productlist.Calcetines.Jeans_total_stock)
-    print("|",product_type[1][4],productlist.Pants_total_stock)
+    print("|",product_type[1][3],productlist.Calcetines_total_stock)
+    print("|",product_type[1][4],productlist.Jeans_total_stock)
+    print("|",product_type[1][5],productlist.Pants_total_stock)
 
 def Quit_Menu():
     # Se define el texto de salir para usarla en el menu
@@ -1146,10 +1147,16 @@ while True:
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
             # Se regresa al menu principal
+
     if Menu_principal == "3":
        # Si el usuario eligio 3 en el menu principal
        Imprimir_Nota()
        # Se imprime la nota de todo el inventario
+       if Imprimir_Nota == "R":
+            # Si el usuario elige R en el menu de imprimir nota
+            continue
+            #vuelve al menu principal
+
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
