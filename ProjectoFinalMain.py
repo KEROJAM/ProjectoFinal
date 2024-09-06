@@ -33,6 +33,8 @@ color_options_jeans = ("1", "2","R"),["1- Azul","2- Negro", "R- Regresar"]
 # Se nombra esa enunciado para verificar los colores de jeans
 size_options = ("S", "M", "L","R"),["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
+imprNot_opt = ["R"],["Hoodies", "Camisetas", "Calcetines", "Jeans", "Pants", "R- Regresar"]
+# Opciones para regresar en imprimir nota
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
 colorN = productlist.hoodies.get("colorN")
@@ -139,12 +141,18 @@ def Product_Type():
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
 
 def Imprimir_Nota():
-    print("|",product_type[1][0],productlist.Hoodie_total_stock)
-    print("|",product_type[1][1],productlist.Camisetas_total_stock)
-    print("|",product_type[1][2],productlist.Jeans_total_stock)
-    print("|",product_type[1][3],productlist.Calcetines_total_stock)
-    print("|",product_type[1][4],productlist.Jeans_total_stock)
-    print("|",product_type[1][5],productlist.Pants_total_stock)
+    print(bar)
+    print("| Cantidad de Inventario por cada producto")
+    print("|",imprNot_opt[1][0],productlist.Hoodie_total_stock)
+    print("|",imprNot_opt[1][1],productlist.Camisetas_total_stock)
+    print("|",imprNot_opt[1][2],productlist.Jeans_total_stock)
+    print("|",imprNot_opt[1][3],productlist.Calcetines_total_stock)
+    print("|",imprNot_opt[1][4],productlist.Pants_total_stock)
+    print("|",imprNot_opt[1][5])
+    ImprNot=input("| ")
+    if ImprNot in imprNot_opt[0]:
+        return ImprNot
+    print(bar)
 
 def Quit_Menu():
     # Se define el texto de salir para usarla en el menu
@@ -1059,7 +1067,8 @@ def shopping_cart():
 
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
-    if Menu_principal() == "1":
+    MenuPrincipal = Menu_principal()
+    if MenuPrincipal == "1":
         # Se ejecuta el menu Principal y Si la opcion del menu es 1
         product_select = Product_Type()
         # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
@@ -1149,12 +1158,15 @@ while True:
             continue
             # Se regresa al menu principal
 
-    if Menu_principal == "3":
+    if MenuPrincipal == "3":
        # Si el usuario eligio 3 en el menu principal
-         Imprimir_Nota()
+         ClearTer()
+         Imprimir_Nota_Res = Imprimir_Nota()
        # Se imprime la nota de todo el inventario
+         if Imprimir_Nota_Res == "R":
+             continue
 
-    if Menu_principal == "Q" or "q":
+    if MenuPrincipal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
         # Se ejectua la texto de salir del programa
