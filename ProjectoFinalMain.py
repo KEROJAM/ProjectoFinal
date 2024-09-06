@@ -21,7 +21,7 @@ menu_options = ["1", "2", "3", "4", "Q"], ["1- Ordenar Productos","2- Agregar In
 product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"]
 product_prices = ["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
-color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "2- Negro", "R- Regresar"]
+color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "3- Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
 color_options_camisetas = ("1", "2", "3","R"),["1- Azul", "2- Negro", "3- Blanco", "R- Regresar"]
 # Este enunciado sirve para verificar si es un color en camisetas
@@ -44,7 +44,6 @@ colorazul_camisetas=productlist.camisetas.get("colorA")
 colornegro_camisetas=productlist.camisetas.get("colorN")
 #le damos un valor a las camisetas de color negro que estan en la lista de productos
 colorblanco_camisetas=productlist.camisetas.get("Blanco")
-i = 0
 #le asignamos un valor a las camisetas de color blanco que estan en la lista de productos
 color_blanco_negro_pants=productlist.Pants.get("Blanco/Negro")
 #importamos el valor de los tenis blanco/negro  que estan en la lista de productos
@@ -155,7 +154,7 @@ def Quit_Menu():
     # imprimmos una barra para mostrar que es el final
     time.sleep(1)
     # Le agregamos un segundo de espera para que el usuario lo lea
-    sys.exit(1)
+    sys.exit()
     # Este es un comando para que el programa termine
 
 def Hoodies_Color_select():
@@ -385,6 +384,10 @@ def Hoodies_Color_White_Size_Select():
             # Si la talla es L y no hay inventario
             print(no_stock)
             # Se le informa al usuario que no hay inventario
+        elif TallaB not in size_options[0]:
+            # Si la opcion no esta en las tallas
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            # se le mostrara un mensaje para que corrobore si escribio bien si opcion
         return TallaB
         # Se Regresa el valor de la enunciado para poder usarala en el menu y carrito de compras
 
@@ -401,7 +404,7 @@ def Hoodies_Color_Black_Size_select():
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
         # Se guarda la talla que eligio el usuario en la enunciado TallaN
-        if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
+        if TallaN == "S" and productlist.hoodies["cantidadNS"] > 0:
             #Si la Talla es S y el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
             #se le mostrara al usuario el stock que tenemos de la talla seleccionada
@@ -413,7 +416,7 @@ def Hoodies_Color_Black_Size_select():
             # Si la talla es S y no hay inventario es 0
             print(no_stock)
             #se le mostrara un mensaje que le hara saber que no contamos con productos disponibes de la talla que eligio
-        if TallaN == "M" and productlist.hoodies["cantidadNM"] < 0:
+        if TallaN == "M" and productlist.hoodies["cantidadNM"] > 0:
             # Si la talla es M y en el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
             #el print de arriba le dira al usuario cuantas tallas tenemos en talla 'M' del producto que selecciono
@@ -425,7 +428,7 @@ def Hoodies_Color_Black_Size_select():
             # Si la talla es M y no hay inventario
             print(no_stock)
             #Se le menciona al usuario que no hay inventario
-        if TallaN == "L" and productlist.hoodies["cantidadNL"] < 0:
+        if TallaN == "L" and productlist.hoodies["cantidadNL"] > 0:
             # Si tallaN es L y tenemos mas productos en L que 0
             print("| Tenemos: ", productlist.hoodies["cantidadNL"], " en Talla L")
             #se le mostrara al usuario la cantidad de productos talla 'L' que hay en stock 
@@ -437,14 +440,12 @@ def Hoodies_Color_Black_Size_select():
             #si no hay existencias en la talla sellecionada se le informara al usario que no hay existencias disponibles
             print(no_stock)
             #se muestra la pantalla que que no hay inventario 
-        if TallaN in size_options:
-            # Se verifica si la opcion de Talla esta en las opciones
-            return TallaN
-            # Si esta en las opciones se devuelve el valor para usarlo despues
-        else:
+        if TallaN not in size_options[0]:
             # Si no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             # se le mostrara un mensaje para que corrobore si escribio bien si opcion
+        return TallaN
+            # Si esta en las opciones se devuelve el valor para usarlo despues
 
 def Camisetas_Color_Blue_Size_Select():
     # Se define la opcion de camisetas aZUL para que el usuario seleccione la talla
@@ -1070,21 +1071,21 @@ while True:
                 # Si la opcion del menu de colores es 1 (Verde)
                 Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color verde y se guarda su resultado en una enunciado para poder usarse
-            if color_size_select == "2":
+            elif color_size_select == "2":
                 # Si la opcion del menu de colores es 2 (Negro)
                 Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
                 # Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-            if color_size_select == "3":
+            elif color_size_select == "3":
                 # la opcion de la seleccion de colores es 3 (Blanco)
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
                 # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
-            if color_size_select == "R":
+            elif color_size_select == "R":
                 # Si la opcion es R se
                 ClearTer()
                 continue
                 # Regresa al menu principal
 
-        if product_select == "2" :
+        elif product_select == "2" :
              # Si la opcion del producto es igual a 2 quiere decir que el usuario selecciono camisetas
             camisetas_color_size_select=camisetas_color_select()
             # Se ejecuta la texto del menu de color de camisetas y se guarda el resultado en una enunciado
@@ -1092,19 +1093,19 @@ while True:
                 # Si la opcion del menu de colores es 1 (Azul)
                 camisetas_blue_size_select=Camisetas_Color_Blue_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una enunciado para poder usarse
-            if camisetas_color_size_select ==  "2":
+            elif camisetas_color_size_select ==  "2":
                 # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
                 camisetas_black_size_select = Camisetas_Color_Black_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una enunciado para poder usarse
-            if camisetas_color_size_select == "3" :
+            elif camisetas_color_size_select == "3" :
                 #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco 
                 camisetas_white_size_select =Camisetas_Color_White_Size_Select()
                 # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
-            if camisetas_color_size_select == "R":
+            elif camisetas_color_size_select == "R":
                  ClearTer()
                  continue
 
-        if product_select == "3":
+        elif product_select == "3":
             #si el usuario selecciona la opcion tres lo redirigira al menu para elegir calcetines
             calcetines_color_size_select=calcetines_color_select()
             #se ejecuta el texto del menu de color de calcetines y se guarda el resultado
@@ -1112,51 +1113,46 @@ while True:
                 #si la opcion seleccionada es 1 el usuario esta eligiendo el color negro para sus calcetines
                 calcetines_black_size_select=calcetines_color_black_size_select()
                 #Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-            if calcetines_color_size_select == "2":
+            elif calcetines_color_size_select == "2":
                 #si la opcion seleccionada es igal a 2 quiere decir que el usuario esta eligiendo el color negro para sus calcetines
                 calcetines_color_white_size_select=Calcetines_color_white_size_select()
                 #se ejecuta el menu de seleecion de tallas para el color blanco para calcetines y se guarda el resultado
-            if calcetines_color_size_select == "R":
+            elif calcetines_color_size_select == "R":
                 ClearTer()
                 continue
 
-        if product_select == "4":
+        elif product_select == "4":
             jeans_color_size_select =jeans_color_select()
             if jeans_color_size_select == "1":
                 jeans_color_blue_size_select=Jeans_color_blue_size_select()
-            if jeans_color_size_select== "2" :
+            elif jeans_color_size_select== "2" :
                 jeans_colr_black_size_select=Jeans_color_black_size_select()
-            if jeans_color_size_select == "R":
+            elif jeans_color_size_select == "R":
                 ClearTer()
                 continue
 
-        if product_select == "5":
+        elif product_select == "5":
             pants_color_size_select=Pants_color_select()
             if pants_color_size_select == "1":
                 pants_color_blackwhite_size_select= pants_color_black_and_white_size_select()
-            if pants_color_size_select== "2":
+            elif pants_color_size_select== "2":
                 pants_color_black_sizeselect= pants_color_black_size_select()
-            if pants_color_size_select == "3":
+            elif pants_color_size_select == "3":
                 pants_color_white_sizeselect= pants_color_white_size_select()
-            if pants_color_size_select == "R":
+            elif pants_color_size_select == "R":
                 ClearTer()
                 continue
 
 
-        if product_select == "R":
+        elif product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
             continue
             # Se regresa al menu principal
 
     if Menu_principal == "3":
        # Si el usuario eligio 3 en el menu principal
-       Imprimir_Nota()
+         Imprimir_Nota()
        # Se imprime la nota de todo el inventario
-       if Imprimir_Nota == "R":
-            # Si el usuario elige R en el menu de imprimir nota
-            continue
-            #vuelve al menu principal
-
     if Menu_principal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
