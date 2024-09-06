@@ -170,7 +170,7 @@ def Hoodies_Color_select():
     ClearTer()
     while True:
         # Se inica un ciclo para poder repetir el menu sin tener que escribirlo muchas veces
-        print(bar)
+        print(bar), 
         #imprime otra barra
         print("| Elige que Color quieres: ")
         #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
@@ -198,11 +198,11 @@ def camisetas_color_select ():
         #se imprime una barra
         print("Elige que color quieres :")
         #es el titulo del menu para empezar a elegir el color del producto que selecciono el usuario
-        print("|","\n| ".join(color_options_camisas[1]),end="\n")
+        print("|","\n| ".join(color_options_camisetas[1]),end="\n")
         # estas son las colores que tiene como opciones el usuario para escoger para su producto
         colorC= input("| ")
         #se le pide al usuario seleccionar el color que desea y se guarda aqui para usarse mas tarde
-        if colorC in color_options_camisas[0]:
+        if colorC in color_options_camisetas[0]:
             #aqui se guardo el color que selecciono el usuario
             return colorC
             # Se regresa el color que el usuario decidio para usarlo despues
@@ -274,7 +274,7 @@ def Pants_color_select () :
         #estas son las opciones que el usuario tiene para escoger un color para sus tenis
         colorPants= input ("|")
         #se le pide al usuario que seleccione el color que quiere
-        if colorPants in color_options_Pants:
+        if colorPants in color_options_Pants[0]:
         #guarda el color que selecciono el usuario para los tenis
             return colorPants
         #se regresa el color que eligio el usuario
@@ -356,6 +356,10 @@ def Hoodies_Color_White_Size_Select():
         #en los dos prints anteriores se le muestra al usuario un menu para elegir la talla del producto que quiere adquirir
         TallaB = input("| ")
         #Con la Talla que decidio el usuario se le asigna a TallaB
+        if TallaB not in size_options[0]:
+            #Si la talla que eligio el usario no esta en las opciones
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
         if TallaB == "S" and productlist.hoodies["cantidadBS"] > 0:
             # Si el usuario Eligio Talla S verifica si tenemos mayor cantidad que 0 en el stock
             print("| Tenemos: ", productlist.hoodies["cantidadBS"], " en Talla S")
@@ -412,7 +416,15 @@ def Hoodies_Color_Black_Size_select():
         #estas son las tallas disponibles que se mostraran en el menu
         TallaN = input("| ")
         # Se guarda la talla que eligio el usuario en la enunciado TallaN
+<<<<<<< HEAD
+        if TallaN not in size_options[0]:
+            #Si la talla que eligio el usario no esta en las opciones
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
+        if TallaN == "S" and productlist.hoodies["cantidadNS"] < 0:
+=======
         if TallaN == "S" and productlist.hoodies["cantidadNS"] > 0:
+>>>>>>> 51f616faadf636ce746920e1a0e90347f72212b1
             #Si la Talla es S y el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNS"], " en Talla S")
             #se le mostrara al usuario el stock que tenemos de la talla seleccionada
