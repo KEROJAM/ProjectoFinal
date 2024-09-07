@@ -150,18 +150,35 @@ def Product_Type():
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
 
 def Imprimir_Nota():
+    # Se Define el menu de Imprimir nota de inventario
     print(bar)
+    # Se impirme una barra para separar contenido
     print("| Cantidad de Inventario por cada producto")
+    # Se le informa al usuario que es la informacion
     print("|",imprNot_opt[1][0],productlist.Hoodie_total_stock)
+    # Se muestra el inventario total de Hoodies
     print("|",imprNot_opt[1][1],productlist.Camisetas_total_stock)
+    # Se muestra inventario total de Camisetas
     print("|",imprNot_opt[1][2],productlist.Jeans_total_stock)
+    # Se muestra inventario total de Jeans
     print("|",imprNot_opt[1][3],productlist.Calcetines_total_stock)
+    # Se muestra inventario total de Calcetines
     print("|",imprNot_opt[1][4],productlist.Pants_total_stock)
+    # Se muestra inventario total de Pants
     print("|",imprNot_opt[1][5])
-    ImprNot=input("| ")
+    # Se muestra el boton de regresar
+    ImprNot=input("| Escriba R para Regresar: ")
+    # Se le pide al usuario que ingrese regresar
     if ImprNot in imprNot_opt[0]:
+        # Si lo que puso el usuario esta en las opciones
         return ImprNot
-    print(bar)
+        # Regresa el valor para usarlo en el menu
+        print(bar)
+        # Se imprime una barra para separar contenido
+    else:
+        # Si lo que puso el usuario no esta en las opciones
+        print("| Esa no es una opcion, La unica opcion es R")
+        # Se le informa al usuario que no es una opcion
 
 def Quit_Menu():
     # Se define el texto de salir para usarla en el menu
@@ -259,7 +276,7 @@ def jeans_color_select():
         #estas son las opciones que el usuario tiene para escoger un color para sus jeans
         colorJeans= input ("|")
         #se le pide al usuario que seleccione el color que quiere
-        if colorJeans in color_options_jeans:
+        if colorJeans in color_options_jeans[0]:
         #guarda el color que selecciono el usuario para los jeans
             return colorJeans
         #se regresa el color que eligio el usuario
@@ -485,7 +502,7 @@ def Camisetas_Color_Blue_Size_Select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaAzul = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
-        if TallaAzul not in size_options:
+        if TallaAzul not in size_options[0]:
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -543,7 +560,7 @@ def Camisetas_Color_Black_Size_Select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaNegro = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
-        if TallaNegro not in size_options:
+        if TallaNegro not in size_options[0]:
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -601,7 +618,7 @@ def Camisetas_Color_White_Size_Select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaBlanco = input("| ")
         # Se guarda la talla que eligio el usario en TallaAS
-        if TallaBlanco not in size_options:
+        if TallaBlanco not in size_options[0]:
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -659,7 +676,7 @@ def calcetines_color_black_size_select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         TallaBlackcalcetines=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
-        if TallaBlackcalcetines not in size_options:
+        if TallaBlackcalcetines not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -716,7 +733,7 @@ def Calcetines_color_white_size_select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallawhitecalcetines=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
-        if Tallawhitecalcetines not in size_options:
+        if Tallawhitecalcetines not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -773,7 +790,7 @@ def Jeans_color_blue_size_select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallabluejeans=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
-        if Tallabluejeans not in size_options:
+        if Tallabluejeans not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -830,7 +847,7 @@ def Jeans_color_black_size_select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackjeans=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el usuario 
-        if Tallablackjeans not in size_options:
+        if Tallablackjeans not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -887,7 +904,7 @@ def pants_color_black_and_white_size_select ():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackandwhitepants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
-        if Tallablackandwhitepants not in size_options:
+        if Tallablackandwhitepants not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -944,7 +961,7 @@ def pants_color_black_size_select () :
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallablackpants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
-        if Tallablackpants not in size_options:
+        if Tallablackpants not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -1001,7 +1018,7 @@ def pants_color_white_size_select():
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar
         Tallawhitepants=input("| ")
         #esta es una funcion , en este programa esta sirve para almacenar la talla que elegio el Busuario 
-        if Tallawhitepants not in size_options:
+        if Tallawhitepants not in size_options[0]:
         #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
         #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
@@ -1126,18 +1143,28 @@ def shopping_cart(n,j):
                 TempShopping_Cart_List.append(TotalProductPrice)
                 # Y se agrega el Precio total de la cantidad por el precio
                 if j == 0:
+                    # Si J es igual a 0
                     TotalShoppingCart = TotalProductPrice
+                    # Se asigna el valor de El total de el producto multiplicado por el precio mas el total de todos los productos
                     TempShopping_Cart_List.append(TotalShoppingCart)
+                    # Se le agrega a una lista el Total de todos los productos
                     Shopping_Cart_List.append(TempShopping_Cart_List)
+                    # Se le agrega a el shopping cart principal la lista de los productos mas el precio total del shopping cart
                 elif j > 0:
+                    # Si j es mayor que 0
                     TotalShoppingCart = Shopping_Cart_List[0][-1]
+                    # Se agara el valor del precio total de todo el carrito de compras
                     print(TotalShoppingCart)
                     print(Shopping_Cart_List)
                     print(TempShopping_Cart_List)
                     TotalShoppingCart = TotalShoppingCart + TotalProductPrice
+                    # Se suma el valor total de Carrito de compras a el valor total de los productos elegidos ahorita
                     del Shopping_Cart_List[0][-1]
+                    # Se borra el valor Total de carrito anterior
                     Shopping_Cart_List[0].append(TotalShoppingCart)
+                    # Y se agrega el nuevo valor Total de carrito de compras
                     Shopping_Cart_List.append(TempShopping_Cart_List)
+                    # Se agrega el valor de los productos nuevos al Carrito de compras
                 print(bar)
                 # Imprime la barra para separar los menus
                 return Shopping_Cart_List
@@ -1150,7 +1177,23 @@ def shopping_cart(n,j):
 
 def MontoTotalVentas():
     # Este es el menu de Monto total de ventas
-    print(Shopping_Cart[0][-1])
+    while True:
+        # Se inicia un ciclo para repetir el menu si el usuario se equivoco
+        print("| Este es el monto total de todas las ventas de Session: ",Shopping_Cart[0][-1])
+        # Se imprime monto total de ventas en la session
+        print("| ",imprNot_opt[1][5])
+        # Se imprime la opcion de regresar
+        MontoTotalOpcion=input("| Eliga Regresar para volver al menu principal: ")
+        # Se le informa al usuario que hacer para regresar al menu principal
+        if MontoTotalOpcion in imprNot_opt[0]:
+            # si el usuario eligo una opcion que si esta en el menu
+            return MontoTotalOpcion
+            # Se regresa el valor para usarlo en el menu
+        else:
+            # Si esa opcion no esta en el menu
+            print("| Esa no es una opcion porfavor eliga R")
+            # Se le informa que es una opcion incorrecta
+
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
     MenuPrincipal = Menu_principal(j,Shopping_Cart)
@@ -1281,14 +1324,20 @@ while True:
              continue
             # Se regresa al menu principal
     elif MenuPrincipal == "4":
-        MontoTotalVentas()
+        # Si el usuario eligio Monto total de ventas en el menu principal
+        Monto_Ventas_Total = MontoTotalVentas()
+        # Se ejecuta el menu de Monto total de Ventas
+        if Monto_Ventas_Total == "R":
+            # Si el usuario eligio regresar al menu principal en Monto de ventas
+            continue
+            # Se regresa al menu principal
+
     elif MenuPrincipal == "Q" or "q":
         # Si la opcion del Menu Principal es Q
         Quit_Menu()
         # Se ejectua la texto de salir del programa
 
     Shopping_Cart = shopping_cart(product_select,j)
-
     # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
     j+=1
     # Se le agrega 1 al contador para que se vaya a la siguiente producto
