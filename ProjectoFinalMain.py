@@ -1040,31 +1040,53 @@ def pants_color_white_size_select():
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
 j = 0
+# Se inicia un Contador para moverse entre la lista
 Shopping_Cart_List=[]
+# Esta es la lista del carrito que tiene el usuario por session
 def shopping_cart(n,j):
     # Aqui se define un a funciion para el carrito de compras
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         if n == "1":
+            # Si el usuario eligio Hoodies
             print("| Las hoodies cuestan $600")
+            # Se le informa cuanto cuestan las Hoodies
             ProductPrice = 600
+            # Se asigna el precio al producto para mostrarlo al final
             ProductName = "Hoodies"
+            # Se le asigna El nombre de producto para mostrarlo
         elif n == "2":
+            # Si el usuario eligio Camisas
             print("| Las camisas cuestan $350")
+            # Se le informa cuanto cuestan las camisas
             ProductPrice = 350
+            # Se asigna el precio indicado
             ProductName = "Camisetas"
+            # Se asigna el Producto para mostarlo al final
         elif n == "3":
+            # Si el usuario eligio Jeans
             print("| Los Jeans cuestan $360")
+            # Se le informa cuanto es el costo de los Jeans
             ProductPrice = 360
+            # Se le asigna un valor al costo
             ProductName = "Jeans"
+            # Se le asigna el Producto para mostrarlo en el carrito
         elif n == "4":
+            # Si el usuario eligo calcetines
             print("| Los Calcetines cuestan $40")
+            # Se le infroma al usuario el costo de los calcetines
             ProductPrice = 40
+            # Se asigna el precio al producto
             ProductName = "Clacetines"
+            # y se asigna el producto para mostarlo en el carrito de compras
         elif n == "5":
+            # Si el usuario eligio pants
             print("| Los Pants cuestan $400")
+            # Se le informa al usuario el costo de los Pants
             ProductPrice = 400
+            # Se les asigna un valor a los pantalones
             ProductName = "Pants"
+            # Se asigna un producto para poder mostar el producto en el carrito de compras
         try:
             # nos deja probar si el codigo de abajo textoa para dectectar errores
             Shopping_Cart_Amount = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
@@ -1087,13 +1109,17 @@ def shopping_cart(n,j):
             else:
                 # Si no es menor o igual a cero y no es mayor a 10
                 TotalProductPrice = Shopping_Cart_Amount*ProductPrice
+                # Se multiplica la cantidad de articulos que quiere el usuario por el precio del producto
                 Shopping_Cart_List.append([])
+                # Se le agrega a la lista de usuario una nueva columna
                 print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName,"$",TotalProductPrice)
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
                 Shopping_Cart_List[j].append(Shopping_Cart_Amount)
+                # A la lista se le agega el Monto total de articulos
                 Shopping_Cart_List[j].append(ProductName)
+                # A la lista se le agega el Producto que eligio el usuario
                 Shopping_Cart_List[j].append(TotalProductPrice)
-                print(Shopping_Cart_List)
+                # Y se agrega el Precio total de la cantidad por el precio
                 print(bar)
                 # Imprime la barra para separar los menus
                 return Shopping_Cart_List
@@ -1105,8 +1131,13 @@ def shopping_cart(n,j):
 Shopping_Cart = 0
 # Se define la variable Shopping cart para usar el carrito de compras
 
-def MontoTotalVentas():
-    print(Shopping_Cart)
+def MontoTotalVentas(n):
+    # Este es el menu de Monto total de ventas
+    for i in n:
+        for s in n[u]:
+            print(n[i][3], end=" ")
+    # Se imprime Los montos de la lista de carrito de compras
+
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
     MenuPrincipal = Menu_principal(Shopping_Cart)
@@ -1172,30 +1203,53 @@ while True:
                 calcetines_color_white_size_select=Calcetines_color_white_size_select()
                 #se ejecuta el menu de seleecion de tallas para el color blanco para calcetines y se guarda el resultado
             elif calcetines_color_size_select == "R":
+                # Si el usuario elige la opcion R
                 ClearTer()
+                # Se limipia la pantala
                 continue
+                # Y vuelve al menu principal
 
         elif product_select == "4":
+            # Si el usuario eligio Jeans en producto
             jeans_color_size_select =jeans_color_select()
+            # Se le pide el color que eligira
             if jeans_color_size_select == "1":
+                # Si el Usuario selecciono azul
                 jeans_color_blue_size_select=Jeans_color_blue_size_select()
+                # Se le pregunta que talla va a nececitar para los Jeans Azules
             elif jeans_color_size_select== "2" :
+                # Si Eligio Jeans Negros
                 jeans_colr_black_size_select=Jeans_color_black_size_select()
+                # Se le pregunta la Talla de los Jeans Negros
             elif jeans_color_size_select == "R":
+                # Si eligio Regresar
                 ClearTer()
+                # Se limipa la pantalla
                 continue
+                # Y Se regersa al menu principal
 
         elif product_select == "5":
+            # Si eligio Pants
             pants_color_size_select=Pants_color_select()
+            # Se le da la opcion de elegi que color va a querer en Pants
             if pants_color_size_select == "1":
+                # Si el color Es blanco y nergo
                 pants_color_blackwhite_size_select= pants_color_black_and_white_size_select()
+                # Se le pide al usuario que seleccione una talla
             elif pants_color_size_select== "2":
+                # Si selecciono Negro
                 pants_color_black_sizeselect= pants_color_black_size_select()
+                # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
             elif pants_color_size_select == "3":
+                # Si eligo Pants Blancos
                 pants_color_white_sizeselect= pants_color_white_size_select()
+                # Se le pide al usuario que seleccione la Talla de Pants Blancos
             elif pants_color_size_select == "R":
+                # Si Selecciona regresar
                 ClearTer()
+                # Se limpia la pantalla
                 continue
+                # Y se regersa al menu principal
 
 
         elif product_select == "R":
@@ -1219,5 +1273,7 @@ while True:
         # Se ejectua la texto de salir del programa
 
     Shopping_Cart = shopping_cart(product_select,j)
-    j+=1
+
     # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
+    j+=1
+    # Se le agrega 1 al contador para que se vaya a la siguiente producto
