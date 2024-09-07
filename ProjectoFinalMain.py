@@ -1181,7 +1181,7 @@ def MontoTotalVentas():
         # Se inicia un ciclo para repetir el menu si el usuario se equivoco
         print("| Este es el monto total de todas las ventas de Session: ",Shopping_Cart[0][-1])
         # Se imprime monto total de ventas en la session
-        print("| ",imprNot_opt[1][5])
+        print("|",imprNot_opt[1][5])
         # Se imprime la opcion de regresar
         MontoTotalOpcion=input("| Eliga Regresar para volver al menu principal: ")
         # Se le informa al usuario que hacer para regresar al menu principal
