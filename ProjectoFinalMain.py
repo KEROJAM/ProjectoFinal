@@ -22,15 +22,15 @@ product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "3- Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
-color_options_camisetas = ("1", "2", "3","R"),["1- Azul", "2- Negro", "3- Blanco", "R- Regresar"]
+color_options_camisetas = ["1", "2", "3","R"],["1- Azul", "2- Negro", "3- Blanco", "R- Regresar"]
 # Este enunciado sirve para verificar si es un color en camisetas
-color_options_calcetines = ("1", "2","R"), ["1- Negro", "2- Blanco", "R- Regresar"]
+color_options_calcetines = ["1", "2","R"], ["1- Negro", "2- Blanco", "R- Regresar"]
 # Esta  esta para verificar el color de calcetines
-color_options_Pants = ("1", "2", "3","R"), ["1- Negro y Blanco", "2- Negro", "3- Blanco", "R- Regresar"]
+color_options_Pants = ["1", "2", "3","R"], ["1- Negro y Blanco", "2- Negro", "3- Blanco", "R- Regresar"]
 # Se declara esta enunciado para verificar los colores de los pants
-color_options_jeans = ("1", "2","R"),["1- Azul","2- Negro", "R- Regresar"]
+color_options_jeans = ["1", "2","R"],["1- Azul","2- Negro", "R- Regresar"]
 # Se nombra esa enunciado para verificar los colores de jeans
-size_options = ("S", "M", "L","R"),["S","M","L","R- Regresar"]
+size_options = ["S", "M", "L","R"],["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
 imprNot_opt = ["R"],["Hoodies", "Camisetas", "Calcetines", "Jeans", "Pants", "R- Regresar"]
 # Opciones para regresar en imprimir nota
@@ -62,7 +62,8 @@ color_white_calcetines=productlist.Calcetines.get("Blanco")
 # Se le asigna el color de los calcetines desde la lista de productos
 Shopping_Cart = 0
 # Se define la variable Shopping cart para usar el carrito de compras
-
+j = 0
+# Se inicia un Contador para moverse entre la lista
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
 nombre = input("| Porporcione el nombre del empleado : ")
@@ -93,7 +94,7 @@ def ClearTer():
 mensaje_espera()
 # Ejecutamos el texto mensaje de espera para que el mensaje de espera se vea
 
-def Menu_principal(s=0):
+def Menu_principal(j,s=0):
     # Declaramos el texto de mensaje de espera para poner todo el menu principal en una que sea mas accesible
     while True:
         # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
@@ -104,10 +105,10 @@ def Menu_principal(s=0):
         # Se le saluda al usuario
         print("|     *Menu*")
         # Se impirme el titulo del menu principal
-        if s == 0:
+        if j == 0 or j == 1:
             print("| En su carrito hay: ", s)
-        elif s != 0:
-            print("| En su carrito hay: ", s[:-1][-2])
+        if j > 1:
+            print("| En su carrito hay: ", s[:-1])
         # Se impirme el carrito de compras
         print("|","\n| ".join(menu_options[1]), end="\n")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa
@@ -204,7 +205,7 @@ def camisetas_color_select ():
         # se inicia un ciclo para poder repetir el menu sin tener que escribirlo tan seguido
         print(bar)
         #se imprime una barra
-        print("Elige que color quieres :")
+        print("| Elige que color quieres :")
         #es el titulo del menu para empezar a elegir el color del producto que selecciono el usuario
         print("|","\n| ".join(color_options_camisetas[1]),end="\n")
         # estas son las colores que tiene como opciones el usuario para escoger para su producto
@@ -254,7 +255,7 @@ def jeans_color_select():
         #se imprime una barra
         print("| Elige que color quieres : ")
         #se imprime el titulo del menu
-        print("|","\n| ".join(color_options_jeans),end="\n")
+        print("|","\n| ".join(color_options_jeans[1]),end="\n")
         #estas son las opciones que el usuario tiene para escoger un color para sus jeans
         colorJeans= input ("|")
         #se le pide al usuario que seleccione el color que quiere
@@ -1050,6 +1051,7 @@ Shopping_Cart_List=[]
 # Esta es la lista del carrito que tiene el usuario por session
 def shopping_cart(n,j):
     # Aqui se define un a funciion para el carrito de compras
+    TempShopping_Cart_List=[]
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         if n == "1":
@@ -1068,7 +1070,7 @@ def shopping_cart(n,j):
             # Se asigna el precio indicado
             ProductName = "Camisetas"
             # Se asigna el Producto para mostarlo al final
-        elif n == "3":
+        elif n == "4":
             # Si el usuario eligio Jeans
             print("| Los Jeans cuestan $360")
             # Se le informa cuanto es el costo de los Jeans
@@ -1076,7 +1078,7 @@ def shopping_cart(n,j):
             # Se le asigna un valor al costo
             ProductName = "Jeans"
             # Se le asigna el Producto para mostrarlo en el carrito
-        elif n == "4":
+        elif n == "3":
             # Si el usuario eligo calcetines
             print("| Los Calcetines cuestan $40")
             # Se le infroma al usuario el costo de los calcetines
@@ -1115,22 +1117,27 @@ def shopping_cart(n,j):
                 # Si no es menor o igual a cero y no es mayor a 10
                 TotalProductPrice = Shopping_Cart_Amount*ProductPrice
                 # Se multiplica la cantidad de articulos que quiere el usuario por el precio del producto
-                Shopping_Cart_List.append([])
-                # Se le agrega a la lista de usuario una nueva columna
                 print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName,"$",TotalProductPrice)
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
-                Shopping_Cart_List[j].append(Shopping_Cart_Amount)
+                TempShopping_Cart_List.append(Shopping_Cart_Amount)
                 # A la lista se le agega el Monto total de articulos
-                Shopping_Cart_List[j].append(ProductName)
+                TempShopping_Cart_List.append(ProductName)
                 # A la lista se le agega el Producto que eligio el usuario
-                Shopping_Cart_List[j].append(TotalProductPrice)
+                TempShopping_Cart_List.append(TotalProductPrice)
                 # Y se agrega el Precio total de la cantidad por el precio
                 if j == 0:
                     TotalShoppingCart = TotalProductPrice
-                    Shopping_Cart_List.append(TotalShoppingCart)
-                elif j != 0:
-                    TotalShoppingCart = Shopping_Cart_List[0][-1] + TotalProductPrice
+                    TempShopping_Cart_List.append(TotalShoppingCart)
+                    Shopping_Cart_List.append(TempShopping_Cart_List)
+                elif j > 0:
+                    TotalShoppingCart = Shopping_Cart_List[0][-1]
+                    print(TotalShoppingCart)
+                    print(Shopping_Cart_List)
+                    print(TempShopping_Cart_List)
+                    TotalShoppingCart = TotalShoppingCart + TotalProductPrice
+                    del Shopping_Cart_List[0][-1]
                     Shopping_Cart_List[0].append(TotalShoppingCart)
+                    Shopping_Cart_List.append(TempShopping_Cart_List)
                 print(bar)
                 # Imprime la barra para separar los menus
                 return Shopping_Cart_List
@@ -1146,7 +1153,7 @@ def MontoTotalVentas():
     print(Shopping_Cart[0][-1])
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
-    MenuPrincipal = Menu_principal(Shopping_Cart)
+    MenuPrincipal = Menu_principal(j,Shopping_Cart)
     if MenuPrincipal == "1":
         # Se ejecuta el menu Principal y Si la opcion del menu es 1
         product_select = Product_Type()
