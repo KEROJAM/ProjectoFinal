@@ -18,7 +18,7 @@ bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 menu_options = ["1", "2", "3", "4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Nota","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
-product_type = ["1", "2", "3", "4", "5", "R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "R- Regresar"],["600", "350", "360", "40", "400"]
+product_type = ["1", "2", "3", "4", "5","6","R"], ["1- Hoodies", "2- Camisetas", "3- Calcetines", "4- Jeans", "5- Pants", "6- Imprimir Nota", "R- Regresar"],["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
 color_options_hoddies = ["1", "2", "3","R"],["1- Verde", "2- Blanco", "3- Negro", "R- Regresar"]
 # Este texto Sirve para verificar si es un color en Hoodies
