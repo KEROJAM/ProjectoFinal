@@ -1197,8 +1197,9 @@ def MontoTotalVentas():
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
     MenuPrincipal = Menu_principal(j,Shopping_Cart)
+    #Se ejecuta el menu Principal
     if MenuPrincipal == "1":
-        # Se ejecuta el menu Principal y Si la opcion del menu es 1
+        # Si la opcion del menu es 1
         product_select = Product_Type()
         # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
         if product_select == "1":
@@ -1217,9 +1218,10 @@ while True:
                 # la opcion de la seleccion de colores es 3 (Blanco)
                 Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
                 # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
-            elif color_size_select == "R":
+            if color_size_select == "R":
                 # Si la opcion es R se
                 ClearTer()
+                # Limpia la pantalla
                 continue
                 # Regresa al menu principal
 
@@ -1308,9 +1310,9 @@ while True:
                 # Y se regersa al menu principal
 
 
-        elif product_select == "R":
+    elif product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
-            continue
+         continue
             # Se regresa al menu principal
 
     elif MenuPrincipal == "3":
