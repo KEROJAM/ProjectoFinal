@@ -1062,7 +1062,7 @@ j = 0
 # Se inicia un Contador para moverse entre la lista
 Shopping_Cart_List=[]
 # Esta es la lista del carrito que tiene el usuario por session
-def shopping_cart(n,j):
+def shopping_cart(n,j,u):
     # Aqui se define un a funciion para el carrito de compras
     TempShopping_Cart_List=[]
     while True:
@@ -1130,7 +1130,7 @@ def shopping_cart(n,j):
                 # Si no es menor o igual a cero y no es mayor a 10
                 TotalProductPrice = Shopping_Cart_Amount*ProductPrice
                 # Se multiplica la cantidad de articulos que quiere el usuario por el precio del producto
-                print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName,"$",TotalProductPrice)
+                print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName, u ,"$",TotalProductPrice)
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
                 TempShopping_Cart_List.append(Shopping_Cart_Amount)
                 # A la lista se le agega el Monto total de articulos
@@ -1201,21 +1201,21 @@ while True:
             # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
             if product_select == "1":
             # Si la opcion del producto es igual a 1 que es hoodies
-                color_size_select = Hoodies_Color_select()
+                Hoodies_color_select = Hoodies_Color_select()
                 # Se ejecuta la texto del menu de color de hoodies y se guarda el resultado en una enunciado
-                if color_size_select == "1":
+                if Hoodies_color_select == "1":
                     # Si la opcion del menu de colores es 1 (Verde)
-                    Hoodie_Green_Size_Select = Hoodies_Color_Green_Size_Select()
+                    Size_select = Hoodies_Color_Green_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color verde y se guarda su resultado en una enunciado para poder usarse
-                elif color_size_select == "2":
+                elif Hoodies_color_select == "2":
                     # Si la opcion del menu de colores es 2 (Negro)
-                    Hoodie_Black_Size_Select = Hoodies_Color_Black_Size_select()
+                    Size_select = Hoodies_Color_Black_Size_select()
                     # Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-                elif color_size_select == "3":
+                elif Hoodies_color_select == "3":
                     # la opcion de la seleccion de colores es 3 (Blanco)
-                    Hoodie_White_Size_Select = Hoodies_Color_White_Size_Select()
+                    Size_select = Hoodies_Color_White_Size_Select()
                     # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
-                elif color_size_select == "R":
+                elif Hoodies_color_select == "R":
                     # Si la opcion es R se
                     ClearTer()
                     # Limpia la pantalla
@@ -1224,21 +1224,21 @@ while True:
 
             elif product_select == "2" :
                 # Si la opcion del producto es igual a 2 quiere decir que el usuario selecciono camisetas
-                camisetas_color_size_select=camisetas_color_select()
+                camisetas_color_select=camisetas_color_select()
                 # Se ejecuta la texto del menu de color de camisetas y se guarda el resultado en una enunciado
-                if camisetas_color_size_select == "1":
+                if camisetas_color_select == "1":
                     # Si la opcion del menu de colores es 1 (Azul)
-                    camisetas_blue_size_select=Camisetas_Color_Blue_Size_Select()
+                    Size_select=Camisetas_Color_Blue_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_size_select ==  "2":
+                elif camisetas_color_select ==  "2":
                     # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
-                    camisetas_black_size_select = Camisetas_Color_Black_Size_Select()
+                    Size_select = Camisetas_Color_Black_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_size_select == "3" :
+                elif camisetas_color_select == "3" :
                     #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco
-                    camisetas_white_size_select =Camisetas_Color_White_Size_Select()
+                    Size_select =Camisetas_Color_White_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_size_select == "R":
+                elif camisetas_color_select == "R":
                     # Si el usuario selecciono la opcion R
                     ClearTer()
                     # Se limpia la pantalla
@@ -1247,17 +1247,17 @@ while True:
 
             elif product_select == "3":
             #si el usuario selecciona la opcion tres lo redirigira al menu para elegir calcetines
-                calcetines_color_size_select=calcetines_color_select()
+                calcetines_color_select=calcetines_color_select()
                 #se ejecuta el texto del menu de color de calcetines y se guarda el resultado
-                if calcetines_color_size_select == "1":
+                if calcetines_color_select == "1":
                     #si la opcion seleccionada es 1 el usuario esta eligiendo el color negro para sus calcetines
-                    calcetines_black_size_select=calcetines_color_black_size_select()
+                    Size_select=calcetines_color_black_size_select()
                     #Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-                elif calcetines_color_size_select == "2":
+                elif calcetines_color_select == "2":
                     #si la opcion seleccionada es igal a 2 quiere decir que el usuario esta eligiendo el color negro para sus calcetines
-                    calcetines_color_white_size_select=Calcetines_color_white_size_select()
+                    Size_select=Calcetines_color_white_size_select()
                     #se ejecuta el menu de seleecion de tallas para el color blanco para calcetines y se guarda el resultado
-                elif calcetines_color_size_select == "R":
+                elif calcetines_color_select == "R":
                     # Si el usuario elige la opcion R
                     ClearTer()
                     # Se limipia la pantala
@@ -1266,17 +1266,17 @@ while True:
 
             elif product_select == "4":
                  # Si el usuario eligio Jeans en producto
-                 jeans_color_size_select =jeans_color_select()
+                 jeans_color_select =jeans_color_select()
                  # Se le pide el color que eligira
-                 if jeans_color_size_select == "1":
+                 if jeans_color_select == "1":
                    # Si el Usuario selecciono azul
-                    jeans_color_blue_size_select=Jeans_color_blue_size_select()
+                    Size_select=Jeans_color_blue_size_select()
                    # Se le pregunta que talla va a nececitar para los Jeans Azules
-                 elif jeans_color_size_select== "2" :
+                 elif jeans_color_select== "2" :
                    # Si Eligio Jeans Negros
-                     jeans_colr_black_size_select=Jeans_color_black_size_select()
+                     Size_select=Jeans_color_black_size_select()
                      # Se le pregunta la Talla de los Jeans Negros
-                 elif jeans_color_size_select == "R":
+                 elif jeans_color_select == "R":
                      # Si eligio Regresar
                      ClearTer()
                      # Se limipa la pantalla
@@ -1285,21 +1285,21 @@ while True:
 
             elif product_select == "5":
             # Si eligio Pants
-                pants_color_size_select=Pants_color_select()
+                pants_color_select=Pants_color_select()
                 # Se le da la opcion de elegi que color va a querer en Pants
-                if pants_color_size_select == "1":
+                if pants_color_select == "1":
                     # Si el color Es blanco y nergo
-                    pants_color_blackwhite_size_select= pants_color_black_and_white_size_select()
+                    Size_select= pants_color_black_and_white_size_select()
                     # Se le pide al usuario que seleccione una talla
-                elif pants_color_size_select== "2":
+                elif pants_color_select== "2":
                     # Si selecciono Negro
-                    pants_color_black_sizeselect= pants_color_black_size_select()
+                    Size_select= pants_color_black_size_select()
                     # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
-                elif pants_color_size_select == "3":
+                elif pants_color_select == "3":
                     # Si eligo Pants Blancos
-                    pants_color_white_sizeselect= pants_color_white_size_select()
+                    Size_select= pants_color_white_size_select()
                     # Se le pide al usuario que seleccione la Talla de Pants Blancos
-                elif pants_color_size_select == "R":
+                elif pants_color_select == "R":
                     # Si Selecciona regresar
                     ClearTer()
                     # Se limpia la pantalla
@@ -1319,11 +1319,12 @@ while True:
             # Si el usuario eligio Regresar en la seleccion de productos
                  break
             # Se regresa al menu principal
-            Shopping_Cart = shopping_cart(product_select,j)
+            Shopping_Cart = shopping_cart(product_select , j, Size_select)
             # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
             j+=1
             # Se le agrega 1 al contador para que se vaya a la siguiente producto
             time.sleep(2)
+            # Le da al usuario tiempo de ver el precio de los productos que eligieron
 
 
         elif MenuPrincipal == "4":
