@@ -34,6 +34,8 @@ size_options = ["S", "M", "L","R"],["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
 imprNot_opt = ["R"],["Hoodies", "Camisetas", "Calcetines", "Jeans", "Pants", "R- Regresar"]
 # Opciones para regresar en imprimir nota
+imprNot_opt = [["Hoodies","Verde", "Blanco", "Negro", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro", "$360"], ["R- Regresar"]]
+# Se cera una lista de todos los productos y sus colores
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
 colorN = productlist.hoodies.get("colorN")
@@ -155,18 +157,16 @@ def Imprimir_Nota():
     # Se impirme una barra para separar contenido
     print("| Cantidad de Inventario por cada producto")
     # Se le informa al usuario que es la informacion
-    print("|",imprNot_opt[1][0],":",productlist.Hoodie_total_stock,",$",600,colorV,colorN,colorB)
-    # Se muestra el inventario total de Hoodies
-    print("|",imprNot_opt[1][1],":",productlist.Camisetas_total_stock,",$",350,colorazul_camisetas,colornegro_camisetas,colorblanco_camisetas)
-    # Se muestra inventario total de Camisetas
-    print("|",imprNot_opt[1][2],":",productlist.Jeans_total_stock,",$",360,color_blanco_negro_pants,color_negro_pants,color_blanco_pants)
-    # Se muestra inventario total de Jeans
-    print("|",imprNot_opt[1][3],":",productlist.Calcetines_total_stock,",$",40,color_negro_calcetines,color_white_calcetines)
-    # Se muestra inventario total de Calcetines
-    print("|",imprNot_opt[1][4],":",productlist.Pants_total_stock,",$",400,color_negro_pants,color_blanco_pants)
-    # Se muestra inventario total de Pants
-    print("|",imprNot_opt[1][5])
+    j = 0
+    for i in imprNot_opt:
+       print("|",", ".join(imprNot_opt[j]),end="  |\n")
+       j += 1
     # Se muestra el boton de regresar
+    if j == 0 or j == 1:
+            print("| En su carrito hay: ", s)
+    if j > 1:
+            print("| En su carrito hay: ", s[:-1])
+        # Se impirme el carrito de compras
     ImprNot=input("| Escriba R para Regresar: ")
     # Se le pide al usuario que ingrese regresar
     if ImprNot in imprNot_opt[0]:
@@ -1327,6 +1327,7 @@ while True:
             # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
             j+=1
             # Se le agrega 1 al contador para que se vaya a la siguiente producto
+            time.sleep(2)
 
 
         elif MenuPrincipal == "4":
