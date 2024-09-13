@@ -1321,7 +1321,7 @@ while True:
                 # Se regresa al menu principal
             elif product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
-                 continue
+                 break
             # Se regresa al menu principal
             Shopping_Cart = shopping_cart(product_select,j)
             # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
