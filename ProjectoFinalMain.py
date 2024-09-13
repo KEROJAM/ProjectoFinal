@@ -32,9 +32,7 @@ color_options_jeans = ["1", "2","R"],["1- Azul","2- Negro", "R- Regresar"]
 # Se nombra esa enunciado para verificar los colores de jeans
 size_options = ["S", "M", "L","R"],["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
-imprNot_opt = ["R"],["Hoodies", "Camisetas", "Calcetines", "Jeans", "Pants", "R- Regresar"]
-# Opciones para regresar en imprimir nota
-imprNot_opt = [["Hoodies","Verde", "Blanco", "Negro", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro", "$360"], ["R- Regresar"]]
+imprNot_opt = [["R"],["Hoodies","Verde", "Blanco", "Negro", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco","Rosas", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro","Azul Oscuro", "$360"], ["R- Regresar"]]
 # Se cera una lista de todos los productos y sus colores
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
@@ -151,21 +149,17 @@ def Product_Type():
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
 
-def Imprimir_Nota():
+def Imprimir_Nota(j,s=0):
     # Se Define el menu de Imprimir nota de inventario
     print(bar)
     # Se impirme una barra para separar contenido
     print("| Cantidad de Inventario por cada producto")
     # Se le informa al usuario que es la informacion
-    j = 0
-    for i in imprNot_opt:
-       print("|",", ".join(imprNot_opt[j]),end="  |\n")
-       j += 1
     # Se muestra el boton de regresar
     if j == 0 or j == 1:
             print("| En su carrito hay: ", s)
     if j > 1:
-            print("| En su carrito hay: ", s[:-1])
+            print("| En su carrito hay: ", s)
         # Se impirme el carrito de compras
     ImprNot=input("| Escriba R para Regresar: ")
     # Se le pide al usuario que ingrese regresar
@@ -469,6 +463,7 @@ def Hoodies_Color_Black_Size_select():
         elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
             # Si la talla es M y no hay inventario
             print(no_stock)
+            continue
             #Se le menciona al usuario que no hay inventario
         if TallaN == "L" and productlist.hoodies["cantidadNL"] > 0:
             # Si tallaN es L y tenemos mas productos en L que 0
@@ -578,7 +573,7 @@ def Camisetas_Color_Black_Size_Select():
             #se imprime una barra
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-        if TallaNegro == "M" and productlist.camisetas["cantidadANM"] == 0:
+        if TallaNegro == "M" and productlist.camisetas["cantidadNM"] == 0:
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
@@ -593,6 +588,7 @@ def Camisetas_Color_Black_Size_Select():
         if TallaNegro == "L" and productlist.camisetas["cantidadNL"] == 0:
             # Si la talla es L y no hay inventario
             print(no_stock)
+            continue
             #se le avisara al usuario que no hay existencias disponibles
         elif TallaNegro == "L" and productlist.camisetas["cantidadNL"] > 0:
             # Si la talla es L y en el inventario hay mas de 0
@@ -1313,7 +1309,7 @@ while True:
                 # Si el usuario eligio 3 en el menu principal
                 ClearTer()
                 # Se limpia la pantalla para que se vea mas limpio
-                Imprimir_Nota_Res = Imprimir_Nota()
+                Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
                 # Se imprime la nota de todo el inventario
                 if Imprimir_Nota_Res == "R":
                 # Si la opcion en Imprimir nota es R
