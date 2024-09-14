@@ -64,8 +64,11 @@ Shopping_Cart = 0
 # Se define la variable Shopping cart para usar el carrito de compras
 j = 0
 # Se inicia un Contador para moverse entre la lista
+Shopping_Cart_List=[]
+# Esta es la lista del carrito que tiene el usuario por session
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
+
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
@@ -73,7 +76,7 @@ print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi cloth
 # mensaje de bienvenida
 print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Tenis")
 # ponemos una lista de los productos que hay en stock
-print("| \n! A continuacion te mostraremos el catalogo para que selecciones tus productos !")
+print("| \n| A continuacion te mostraremos el catalogo para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
 
 def mensaje_espera():
@@ -86,15 +89,20 @@ def mensaje_espera():
     # Despues de esperar 5 segundos sale un agradecimiento por esperar
 
 def ClearTer():
+    # Se define la funcion de limpiar pantalla
     if os.name == "nt":
+        # Si el sistema operativo es windows
         _ = os.system('cls')
+        # Se ejecuta el comando cls para limpiar la pantalla en la terminal
     else:
+        # Si no es windows osea mac y linux
         _ = os.system('clear')
+        # Se ejectua el comando clear para limipar la pantalla en la terminal
 
 mensaje_espera()
 # Ejecutamos el texto mensaje de espera para que el mensaje de espera se vea
 
-def Menu_principal(j,s=0):
+def Menu_principal():
     # Declaramos el texto de mensaje de espera para poner todo el menu principal en una que sea mas accesible
     while True:
         # Se inicia el ciclo para que reaparesca el menu encaso que el usuario puso una opcion incorrecta
@@ -105,11 +113,6 @@ def Menu_principal(j,s=0):
         # Se le saluda al usuario
         print("|     *Menu*")
         # Se impirme el titulo del menu principal
-        if j == 0 or j == 1:
-            print("| En su carrito hay: ", s)
-        if j > 1:
-            print("| En su carrito hay: ", s[:-1])
-        # Se impirme el carrito de compras
         print("|","\n| ".join(menu_options[1]), end="\n")
         # este es el menu de opciones que aparece al principio , sirve para elegir que accion quieres hacer dentro del programa
         print(bar)
@@ -128,6 +131,7 @@ def Menu_principal(j,s=0):
 def Product_Type():
 # definimos el texto Product_Type para preguntar el usuario cual es el producto que quiere
     ClearTer()
+    # Se limipa la patnalla
     while True:
         # Iniciamos el loop para volver a impirmir el menu si el usuario se equivoca
         print(bar)
@@ -151,15 +155,29 @@ def Product_Type():
 
 def Imprimir_Nota(j,s=0):
     # Se Define el menu de Imprimir nota de inventario
+    LengthShopping = len(Shopping_Cart_List)
+    # Se le asigna un valor a la longitud de el carrito de compras para usarlo en el ciclo
     print(bar)
     # Se impirme una barra para separar contenido
     print("| Cantidad de Inventario por cada producto")
     # Se le informa al usuario que es la informacion
     # Se muestra el boton de regresar
-    if j == 0 or j == 1:
-            print("| En su carrito hay: ", s)
-    if j > 1:
-            print("| En su carrito hay: ", s)
+    if j == 0:
+        # Si j es igual a 0
+            print("| No hay nada en su carrito de compras\n| Ponga productos en su carrito para verlos aqui")
+            # Se le informa al usuario que no hay nada en su carrito de compras
+    if j >= 1:
+        # Si j es igual o mayor a 1
+            print("| En su carrito hay: ")
+            # Se impirme el titulo de la nota
+            print("|Cant|  Prod  | Car1 | Car2 | Precio | Total |")
+            # Se impirme el inico de la tabla
+            for i in range(LengthShopping):
+                # Se inicia un ciclo del tamaño de la tabla
+                print("|", " | ".join(s[i]), end=" |\n")
+                # Se impirme lo que hay en  el carrtio de compras mediante una lista que tiene un contador para mostar cada producto
+                i +=1
+                # Se le agrega 1 al contador cada vez que pase el ciclo
         # Se impirme el carrito de compras
     ImprNot=input("| Escriba R para Regresar: ")
     # Se le pide al usuario que ingrese regresar
@@ -1058,12 +1076,11 @@ def pants_color_white_size_select():
         return Tallawhitepants
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
-j = 0
-# Se inicia un Contador para moverse entre la lista
-Shopping_Cart_List=[]
-# Esta es la lista del carrito que tiene el usuario por session
-def shopping_cart(n,j,u):
+
+def shopping_cart(n,j,u,w):
     # Aqui se define un a funciion para el carrito de compras
+    c = int(w)
+    # El valor del numero que color que eligio el usuario es guardado como c para mas facilidad e uso
     TempShopping_Cart_List=[]
     while True:
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
@@ -1075,6 +1092,8 @@ def shopping_cart(n,j,u):
             # Se asigna el precio al producto para mostrarlo al final
             ProductName = "Hoodies"
             # Se le asigna El nombre de producto para mostrarlo
+            i = 1
+            # Sirve como un incide en la lista de productos
         elif n == "2":
             # Si el usuario eligio Camisas
             print("| Las camisas cuestan $350")
@@ -1083,6 +1102,8 @@ def shopping_cart(n,j,u):
             # Se asigna el precio indicado
             ProductName = "Camisetas"
             # Se asigna el Producto para mostarlo al final
+            i = 2
+            # Sirve como indice en la lista de productos
         elif n == "4":
             # Si el usuario eligio Jeans
             print("| Los Jeans cuestan $360")
@@ -1091,6 +1112,8 @@ def shopping_cart(n,j,u):
             # Se le asigna un valor al costo
             ProductName = "Jeans"
             # Se le asigna el Producto para mostrarlo en el carrito
+            i = 4
+            # Sirve como indice en la lista de productos
         elif n == "3":
             # Si el usuario eligo calcetines
             print("| Los Calcetines cuestan $40")
@@ -1099,6 +1122,8 @@ def shopping_cart(n,j,u):
             # Se asigna el precio al producto
             ProductName = "Clacetines"
             # y se asigna el producto para mostarlo en el carrito de compras
+            i = 3
+            # Sirve como indice en la lista de productos
         elif n == "5":
             # Si el usuario eligio pants
             print("| Los Pants cuestan $400")
@@ -1107,6 +1132,8 @@ def shopping_cart(n,j,u):
             # Se les asigna un valor a los pantalones
             ProductName = "Pants"
             # Se asigna un producto para poder mostar el producto en el carrito de compras
+            i = 4
+            # Sirve como indice en la lista de productos
         try:
             # nos deja probar si el codigo de abajo textoa para dectectar errores
             Shopping_Cart_Amount = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
@@ -1130,13 +1157,21 @@ def shopping_cart(n,j,u):
                 # Si no es menor o igual a cero y no es mayor a 10
                 TotalProductPrice = Shopping_Cart_Amount*ProductPrice
                 # Se multiplica la cantidad de articulos que quiere el usuario por el precio del producto
-                print("| En tu carrito hay:", Shopping_Cart_Amount, ProductName, u ,"$",TotalProductPrice)
+                print("| Se agrego:", Shopping_Cart_Amount, ProductName, imprNot_opt[i][c] , u , "$",TotalProductPrice, " a tu carrito de compras.")
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
-                TempShopping_Cart_List.append(Shopping_Cart_Amount)
+                Shopping_Cart_AmountSTR = str(Shopping_Cart_Amount)
+                # Se convierte el valor del shoppint cart a una string para poder imprimirlo en la nota
+                TempShopping_Cart_List.append(Shopping_Cart_AmountSTR)
                 # A la lista se le agega el Monto total de articulos
                 TempShopping_Cart_List.append(ProductName)
                 # A la lista se le agega el Producto que eligio el usuario
-                TempShopping_Cart_List.append(TotalProductPrice)
+                TempShopping_Cart_List.append(imprNot_opt[i][c])
+                # Se agrega el color a la lista temporal
+                TempShopping_Cart_List.append(u)
+                # Se agrega la talla a la lista temporal
+                TotalProductPriceSTR = str(TotalProductPrice)
+                # Convierte el precio total de tu compra en string para que se pueda impirmir mas facil
+                TempShopping_Cart_List.append(TotalProductPriceSTR)
                 # Y se agrega el Precio total de la cantidad por el precio
                 if j == 0:
                     # Si J es igual a 0
@@ -1148,16 +1183,15 @@ def shopping_cart(n,j,u):
                     # Se le agrega a el shopping cart principal la lista de los productos mas el precio total del shopping cart
                 elif j > 0:
                     # Si j es mayor que 0
-                    TotalShoppingCart = Shopping_Cart_List[0][-1]
+                    TotalShoppingCart = int(Shopping_Cart_List[0][-1])
                     # Se agara el valor del precio total de todo el carrito de compras
-                    print(TotalShoppingCart)
-                    print(Shopping_Cart_List)
-                    print(TempShopping_Cart_List)
                     TotalShoppingCart = TotalShoppingCart + TotalProductPrice
                     # Se suma el valor total de Carrito de compras a el valor total de los productos elegidos ahorita
+                    TotalShoppingCartSTR = str(TotalShoppingCart)
+                    # Se convierte el total del carrito de compras a stirng para poder impirmirlo en la nota
                     del Shopping_Cart_List[0][-1]
                     # Se borra el valor Total de carrito anterior
-                    Shopping_Cart_List[0].append(TotalShoppingCart)
+                    Shopping_Cart_List[0].append(TotalShoppingCartSTR)
                     # Y se agrega el nuevo valor Total de carrito de compras
                     Shopping_Cart_List.append(TempShopping_Cart_List)
                     # Se agrega el valor de los productos nuevos al Carrito de compras
@@ -1201,21 +1235,21 @@ while True:
             # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
             if product_select == "1":
             # Si la opcion del producto es igual a 1 que es hoodies
-                Hoodies_color_select = Hoodies_Color_select()
+                Color_select = Hoodies_Color_select()
                 # Se ejecuta la texto del menu de color de hoodies y se guarda el resultado en una enunciado
-                if Hoodies_color_select == "1":
+                if Color_select == "1":
                     # Si la opcion del menu de colores es 1 (Verde)
                     Size_select = Hoodies_Color_Green_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color verde y se guarda su resultado en una enunciado para poder usarse
-                elif Hoodies_color_select == "2":
+                elif Color_select == "2":
                     # Si la opcion del menu de colores es 2 (Negro)
                     Size_select = Hoodies_Color_Black_Size_select()
                     # Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-                elif Hoodies_color_select == "3":
+                elif Color_select == "3":
                     # la opcion de la seleccion de colores es 3 (Blanco)
                     Size_select = Hoodies_Color_White_Size_Select()
                     # Se ejecuta la texto de Selecion de talla para el color blanco y se guarda su resultado en una enunciado para poder usarse
-                elif Hoodies_color_select == "R":
+                elif Color_select == "R":
                     # Si la opcion es R se
                     ClearTer()
                     # Limpia la pantalla
@@ -1224,21 +1258,21 @@ while True:
 
             elif product_select == "2" :
                 # Si la opcion del producto es igual a 2 quiere decir que el usuario selecciono camisetas
-                camisetas_color_select=camisetas_color_select()
+                Color_select=camisetas_color_select()
                 # Se ejecuta la texto del menu de color de camisetas y se guarda el resultado en una enunciado
-                if camisetas_color_select == "1":
+                if Color_select == "1":
                     # Si la opcion del menu de colores es 1 (Azul)
-                    Size_select=Camisetas_Color_Blue_Size_Select()
+                    Size_select = Camisetas_Color_Blue_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Azul y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_select ==  "2":
+                elif Color_select ==  "2":
                     # Si la opcion del menu es igual a 2 se abrira el menu para empezar a personalizar tu pedido de camisetas de color negro
                     Size_select = Camisetas_Color_Black_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Negro y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_select == "3" :
+                elif Color_select == "3" :
                     #si se selecciona la opcion 3 empezara a elegir camisetas de color blanco
                     Size_select =Camisetas_Color_White_Size_Select()
                     # Se ejecuta el menu de seleccion de talla para el color Blanco y se guarda su resultado en una enunciado para poder usarse
-                elif camisetas_color_select == "R":
+                elif Color_select == "R":
                     # Si el usuario selecciono la opcion R
                     ClearTer()
                     # Se limpia la pantalla
@@ -1247,17 +1281,17 @@ while True:
 
             elif product_select == "3":
             #si el usuario selecciona la opcion tres lo redirigira al menu para elegir calcetines
-                calcetines_color_select=calcetines_color_select()
+                Color_select=calcetines_color_select()
                 #se ejecuta el texto del menu de color de calcetines y se guarda el resultado
-                if calcetines_color_select == "1":
+                if Color_select == "1":
                     #si la opcion seleccionada es 1 el usuario esta eligiendo el color negro para sus calcetines
                     Size_select=calcetines_color_black_size_select()
                     #Se ejecuta el menu de seleccion de talla para el color negro y se guarda su resultado en una enunciado para poder usarse
-                elif calcetines_color_select == "2":
+                elif Color_select == "2":
                     #si la opcion seleccionada es igal a 2 quiere decir que el usuario esta eligiendo el color negro para sus calcetines
                     Size_select=Calcetines_color_white_size_select()
                     #se ejecuta el menu de seleecion de tallas para el color blanco para calcetines y se guarda el resultado
-                elif calcetines_color_select == "R":
+                elif Color_select == "R":
                     # Si el usuario elige la opcion R
                     ClearTer()
                     # Se limipia la pantala
@@ -1266,17 +1300,17 @@ while True:
 
             elif product_select == "4":
                  # Si el usuario eligio Jeans en producto
-                 jeans_color_select =jeans_color_select()
+                 Color_select =jeans_color_select()
                  # Se le pide el color que eligira
-                 if jeans_color_select == "1":
+                 if Color_select == "1":
                    # Si el Usuario selecciono azul
                     Size_select=Jeans_color_blue_size_select()
                    # Se le pregunta que talla va a nececitar para los Jeans Azules
-                 elif jeans_color_select== "2" :
+                 elif Color_select== "2" :
                    # Si Eligio Jeans Negros
                      Size_select=Jeans_color_black_size_select()
                      # Se le pregunta la Talla de los Jeans Negros
-                 elif jeans_color_select == "R":
+                 elif Color_select == "R":
                      # Si eligio Regresar
                      ClearTer()
                      # Se limipa la pantalla
@@ -1285,21 +1319,21 @@ while True:
 
             elif product_select == "5":
             # Si eligio Pants
-                pants_color_select=Pants_color_select()
+                Color_select=Pants_color_select()
                 # Se le da la opcion de elegi que color va a querer en Pants
-                if pants_color_select == "1":
+                if Color_select == "1":
                     # Si el color Es blanco y nergo
                     Size_select= pants_color_black_and_white_size_select()
                     # Se le pide al usuario que seleccione una talla
-                elif pants_color_select== "2":
+                elif Color_select== "2":
                     # Si selecciono Negro
                     Size_select= pants_color_black_size_select()
                     # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
-                elif pants_color_select == "3":
+                elif Color_select == "3":
                     # Si eligo Pants Blancos
                     Size_select= pants_color_white_size_select()
                     # Se le pide al usuario que seleccione la Talla de Pants Blancos
-                elif pants_color_select == "R":
+                elif Color_select == "R":
                     # Si Selecciona regresar
                     ClearTer()
                     # Se limpia la pantalla
@@ -1319,7 +1353,7 @@ while True:
             # Si el usuario eligio Regresar en la seleccion de productos
                  break
             # Se regresa al menu principal
-            Shopping_Cart = shopping_cart(product_select , j, Size_select)
+            Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_select)
             # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
             j+=1
             # Se le agrega 1 al contador para que se vaya a la siguiente producto
