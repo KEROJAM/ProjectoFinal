@@ -1177,7 +1177,9 @@ def shopping_cart(n,j,u,w):
                     # Si J es igual a 0
                     TotalShoppingCart = TotalProductPrice
                     # Se asigna el valor de El total de el producto multiplicado por el precio mas el total de todos los productos
-                    TempShopping_Cart_List.append(TotalShoppingCart)
+                    TotalShoppingCartSTR = str(TotalShoppingCart)
+                    # SE convierte el total del carito en un string
+                    TempShopping_Cart_List.append(TotalShoppingCartSTR)
                     # Se le agrega a una lista el Total de todos los productos
                     Shopping_Cart_List.append(TempShopping_Cart_List)
                     # Se le agrega a el shopping cart principal la lista de los productos mas el precio total del shopping cart
