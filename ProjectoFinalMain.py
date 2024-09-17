@@ -68,7 +68,7 @@ Shopping_Cart_List=[]
 # Esta es la lista del carrito que tiene el usuario por session
 print(bar)
 # Se imprime la barra para poder separar el contenido y que se vea mejor
-
+NoteShopping_Cart_List=[]
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
@@ -155,7 +155,7 @@ def Product_Type():
 
 def Imprimir_Nota(j,s=0):
     # Se Define el menu de Imprimir nota de inventario
-    LengthShopping = len(Shopping_Cart_List)
+    LengthShopping = len(NoteShopping_Cart_List)
     # Se le asigna un valor a la longitud de el carrito de compras para usarlo en el ciclo
     print(bar)
     # Se impirme una barra para separar contenido
@@ -470,8 +470,6 @@ def Hoodies_Color_Black_Size_select():
             # Si la talla es S y no hay inventario es 0
             print(no_stock)
             #se le mostrara un mensaje que le hara saber que no contamos con productos disponibes de la talla que eligio
-            time.sleep(3)
-            continue
         if TallaN == "M" and productlist.hoodies["cantidadNM"] > 0:
             # Si la talla es M y en el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
@@ -480,10 +478,9 @@ def Hoodies_Color_Black_Size_select():
             #imprimira una barra por cuestiones esteticas del programa 
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-        if TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
+        elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
             # Si la talla es M y no hay inventario
             print(no_stock)
-            time.sleep(2)
             continue
             #Se le menciona al usuario que no hay inventario
         if TallaN == "L" and productlist.hoodies["cantidadNL"] > 0:
@@ -1080,6 +1077,7 @@ def pants_color_white_size_select():
         # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
 
 
+
 def shopping_cart(n,j,u,w):
     # Aqui se define un a funciion para el carrito de compras
     c = int(w)
@@ -1176,6 +1174,7 @@ def shopping_cart(n,j,u,w):
                 # Convierte el precio total de tu compra en string para que se pueda impirmir mas facil
                 TempShopping_Cart_List.append(TotalProductPriceSTR)
                 # Y se agrega el Precio total de la cantidad por el precio
+
                 if j == 0:
                     # Si J es igual a 0
                     TotalShoppingCart = TotalProductPrice
@@ -1184,6 +1183,8 @@ def shopping_cart(n,j,u,w):
                     # SE convierte el total del carito en un string
                     TempShopping_Cart_List.append(TotalShoppingCartSTR)
                     # Se le agrega a una lista el Total de todos los productos
+                    NoteShopping_Cart_List.append(TempShopping_Cart_List)
+                    print(NoteShopping_Cart_List)
                     Shopping_Cart_List.append(TempShopping_Cart_List)
                     # Se le agrega a el shopping cart principal la lista de los productos mas el precio total del shopping cart
                 elif j > 0:
@@ -1193,16 +1194,21 @@ def shopping_cart(n,j,u,w):
                     TotalShoppingCart = TotalShoppingCart + TotalProductPrice
                     # Se suma el valor total de Carrito de compras a el valor total de los productos elegidos ahorita
                     TotalShoppingCartSTR = str(TotalShoppingCart)
+                    print(NoteShopping_Cart_List)
+                    NoteShoppingTotal = int(NoteShopping_Cart_List[0][-1])
+                    NoteShoppingTotal = NoteShoppingTotal + TotalProductPrice
+                    NoteShoppingTotalSTR = str(NoteShoppingTotal)
                     # Se convierte el total del carrito de compras a stirng para poder impirmirlo en la nota
+                    del NoteShopping_Cart_List[0][-1]
+                    NoteShopping_Cart_List[0].append(NoteShoppingTotalSTR)
+                    NoteShopping_Cart_List.append(TempShopping_Cart_List)
                     del Shopping_Cart_List[0][-1]
-                    # Se borra el valor Total de carrito anterior
                     Shopping_Cart_List[0].append(TotalShoppingCartSTR)
-                    # Y se agrega el nuevo valor Total de carrito de compras
-                    Shopping_Cart_List.append(TempShopping_Cart_List)
+                    Shopping_Cart_List.append(NoteShopping_Cart_List)
                     # Se agrega el valor de los productos nuevos al Carrito de compras
                 print(bar)
                 # Imprime la barra para separar los menus
-                return Shopping_Cart_List
+                return NoteShopping_Cart_List
                 # Regresa el valor de tu carrito
         except ValueError:
             # Nos deja solucionar cualquier error que tengamos en este caso que el usuario selecciono una cantidad superior a la que tenemos
@@ -1356,6 +1362,8 @@ while True:
                 # Se regresa al menu principal
             elif product_select == "R":
             # Si el usuario eligio Regresar en la seleccion de productos
+                 NoteShopping_Cart_List=[]
+                 j=0
                  break
             # Se regresa al menu principal
             Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_select)
@@ -1365,12 +1373,14 @@ while True:
             time.sleep(2)
             # Le da al usuario tiempo de ver el precio de los productos que eligieron
 
-        elif MenuPrincipal == "3":
+
+        elif MenuPrincipal == "4":
             # Si el usuario eligio Monto total de ventas en el menu principal
             Monto_Ventas_Total = MontoTotalVentas()
             # Se ejecuta el menu de Monto total de Ventas
             if Monto_Ventas_Total == "R":
                 # Si el usuario eligio regresar al menu principal en Monto de ventas
+
                 continue
                 # Se regresa al menu principal
 
