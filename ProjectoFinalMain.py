@@ -1226,7 +1226,7 @@ def MontoTotalVentas():
 
 while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
-    MenuPrincipal = Menu_principal(j,Shopping_Cart)
+    MenuPrincipal = Menu_principal()
     #Se ejecuta el menu Principal
     while True:
         if MenuPrincipal == "1":
