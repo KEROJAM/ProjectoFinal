@@ -470,6 +470,8 @@ def Hoodies_Color_Black_Size_select():
             # Si la talla es S y no hay inventario es 0
             print(no_stock)
             #se le mostrara un mensaje que le hara saber que no contamos con productos disponibes de la talla que eligio
+            time.sleep(3)
+            continue
         if TallaN == "M" and productlist.hoodies["cantidadNM"] > 0:
             # Si la talla es M y en el inventario es mayor a 0
             print("| Tenemos: ", productlist.hoodies["cantidadNM"], " en Talla M")
@@ -478,9 +480,10 @@ def Hoodies_Color_Black_Size_select():
             #imprimira una barra por cuestiones esteticas del programa 
             time.sleep(2)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-        elif TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
+        if TallaN == "M" and productlist.hoodies["cantidadNM"] == 0:
             # Si la talla es M y no hay inventario
             print(no_stock)
+            time.sleep(2)
             continue
             #Se le menciona al usuario que no hay inventario
         if TallaN == "L" and productlist.hoodies["cantidadNL"] > 0:
@@ -1362,8 +1365,7 @@ while True:
             time.sleep(2)
             # Le da al usuario tiempo de ver el precio de los productos que eligieron
 
-
-        elif MenuPrincipal == "4":
+        elif MenuPrincipal == "3":
             # Si el usuario eligio Monto total de ventas en el menu principal
             Monto_Ventas_Total = MontoTotalVentas()
             # Se ejecuta el menu de Monto total de Ventas
