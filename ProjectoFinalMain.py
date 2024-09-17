@@ -5,13 +5,17 @@ import time
 import sys
 # Importamos sys para poder salir del programa
 import os
-# Importamso os para poder limpiar la pantalla cuando corramos un comando
+# Importamos os para poder limpiar la pantalla cuando corramos un comando
+import csv
 
 # Programa por Majorek Casas, Alan Anduaga
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
-
+with open('DataBaseFinalProject.csv', 'r+') as file:
+    Reader = csv.reader(file, delimiter=',')
+    ProductListCSV = list(Reader)
+print(ProductListCSV)
 no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
