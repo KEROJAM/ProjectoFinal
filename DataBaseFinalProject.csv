@@ -1,16 +1,16 @@
-﻿Productos ,Color,Talla S,Talla M ,Talla L,Precio
-Hoodies,Verde,10,10,10,600,,
-Hoodies,Negro,10,10,10,600,,
-Hoodies,Blanco,10,10,10,600,,
-Camisetas,Azul,10,10,10,350,,
-Camisetas,Negro,10,10,10,350,,
-Camisetas,Blanco,10,10,10,350,,
-Jeans,Azul,10,10,10,360,,
-Jeans,Negro,10,10,10,360,,
-Jeans,Azul Oscuro,10,10,10,360,,
-Calcetines,Rosas,10,10,10,40,,
-Calcetines,Negro ,10,10,10,40,,
-Calcetines,Blanco,10,10,10,40,,
-Pants,Blanco/Negro,10,10,10,400,,
-Pants,Negro ,10,10,10,400,,
+Productos,Color,Talla S,Talla M ,Talla L,Precio
+Hoodies,Verde,10,10,10,600
+Hoodies,Negro,10,10,10,600
+Hoodies,Blanco,10,10,10,600
+Camisetas,Azul,10,10,10,350
+Camisetas,Negro,10,10,10,350
+Camisetas,Blanco,10,10,10,350
+Jeans,Azul,10,10,10,360
+Jeans,Negro,10,10,10,360
+Jeans,Azul Oscuro,10,10,10,360
+Calcetines,Rosas,10,10,10,40
+Calcetines,Negro,10,10,10,40
+Calcetines,Blanco,10,10,10,40
+Pants,Blanco/Negro,10,10,10,400
+Pants,Negro,10,10,10,400
 Pants,Blanco,10,10,10,400

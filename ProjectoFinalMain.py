@@ -15,7 +15,6 @@ import csv
 with open('DataBaseFinalProject.csv', 'r+') as file:
     Reader = csv.reader(file, delimiter=',')
     ProductListCSV = list(Reader)
-print(ProductListCSV)
 no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
@@ -82,7 +81,19 @@ print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas
 # ponemos una lista de los productos que hay en stock
 print("| \n| A continuacion te mostraremos el catalogo para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
+LenProductListCSV = len(ProductListCSV) - 1
+print(LenProductListCSV)
+j = 1
+for i in range(LenProductListCSV):
+    for m in range(4):
+        NumProd = int(ProductListCSV[j][2])
+        del ProductListCSV[j][2]
+        print(NumProd)
+        ProductListCSV[j].append(NumProd)
+    j+=1
+    i+=1
 
+print(ProductListCSV)
 def mensaje_espera():
 # Aqui se define la texto mensaje de espera prara poder usarla despues
     print("| Por favor, espera redirigiendo al menu ")
@@ -344,13 +355,13 @@ def Hoodies_Color_Green_Size_Select():
             #Si la talla que eligio el usario no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
             #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
-        if TallaV == "S" and productlist.hoodies["cantidadVS"] == 0:
+        if TallaV == "S" and ProductListCSV[0][2] == 0:
             # Si la talla es S y no hay inventario
             print(no_stock)
             #se le notificara al usuario que no tenemos existencias de ese producto
             print(bar)
             #se imprime una barra
-        if TallaV == "S" and productlist.hoodies["cantidadVS"] > 0:
+        if TallaV == "S" and ProductListCSV[0][2] > 0:
             # Si la talla es S y hay mas inventario que 0
             print("| Tenemos: ", productlist.hoodies["cantidadVS"], " en Talla S")
             #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
