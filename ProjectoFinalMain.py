@@ -13,19 +13,29 @@ import csv
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
-with open("C:\\Users\\alana\\Downloads\\python\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv", 'r+') as file:
-    # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
-    Reader = csv.reader(file, delimiter=',')
-    # Se guardan los datos del archivo en una variable llamada Reader
-    ProductListCSV = list(Reader)
-    # Y se hace una lista con el contenido
+if os.name == "nt":
+        # Si el sistema operativo es windows
+        with open("C:\\Users\\alana\\Downloads\\python\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv", 'r+') as file:
+            # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
+            Reader = csv.reader(file, delimiter=',')
+            # Se guardan los datos del archivo en una variable llamada Reader
+            ProductListCSV = list(Reader)
+            # Y se hace una lista con el contenido
+else:
+        with open("DataBaseFinalProject.csv", 'r+') as file:
+            # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
+            Reader = csv.reader(file, delimiter=',')
+            # Se guardan los datos del archivo en una variable llamada Reader
+            ProductListCSV = list(Reader)
+            # Y se hace una lista con el contenido
+
 
 no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 ReturnPrint = "| R - Regresar"
-menu_options = ["1", "2", "3", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Imprimir Monto total de Ventas","Q- Salir"]
+menu_options = ["1", "2", "3", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","5- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ["1", "2", "3", "4", "5","6","R"], ["1- Hoodies", "2- Camisetas", "3- Jeans", "4- Calcetines", "5- Pants", "6- Imprimir Nota", "R- Regresar"],["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
@@ -33,34 +43,8 @@ color_options = ("1", "2", "3","R")
 # Este texto Sirve para verificar si es un color en Hoodies
 size_options = ["S", "M", "L","R"],["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
-imprNot_opt = [["R"],["Hoodies","Verde", "Negro", "Blanco", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco","Rosas", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro","Azul Oscuro", "$360"], ["R- Regresar"]]
+imprNot_opt = [["R"],["Hoodies","Verde", "Negro", "Blanco", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"],["Jeans","Azul","Negro","Azul Oscuro", "$360"],["Calcetines","Rosas","Negro","Blanco", "$40"],["Pants","Negro y Blanco", "Negro", "Blanco", "$400"],["R- Regresar"]]
 # Se cera una lista de todos los productos y sus colores
-colorV = productlist.hoodies.get("colorV")
-# Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
-colorN = productlist.hoodies.get("colorN")
-# Le ponemos el valor de las hoodies en color negro que esta en el inventario
-colorB = productlist.hoodies.get("colorB")
-# Le ponemos el valor de las hoodies en color Blanco que esta en la lista de productos
-colorazul_camisetas=productlist.camisetas.get("colorA")
-#le damos valor a las camisetas de color azul que estan en la lista de productos
-colornegro_camisetas=productlist.camisetas.get("colorN")
-#le damos un valor a las camisetas de color negro que estan en la lista de productos
-colorblanco_camisetas=productlist.camisetas.get("Blanco")
-#le asignamos un valor a las camisetas de color blanco que estan en la lista de productos
-color_blanco_negro_pants=productlist.Pants.get("Blanco/Negro")
-#importamos el valor de los tenis blanco/negro  que estan en la lista de productos
-color_negro_pants=productlist.Pants.get("Negro")
-#se le asigna el valor que esta en la lista de productos a los tenis de color negro
-color_blanco_pants=productlist.Pants.get("Blanco")
-#se le asigna un valor a los tenis de color blanco que estan en la lista de productos
-color_azul_jeans=productlist.Pants.get("Azul")
-#se le asigna un valor a los jeans color azul que importamos desde la lista de productos
-color_negro_jeans=productlist.Pants.get("Negro")
-#se le asigna un valor a los jeans de color negro que estan en la lista de productos que importamos
-color_negro_calcetines=productlist.Calcetines.get("Negro")
-#se importa un valor desde la lsta de productos y se le asigna a los calcetines de color negro
-color_white_calcetines=productlist.Calcetines.get("Blanco")
-# Se le asigna el color de los calcetines desde la lista de productos
 Shopping_Cart = 0
 # Se define la variable Shopping cart para usar el carrito de compras
 j = 0
@@ -381,7 +365,7 @@ def shopping_cart(n,j,u,w):
             # Se asigna el Producto para mostarlo al final
             i = 2
             # Sirve como indice en la lista de productos
-        elif n == "4":
+        elif n == "3":
             # Si el usuario eligio Jeans
             print("| Los Jeans cuestan $360")
             # Se le informa cuanto es el costo de los Jeans
@@ -389,9 +373,9 @@ def shopping_cart(n,j,u,w):
             # Se le asigna un valor al costo
             ProductName = "Jeans"
             # Se le asigna el Producto para mostrarlo en el carrito
-            i = 4
+            i = 3
             # Sirve como indice en la lista de productos
-        elif n == "3":
+        elif n == "4":
             # Si el usuario eligo calcetines
             print("| Los Calcetines cuestan $40")
             # Se le infroma al usuario el costo de los calcetines
@@ -399,7 +383,7 @@ def shopping_cart(n,j,u,w):
             # Se asigna el precio al producto
             ProductName = "Clacetines"
             # y se asigna el producto para mostarlo en el carrito de compras
-            i = 3
+            i = 4
             # Sirve como indice en la lista de productos
         elif n == "5":
             # Si el usuario eligio pants
@@ -409,7 +393,7 @@ def shopping_cart(n,j,u,w):
             # Se les asigna un valor a los pantalones
             ProductName = "Pants"
             # Se asigna un producto para poder mostar el producto en el carrito de compras
-            i = 4
+            i = 5
             # Sirve como indice en la lista de productos
         try:
             # nos deja probar si el codigo de abajo textoa para dectectar errores
