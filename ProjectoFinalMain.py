@@ -1,5 +1,3 @@
-import productlist
-# Se importa el archivo de la lista de productos para usarse
 import time
 # Importamos time para poder tener tiempo de espera
 import sys
