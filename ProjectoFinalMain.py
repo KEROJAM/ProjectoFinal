@@ -13,7 +13,7 @@ import csv
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
-with open('DataBaseFinalProject.csv', 'r+') as file:
+with open("C:\\Users\\alana\\Downloads\\python\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv", 'r+') as file:
     # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
     Reader = csv.reader(file, delimiter=',')
     # Se guardan los datos del archivo en una variable llamada Reader
@@ -33,7 +33,7 @@ color_options = ("1", "2", "3","R")
 # Este texto Sirve para verificar si es un color en Hoodies
 size_options = ["S", "M", "L","R"],["S","M","L","R- Regresar"]
 # Se nombra la enunciado para verificar las tallas de los productos
-imprNot_opt = [["R"],["Hoodies","Verde", "Blanco", "Negro", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco","Rosas", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro","Azul Oscuro", "$360"], ["R- Regresar"]]
+imprNot_opt = [["R"],["Hoodies","Verde", "Negro", "Blanco", "$600"], [ "Camisetas","Azul", "Negro", "Blanco", "$350"], ["Calcetines","Negro","Blanco","Rosas", "$40"], ["Pants","Negro y Blanco", "Negro", "Blanco", "$400"], ["Jeans","Azul","Negro","Azul Oscuro", "$360"], ["R- Regresar"]]
 # Se cera una lista de todos los productos y sus colores
 colorV = productlist.hoodies.get("colorV")
 # Le ponemos el valor de las hoodies en color verde que esta en el otro archivo
@@ -1290,7 +1290,7 @@ while True:
                  j=0
                  break
             # Se regresa al menu principal
-            Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_select)
+            Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
             # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
             j+=1
             # Se le agrega 1 al contador para que se vaya a la siguiente producto
