@@ -639,51 +639,52 @@ while True:
                         continue
                     # Y Se regersa al menu principal
 
-            elif product_select == "5":
-            # Si eligio Pants
-                Color_selectRes = Color_select(product_select)
-                # Se le da la opcion de elegi que color va a querer en Pants
-                if Color_selectRes == "1":
-                    # Si el color Es blanco y nergo
-                    Size_select = Size_Select(product_select, Color_selectRes)
-                    # Se le pide al usuario que seleccione una talla
-                elif Color_selectRes == "2":
-                    # Si selecciono Negro
-                    Size_select = Size_Select(product_select, Color_selectRes)
-                    # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
-                elif Color_selectRes == "3":
-                    # Si eligo Pants Blancos
-                    Size_select = Size_Select(product_select, Color_selectRes)
-                    # Se le pide al usuario que seleccione la Talla de Pants Blancos
-                elif Color_selectRes == "R":
-                    # Si Selecciona regresar
-                    ClearTer()
-                    # Se limpia la pantalla
-                    continue
-                # Y se regersa al menu principal
-            elif product_select == "6":
-                # Si el usuario eligio 3 en el menu principal
-                ClearTer()
-                # Se limpia la pantalla para que se vea mas limpio
-                Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
-                # Se imprime la nota de todo el inventario
-                if Imprimir_Nota_Res == "R":
-                # Si la opcion en Imprimir nota es R
-                    continue
+                elif product_select == "5":
+                        # Si eligio Pants
+                        Color_selectRes = Color_select(product_select)
+                        #Se le da la opcion de elegi que color va a querer en Pants
+                        if Color_selectRes == "1":
+                                # Si el color Es blanco y nergo
+                                Size_select = Size_Select(product_select, Color_selectRes)
+                                # Se le pide al usuario que seleccione una talla
+                        elif Color_selectRes == "2":
+                                # Si selecciono Negro
+                                Size_select = Size_Select(product_select, Color_selectRes)
+                                # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
+                        elif Color_selectRes == "3":
+                                # Si eligo Pants Blancos
+                                Size_select = Size_Select(product_select, Color_selectRes)
+                                # Se le pide al usuario que seleccione la Talla de Pants Blancos
+                        elif Color_selectRes == "R":
+                                # Si Selecciona regresar
+                                ClearTer()
+                                # Se limpia la pantalla
+                                continue
+                        # Y se regersa al menu principal
+                elif product_select == "6":
+                        # Si el usuario eligio 3 en el menu principal
+                        ClearTer()
+                        # Se limpia la pantalla para que se vea mas limpio
+                        Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
+                        # Se imprime la nota de todo el inventario
+                        if Imprimir_Nota_Res == "R":
+                                # Si la opcion en Imprimir nota es R
+                                continue
+                        # Se regresa al menu principal
+                elif product_select == "R":
+                        # Si el usuario eligio Regresar en la seleccion de productos
+                        NoteShopping_Cart_List=[]
+                        j=0
+                        break
                 # Se regresa al menu principal
-            elif product_select == "R":
-            # Si el usuario eligio Regresar en la seleccion de productos
-                 NoteShopping_Cart_List=[]
-                 j=0
-                 break
-            # Se regresa al menu principal
-            Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
-            # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
-            j+=1
-            # Se le agrega 1 al contador para que se vaya a la siguiente producto
-            time.sleep(2)
-            # Le da al usuario tiempo de ver el precio de los productos que eligieron
-        elif MenuPrincipal == "3":
+                Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
+                # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
+                j+=1
+                # Se le agrega 1 al contador para que se vaya a la siguiente producto
+                time.sleep(2)
+                # Le da al usuario tiempo de ver el precio de los productos que eligieron
+
+            elif MenuPrincipal == "3":
                 Imprimir_InvRes = Imprimir_Inv()
                 if Imprimir_InvRes == "R":
                    continue
