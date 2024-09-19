@@ -33,7 +33,7 @@ no_stock = "| No hay Stock en esa Talla"
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 ReturnPrint = "| R - Regresar"
-menu_options = ["1", "2", "3", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","5- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
+menu_options = ["1", "2", "3","4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ["1", "2", "3", "4", "5","6","R"], ["1- Hoodies", "2- Camisetas", "3- Jeans", "4- Calcetines", "5- Pants", "6- Imprimir Nota", "R- Regresar"],["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
@@ -81,7 +81,6 @@ for i in range(LenProductListCSV):
     i+=1
     # Y se agrega 1 al otro contador para seguir a la siguiente linea
 
-print(ProductListCSV)
 def mensaje_espera():
 # Aqui se define la texto mensaje de espera prara poder usarla despues
     print("| Por favor, espera redirigiendo al menu ")
@@ -307,57 +306,54 @@ def Size_Select(m,h):
     ClearTer()
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
+        print(bar)
+        #imprime una barra
+        print("| Elige la Talla: ")
+        #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
+        print("|","\n| ".join(size_options[1]), end="\n")
+        # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
+        TallaV = input("| ")
+        # Se guarda la talla que eligio el usario en TallaV
+        if TallaV == "S" and ProductListCSV[v][2] > 0:
+            # Si la talla es S y hay mas inventario que 0
+            print("| Tenemos:", ProductListCSV[v][2], "En Talla S")
+            #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
             print(bar)
-            #imprime una barra
-            print("| Elige la Talla: ")
-            #es el encabezado del menu para que el usuario escoja la talla del producto que selecciono
-            print("|","\n| ".join(size_options[1]), end="\n")
-            # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
-            TallaV = input("| ")
-            # Se guarda la talla que eligio el usario en TallaV
-            if TallaV not in size_options[0]:
-                #Si la talla que eligio el usario no esta en las opciones
-                print("| Esa no es una talla\n| (Verifica si seleecionaste una opcion valida)")
-                #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
-            if TallaV == "S" and ProductListCSV[v][2] > 0:
-                # Si la talla es S y hay mas inventario que 0
-                print("| Tenemos:", ProductListCSV[v][2], "En Talla S")
-                #con el print que esta arriba de este comentario notifica al usuario cuantos productos tenemos disponibles con las caracteristicas del producto que escogio anteriormente
-                print(bar)
-                #se imprime una barra
-                time.sleep(2)
-            elif TallaV == "S" and ProductListCSV[v][2] == 0:
-                print(no_stock)
-                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-            if TallaV == "M" and ProductListCSV[v][3] > 0:
-                # Si la talla es M y el inventario es mayor de 0
-                print("| Tenemos:", ProductListCSV[v][3], "En Talla M")
-                # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
-                print(bar)
-                #se imprime una barra
-                time.sleep(2)
-                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-            elif TallaV == "M" and ProductListCSV[v][3] == 0:
-                # S la talla es M y no hay inventario en esa talla
-                print(no_stock)
-                # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-            if TallaV == "L" and ProductListCSV[v][4] > 0:
-                # Si la talla es L y en el inventario hay mas de 0
-                print("| Tenemos:", ProductListCSV[v][4], "en Talla L")
-                #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
-                print(bar)
-                #se imprime una barra
-                time.sleep(2)
-                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
-            elif TallaV == "L" and ProductListCSV[v][4] == 0:
-                # Si la talla es L y no hay inventario
-                print(no_stock)
-                #se le avisara al usuario que no hay existencias disponibles
-
-            return TallaV
+            #se imprime una barra
+            time.sleep(2)
+        elif TallaV == "S" and ProductListCSV[v][2] == 0:
+            print(no_stock)
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+        if TallaV == "M" and ProductListCSV[v][3] > 0:
+            # Si la talla es M y el inventario es mayor de 0
+            print("| Tenemos:", ProductListCSV[v][3], "En Talla M")
+            # se le mostrara un mensaje que indique cuantas existencias del producto tenemos excatamente en la talla que eligio
+            print(bar)
+            #se imprime una barra
+            time.sleep(2)
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+        elif TallaV == "M" and ProductListCSV[v][3] == 0:
+            # S la talla es M y no hay inventario en esa talla
+            print(no_stock)
+            # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
+        if TallaV == "L" and ProductListCSV[v][4] > 0:
+            # Si la talla es L y en el inventario hay mas de 0
+            print("| Tenemos:", ProductListCSV[v][4], "en Talla L")
+            #se le notificara al usario la cantidad que hoodies que tenemos disponibles en la talla que el escogio
+            print(bar)
+            #se imprime una barra
+            time.sleep(2)
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+        elif TallaV == "L" and ProductListCSV[v][4] == 0:
+            # Si la talla es L y no hay inventario
+            print(no_stock)
+            #se le avisara al usuario que no hay existencias disponibles
+        if TallaV in size_options[0]:
+                return TallaV
             # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
-        
-
+        else:
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            time.sleep(2)
 
 def shopping_cart(n,j,u,w):
     # Aqui se define un a funciion para el carrito de compras
@@ -503,6 +499,28 @@ def shopping_cart(n,j,u,w):
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
 
+def Imprimir_Inv():
+    while True:
+        TotalInv = 0
+        h = 0
+        print(bar)
+        print("| Inventario Total: ")
+        for i in range(5):
+              for m in range(3):
+                    h+=1
+                    s = 2
+                    for u in range(3):
+                          TotalInv += ProductListCSV[h][s]
+                          s+=1
+                    m += 1
+              print("|",ProductListCSV[h][0],TotalInv)
+              TotalInv = 0
+              i+=1
+        InvRes = input("| R- Regresar ")
+        if InvRes in imprNot_opt[0]:
+            return InvRes
+        else:
+            print("| Esa no es una opcion Porfavor eliga R")
 
 def MontoTotalVentas():
     # Este es el menu de Monto total de ventas
@@ -621,51 +639,54 @@ while True:
                         continue
                     # Y Se regersa al menu principal
 
-                elif product_select == "5":
-                # Si eligio Pants
-                    Color_selectRes = Color_select(product_select)
-                    # Se le da la opcion de elegi que color va a querer en Pants
-                    if Color_selectRes == "1":
-                        # Si el color Es blanco y nergo
-                        Size_select = Size_Select(product_select, Color_selectRes)
-                        # Se le pide al usuario que seleccione una talla
-                    elif Color_selectRes == "2":
-                        # Si selecciono Negro
-                        Size_select = Size_Select(product_select, Color_selectRes)
-                        # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
-                    elif Color_selectRes == "3":
-                        # Si eligo Pants Blancos
-                        Size_select = Size_Select(product_select, Color_selectRes)
-                        # Se le pide al usuario que seleccione la Talla de Pants Blancos
-                    elif Color_selectRes == "R":
-                        # Si Selecciona regresar
-                        ClearTer()
-                        # Se limpia la pantalla
-                        continue
-                    # Y se regersa al menu principal
-                elif product_select == "6":
-                    # Si el usuario eligio 3 en el menu principal
+            elif product_select == "5":
+            # Si eligio Pants
+                Color_selectRes = Color_select(product_select)
+                # Se le da la opcion de elegi que color va a querer en Pants
+                if Color_selectRes == "1":
+                    # Si el color Es blanco y nergo
+                    Size_select = Size_Select(product_select, Color_selectRes)
+                    # Se le pide al usuario que seleccione una talla
+                elif Color_selectRes == "2":
+                    # Si selecciono Negro
+                    Size_select = Size_Select(product_select, Color_selectRes)
+                    # Se le pide al usuario que eliga que Talla va a necesitar para Pants Negros
+                elif Color_selectRes == "3":
+                    # Si eligo Pants Blancos
+                    Size_select = Size_Select(product_select, Color_selectRes)
+                    # Se le pide al usuario que seleccione la Talla de Pants Blancos
+                elif Color_selectRes == "R":
+                    # Si Selecciona regresar
                     ClearTer()
-                    # Se limpia la pantalla para que se vea mas limpio
-                    Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
-                    # Se imprime la nota de todo el inventario
-                    if Imprimir_Nota_Res == "R":
-                    # Si la opcion en Imprimir nota es R
-                        continue
-                    # Se regresa al menu principal
-                elif product_select == "R":
-                # Si el usuario eligio Regresar en la seleccion de productos
-                    NoteShopping_Cart_List=[]
-                    j=0
-                    break
+                    # Se limpia la pantalla
+                    continue
+                # Y se regersa al menu principal
+            elif product_select == "6":
+                # Si el usuario eligio 3 en el menu principal
+                ClearTer()
+                # Se limpia la pantalla para que se vea mas limpio
+                Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
+                # Se imprime la nota de todo el inventario
+                if Imprimir_Nota_Res == "R":
+                # Si la opcion en Imprimir nota es R
+                    continue
                 # Se regresa al menu principal
-                Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
-                # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
-                j+=1
-                # Se le agrega 1 al contador para que se vaya a la siguiente producto
-                time.sleep(2)
-                # Le da al usuario tiempo de ver el precio de los productos que eligieron
-
+            elif product_select == "R":
+            # Si el usuario eligio Regresar en la seleccion de productos
+                 NoteShopping_Cart_List=[]
+                 j=0
+                 break
+            # Se regresa al menu principal
+            Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
+            # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
+            j+=1
+            # Se le agrega 1 al contador para que se vaya a la siguiente producto
+            time.sleep(2)
+            # Le da al usuario tiempo de ver el precio de los productos que eligieron
+        elif MenuPrincipal == "3":
+                Imprimir_InvRes = Imprimir_Inv()
+                if Imprimir_InvRes == "R":
+                   continue
 
             elif MenuPrincipal == "4":
                 # Si el usuario eligio Monto total de ventas en el menu principal
