@@ -293,10 +293,6 @@ def Size_Select(m,h):
         # aqui aparece un menu para poder elegir que talla quieres en la prenda que deseas comprar 
         TallaV = input("| ")
         # Se guarda la talla que eligio el usario en TallaV
-        if TallaV not in size_options[0]:
-            #Si la talla que eligio el usario no esta en las opciones
-            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
-            #se le mostrara un mensaje que le indicara al usuario que vuelva a escribir o elegir la opcion deseada
         if TallaV == "S" and ProductListCSV[v][2] > 0:
             # Si la talla es S y hay mas inventario que 0
             print("| Tenemos:", ProductListCSV[v][2], "En Talla S")
@@ -331,9 +327,12 @@ def Size_Select(m,h):
             # Si la talla es L y no hay inventario
             print(no_stock)
             #se le avisara al usuario que no hay existencias disponibles
-
-        return TallaV
-        # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
+        if TallaV in size_options[0]:
+                return TallaV
+            # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
+        else:
+            print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            time.sleep(2)
 
 def shopping_cart(n,j,u,w):
     # Aqui se define un a funciion para el carrito de compras
