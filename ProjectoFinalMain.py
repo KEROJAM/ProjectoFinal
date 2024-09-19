@@ -33,7 +33,7 @@ no_stock = "| No hay Stock en esa Talla"
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 ReturnPrint = "| R - Regresar"
-menu_options = ["1", "2", "3", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","5- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
+menu_options = ["1", "2", "3","4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ["1", "2", "3", "4", "5","6","R"], ["1- Hoodies", "2- Camisetas", "3- Jeans", "4- Calcetines", "5- Pants", "6- Imprimir Nota", "R- Regresar"],["600", "350", "360", "40", "400"]
 # Esta es otra enunciado, sirve para verificar que sea realmente un producto que tenemos
@@ -81,7 +81,6 @@ for i in range(LenProductListCSV):
     i+=1
     # Y se agrega 1 al otro contador para seguir a la siguiente linea
 
-print(ProductListCSV)
 def mensaje_espera():
 # Aqui se define la texto mensaje de espera prara poder usarla despues
     print("| Por favor, espera redirigiendo al menu ")
@@ -473,6 +472,28 @@ def shopping_cart(n,j,u,w):
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
 
+def Imprimir_Inv():
+    while True:
+        TotalInv = 0
+        h = 0
+        print(bar)
+        print("| Inventario Total: ")
+        for i in range(5):
+              for m in range(3):
+                    h+=1
+                    s = 2
+                    for u in range(3):
+                          TotalInv += ProductListCSV[h][s]
+                          s+=1
+                    m += 1
+              print("|",ProductListCSV[h][0],TotalInv)
+              TotalInv = 0
+              i+=1
+        InvRes = input("| R- Regresar ")
+        if InvRes in imprNot_opt[0]:
+            return InvRes
+        else:
+            print("| Esa no es una opcion Porfavor eliga R")
 
 def MontoTotalVentas():
     # Este es el menu de Monto total de ventas
@@ -632,7 +653,10 @@ while True:
             # Se le agrega 1 al contador para que se vaya a la siguiente producto
             time.sleep(2)
             # Le da al usuario tiempo de ver el precio de los productos que eligieron
-
+        elif MenuPrincipal == "3":
+                Imprimir_InvRes = Imprimir_Inv()
+                if Imprimir_InvRes == "R":
+                   continue
 
         elif MenuPrincipal == "4":
             # Si el usuario eligio Monto total de ventas en el menu principal
