@@ -685,7 +685,7 @@ while True:
             elif MenuPrincipal == "3":
                 Imprimir_InvRes = Imprimir_Inv()
                 if Imprimir_InvRes == "R":
-                   continue
+                   break
 
             elif MenuPrincipal == "4":
                 # Si el usuario eligio Monto total de ventas en el menu principal
@@ -693,7 +693,6 @@ while True:
                 # Se ejecuta el menu de Monto total de Ventas
                 if Monto_Ventas_Total == "R":
                     # Si el usuario eligio regresar al menu principal en Monto de ventas
-
                     continue
                     # Se regresa al menu principal
 
