@@ -260,7 +260,7 @@ def Color_select(m):
                 #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
         except ValueError :
         #con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo
-            print("Opcion invalida , favor de revisar si selecciono una opcion que este disponible en el menu")
+            print("Caracter Invalido")
             #este es el cartel que se imprime cuando el usuario se equivoca
 
 
@@ -416,7 +416,7 @@ def shopping_cart(n,j,u,w):
                 # Sirve como indice en la lista de productos
         except ValueError :
         #con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo#con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo
-            print("La opcion seleccionada es incorrecta favor de reintentar con otra opcion")
+            print("Caracter Invalido")
             #este es el cartel que se imprime cuando el usuario se equivoca
 
         try:
@@ -546,9 +546,7 @@ while True:
     # Se inicia un ciclo para poder usar el mismo menu si la opcion es incorecta
     MenuPrincipal = Menu_principal()
     #Se ejecuta el menu Principal
-    while True:
-        try:
-        #esto se pone en caso de que el usuario se equivoque al teclear algo , el programa le de la oportunidad de seleccionar de nuevo regresandolo a la parte donde se quedo
+    while True:        
             if MenuPrincipal == "1":
                 # Si la opcion del menu es 1
                 product_select = Product_Type()
@@ -703,9 +701,5 @@ while True:
             # Si la opcion del Menu Principal es Q
                 Quit_Menu()
                 # Se ejectua la texto de salir del programa
-        except ValueError :
-        #con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo
-            print("Selecciono una opcion que no es correcta o esta mal escrita , favor de reintentar")
-            #este es el cartel que se imprime cuando el usuario se equivoca
-
+       
 file.close()
