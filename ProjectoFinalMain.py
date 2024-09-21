@@ -190,8 +190,6 @@ def Imprimir_Nota(j,s=0):
             # Se impirme el inico de la tabla
             for i in range(LengthShopping):
                 # Se inicia un ciclo del tamaño de la tabla
-                print(LengthShopping)
-                print(NoteShopping_Cart_List)
                 print("|", " | ".join(s[i]), end=" |\n")
                 # Se impirme lo que hay en  el carrtio de compras mediante una lista que tiene un contador para mostar cada producto
                 i +=1
@@ -526,7 +524,6 @@ def shopping_cart(n,j,u,w):
                     TotalShoppingCart = TotalShoppingCart + TotalProductPrice
                     # Se suma el valor total de Carrito de compras a el valor total de los productos elegidos ahorita
                     TotalShoppingCartSTR = str(TotalShoppingCart)
-                    print(NoteShopping_Cart_List)
                     NoteShoppingTotal = int(NoteShopping_Cart_List[0][-1])
                     NoteShoppingTotal = NoteShoppingTotal + TotalProductPrice
                     NoteShoppingTotalSTR = str(NoteShoppingTotal)
@@ -712,7 +709,7 @@ while True:
                         # Si el usuario eligio 3 en el menu principal
                         ClearTer()
                         # Se limpia la pantalla para que se vea mas limpio
-                        Imprimir_Nota_Res = Imprimir_Nota(j,Shopping_Cart)
+                        Imprimir_Nota_Res = Imprimir_Nota(j,NoteShopping_Cart_List)
                         # Se imprime la nota de todo el inventario
                         if Imprimir_Nota_Res == "R":
                                 # Si la opcion en Imprimir nota es R
