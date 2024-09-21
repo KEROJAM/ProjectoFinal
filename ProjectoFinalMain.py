@@ -26,7 +26,7 @@ else:
             # Se guardan los datos del archivo en una variable llamada Reader
             ProductListCSV = list(Reader)
             # Y se hace una lista con el contenido
-
+file.close()
 
 no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
@@ -190,6 +190,8 @@ def Imprimir_Nota(j,s=0):
             # Se impirme el inico de la tabla
             for i in range(LengthShopping):
                 # Se inicia un ciclo del tamaño de la tabla
+                print(LengthShopping)
+                print(NoteShopping_Cart_List)
                 print("|", " | ".join(s[i]), end=" |\n")
                 # Se impirme lo que hay en  el carrtio de compras mediante una lista que tiene un contador para mostar cada producto
                 i +=1
@@ -323,7 +325,9 @@ def Size_Select(m,h):
             time.sleep(2)
         elif TallaV == "S" and ProductListCSV[v][2] == 0:
             print(no_stock)
-            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa 
+            print(bar)
+            #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
+            TallaV = 0
         if TallaV == "M" and ProductListCSV[v][3] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos:", ProductListCSV[v][3], "En Talla M")
@@ -335,7 +339,9 @@ def Size_Select(m,h):
         elif TallaV == "M" and ProductListCSV[v][3] == 0:
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
+            print(bar)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
+            TallaV = 0
         if TallaV == "L" and ProductListCSV[v][4] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos:", ProductListCSV[v][4], "en Talla L")
@@ -347,8 +353,10 @@ def Size_Select(m,h):
         elif TallaV == "L" and ProductListCSV[v][4] == 0:
             # Si la talla es L y no hay inventario
             print(no_stock)
+            print(bar)
             #se le avisara al usuario que no hay existencias disponibles
-        if TallaV in size_options[0]:
+            TallaV = 0
+        if TallaV in size_options[0] or TallaV == 0:
                 return TallaV
             # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
         else:
@@ -364,6 +372,15 @@ def shopping_cart(n,j,u,w):
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try :
         #esto se pone en caso de que el usuario se equivoque al teclear algo , el programa le de la oportunidad de seleccionar de nuevo regresandolo a la parte donde se quedo
+            if u == 0:
+                break
+            elif u == "S":
+                    v = 2
+            elif u == "M":
+                    v = 3
+            elif u == "L":
+                    v = 4
+
             if n == "1":
                 # Si el usuario eligio Hoodies
                 print("| Las hoodies cuestan $600")
@@ -373,7 +390,12 @@ def shopping_cart(n,j,u,w):
                 ProductName = "Hoodies"
                 # Se le asigna El nombre de producto para mostrarlo
                 i = 1
-                # Sirve como un incide en la lista de productos
+                if c == 1:
+                    h = 1
+                elif c == 2:
+                    h = 2
+                elif c == 3:
+                    h = 3
             elif n == "2":
                 # Si el usuario eligio Camisas
                 print("| Las camisas cuestan $350")
@@ -384,6 +406,12 @@ def shopping_cart(n,j,u,w):
                 # Se asigna el Producto para mostarlo al final
                 i = 2
                 # Sirve como indice en la lista de productos
+                if c == 1:
+                    h = 4
+                elif c == 2:
+                    h = 5
+                elif c == 3:
+                    h = 6
             elif n == "3":
                 # Si el usuario eligio Jeans
                 print("| Los Jeans cuestan $360")
@@ -394,6 +422,12 @@ def shopping_cart(n,j,u,w):
                 # Se le asigna el Producto para mostrarlo en el carrito
                 i = 3
                 # Sirve como indice en la lista de productos
+                if c == 1:
+                    h = 7
+                elif c == 2:
+                    h = 8
+                elif c == 3:
+                    h = 9
             elif n == "4":
                 # Si el usuario eligo calcetines
                 print("| Los Calcetines cuestan $40")
@@ -404,6 +438,12 @@ def shopping_cart(n,j,u,w):
                 # y se asigna el producto para mostarlo en el carrito de compras
                 i = 4
                 # Sirve como indice en la lista de productos
+                if c == 1:
+                    h = 10
+                elif c == 2:
+                    h = 11
+                elif c == 3:
+                    h = 12
             elif n == "5":
                 # Si el usuario eligio pants
                 print("| Los Pants cuestan $400")
@@ -414,6 +454,13 @@ def shopping_cart(n,j,u,w):
                 # Se asigna un producto para poder mostar el producto en el carrito de compras
                 i = 5
                 # Sirve como indice en la lista de productos
+                if c == 1:
+                    h = 13
+                elif c == 2:
+                    h = 14
+                elif c == 3:
+                    h = 15
+
         except ValueError :
         #con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo#con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo
             print("Caracter Invalido")
@@ -444,6 +491,7 @@ def shopping_cart(n,j,u,w):
                 # Se multiplica la cantidad de articulos que quiere el usuario por el precio del producto
                 print("| Se agrego:", Shopping_Cart_Amount, ProductName, imprNot_opt[i][c] , u , "$",TotalProductPrice, " a tu carrito de compras.")
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
+                ProductListCSV[h][v]-=Shopping_Cart_Amount
                 Shopping_Cart_AmountSTR = str(Shopping_Cart_Amount)
                 # Se convierte el valor del shoppint cart a una string para poder imprimirlo en la nota
                 TempShopping_Cart_List.append(Shopping_Cart_AmountSTR)
@@ -549,6 +597,7 @@ while True:
     while True:        
             if MenuPrincipal == "1":
                 # Si la opcion del menu es 1
+                Size_select = 0
                 product_select = Product_Type()
                 # Se declara una enunciado para guardar el resultado de la texto que contiene el menu de los usuarios
                 if product_select == "1":
@@ -675,17 +724,25 @@ while True:
                         j=0
                         break
                 # Se regresa al menu principal
-                Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
-                # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
-                j+=1
-                # Se le agrega 1 al contador para que se vaya a la siguiente producto
-                time.sleep(2)
-                # Le da al usuario tiempo de ver el precio de los productos que eligieron
+                if Size_Select == 0 or Size_Select == "R":
+                        # Si la talla es igual a 0
+                        continue
+                else:
+                        Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
+                        # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
+                        j+=1
+                        # Se le agrega 1 al contador para que se vaya a la siguiente producto
+                        time.sleep(2)
+                        # Le da al usuario tiempo de ver el precio de los productos que eligieron
 
             elif MenuPrincipal == "3":
+                    # Si el usuario eligio en el menu 3
                 Imprimir_InvRes = Imprimir_Inv()
+                # Se ejecuta la funcion de impirmir inventario
                 if Imprimir_InvRes == "R":
+                # Si en impirmir inventario selecciona R
                    break
+                    # Se sale del menu de imprimir inventario
 
             elif MenuPrincipal == "4":
                 # Si el usuario eligio Monto total de ventas en el menu principal
@@ -700,5 +757,3 @@ while True:
             # Si la opcion del Menu Principal es Q
                 Quit_Menu()
                 # Se ejectua la texto de salir del programa
-       
-file.close()
