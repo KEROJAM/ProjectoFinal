@@ -27,12 +27,14 @@ else:
             ProductListCSV = list(Reader)
             # Y se hace una lista con el contenido
 file.close()
+# Se cierra la base de datos
 
 no_stock = "| No hay Stock en esa Talla"
 # Declaramos que  no hay stock para no tener que esribirlo muchas veces
 bar = "|----------------------------------------------|"
 # Una bara para para que se vea bien y separa secciones del menu
 ReturnPrint = "| R - Regresar"
+# Se define el boton de regresar
 menu_options = ["1", "2", "3","4", "Q"], ["1- Ordenar Productos","2- Agregar Inventario","3- Mostrar Inventario","4- Imprimir Monto total de Ventas","Q- Salir"]
 # Esta  es una enunciado ,sirve para verificar si la respuesta que dio el usuario esta en las opciones
 product_type = ["1", "2", "3", "4", "5","6","R"], ["1- Hoodies", "2- Camisetas", "3- Jeans", "4- Calcetines", "5- Pants", "6- Imprimir Nota", "R- Regresar"],["600", "350", "360", "40", "400"]
@@ -222,16 +224,27 @@ def Quit_Menu():
 def Color_select(m):
     # Se define el texto de seleccionar el color de hoodies para usarse en el menu
     if m == "1":
+        # Si el producto es 1/ hoddies
         h = 1
+        # El contador es 1
     elif m == "2":
+        # Si el producto es 2 / camisetas
         h = 4
+        # El contador es 4
     elif m == "3":
+        # Si el producto es 3 / Jeans
         h = 7
+        # El contador es 7
     elif m == "4":
+        # Si el producto es 4 / calcetnies
         h = 10
+        # El contador es 10
     elif m == "5":
+        # Si el producto es 5 / Pants
         h = 13
+        # El contador es 13
     ClearTer()
+    # Se limipa la terminal
     while True:
         # Se inica un ciclo para poder repetir el menu sin tener que escribirlo muchas veces
         try:
@@ -267,43 +280,81 @@ def Color_select(m):
 def Size_Select(m,h):
     # Se define la opcion de hoodies verde para que el usuario seleccione la talla
     i = int(m)
+    # La variable i se agarra del valor de el producto elegido
     k = int(h)
+    # Y la variable k es el valor del color elegido
     if i == 1:
+        # Si i es igual a 1 / hoddies
         if k == 1:
+        # Y k es igual a 1 /color
            v = 1
+           # El contador es 1
         elif k == 2:
+        # Si k es igual a 2 / color
            v = 2
+           # El contador es 2
         elif k == 3:
+        # Si K es igual a 3 / color
            v = 3
+           # El contador es 3
     elif i == 2:
+        # Si i es igual a 2 / camisetas
         if k == 1:
+        # Y K es igual a 1
            v = 4
+           # El contador es 4
         elif k == 2:
+        # Si k es igual a 2 / color
            v = 5
+           # El contador es 5
         elif k == 3:
+        # Si k es iguala 3 / color
            v = 6
+           # El contador es 6
     elif i == 3:
+        # Si i es igual a 3 / Jeans
         if k == 1:
+        # Y k es igual a 1
            v = 7
+           # el contador es 7
         elif k == 2:
+        # Si K es igual a 2
            v = 8
+           # El contador es 8
         elif k == 3:
+        # Si K es igual a 3
            v = 9
+           # El contador es 9
     if i == 4:
+        # Si i es igual a 4 / calcetines
         if k == 1:
+        # Si k es igual a 1
            v = 10
+           # El contador es 10
         elif k == 2:
+        # Si k es igual a 2
            v = 11
+           # el contador es 11
         elif k == 3:
+        # Si k es igual a 3
            v = 12
+           # El contador es 12
     if i == 5:
+        # Si i es igual a 5
         if k == 1:
+        # y k es igual a 1
            v = 13
+           # El contador es 13
         elif k == 2:
+        # Si k es igual a 2
            v = 14
+           # El contador es 15
         elif k == 3:
+        # Si k es 3
            v = 15
+           # El contador es 15
     ClearTer()
+    # Se limipa la pantalla
     while True:
         # Se inicia el ciclo para que el menu vuelva a aparecer si el usuario se equivoca
         print(bar)
@@ -321,11 +372,15 @@ def Size_Select(m,h):
             print(bar)
             #se imprime una barra
             time.sleep(2)
+            # Le da tiempo al usuario de leer el contenido
         elif TallaV == "S" and ProductListCSV[v][2] == 0:
+        # Si la talla es S y no hay inventario en talla S en el color
             print(no_stock)
+            #Se impirme que no hay inventario
             print(bar)
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
-            TallaV = 0
+            TallaV = "no"
+            # Declara la talla como no
         if TallaV == "M" and ProductListCSV[v][3] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos:", ProductListCSV[v][3], "En Talla M")
@@ -337,9 +392,11 @@ def Size_Select(m,h):
         elif TallaV == "M" and ProductListCSV[v][3] == 0:
             # S la talla es M y no hay inventario en esa talla
             print(no_stock)
-            print(bar)
             # se imprimira un texto que indique al usuario que no hay existencias disponibles en esa talla
-            TallaV = 0
+            print(bar)
+            # Se impirme una barra para separar contenido
+            TallaV = "no"
+            # Declara la talla como no
         if TallaV == "L" and ProductListCSV[v][4] > 0:
             # Si la talla es L y en el inventario hay mas de 0
             print("| Tenemos:", ProductListCSV[v][4], "en Talla L")
@@ -351,15 +408,21 @@ def Size_Select(m,h):
         elif TallaV == "L" and ProductListCSV[v][4] == 0:
             # Si la talla es L y no hay inventario
             print(no_stock)
+            # Se le informa al usuario que no hay existencias
             print(bar)
             #se le avisara al usuario que no hay existencias disponibles
-            TallaV = 0
-        if TallaV in size_options[0] or TallaV == 0:
+            TallaV = "no"
+            # Declara la talla como no
+        if TallaV in size_options[0] or TallaV == "no":
+        # Si la talla elegida esta en las opcinoes
                 return TallaV
             # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
         else:
+        # Si no esta en las opciones
             print("| Ese no es un Producto\n| (Verifica si el nombre esta Bien escrito)")
+            # Se le informa al usuario que no existe
             time.sleep(2)
+            # Y se le da tiempo de leer
 
 def shopping_cart(n,j,u,w):
     # Aqui se define un a funciion para el carrito de compras
@@ -370,14 +433,22 @@ def shopping_cart(n,j,u,w):
         # Se empieza el ciclo para que el menu sigua aunque este mal la respuesta
         try :
         #esto se pone en caso de que el usuario se equivoque al teclear algo , el programa le de la oportunidad de seleccionar de nuevo regresandolo a la parte donde se quedo
-            if u == 0:
+            if u == "no":
+                # Si la talla es no
                 break
+                # Rompe el ciclo
             elif u == "S":
+                    # Si la talla es S
                     v = 2
+                    # el contador es 2
             elif u == "M":
+                    # Si la talla es M
                     v = 3
+                    # El contador es 3
             elif u == "L":
+                    # Si la talla es l
                     v = 4
+                    # El contador es 4
 
             if n == "1":
                 # Si el usuario eligio Hoodies
@@ -388,12 +459,19 @@ def shopping_cart(n,j,u,w):
                 ProductName = "Hoodies"
                 # Se le asigna El nombre de producto para mostrarlo
                 i = 1
+                # el contador i se le asigna 1
                 if c == 1:
+                # Si C / color es igual a 1
                     h = 1
+                    # al contador se le asigna 1
                 elif c == 2:
+                # Si c / color es igual a 2
                     h = 2
+                    # Se le asigna 2 al contador
                 elif c == 3:
+                # Si c / color es igual a 3
                     h = 3
+                    # Se le asigna 3 al contador
             elif n == "2":
                 # Si el usuario eligio Camisas
                 print("| Las camisas cuestan $350")
@@ -405,11 +483,17 @@ def shopping_cart(n,j,u,w):
                 i = 2
                 # Sirve como indice en la lista de productos
                 if c == 1:
+                # Si el color es 1
                     h = 4
+                    # Se le asinga 4 a la h
                 elif c == 2:
+                # Si el color es 2
                     h = 5
+                    # Se le asigna 5 a h
                 elif c == 3:
+                # Si el color es 3
                     h = 6
+                    # Se le asigna 5 a h
             elif n == "3":
                 # Si el usuario eligio Jeans
                 print("| Los Jeans cuestan $360")
@@ -421,11 +505,17 @@ def shopping_cart(n,j,u,w):
                 i = 3
                 # Sirve como indice en la lista de productos
                 if c == 1:
+                # Si el color fue 1
                     h = 7
+                    # Se le asigna a h 7
                 elif c == 2:
+                # Si el color fue 2
                     h = 8
+                    # Se le asinga a h 8
                 elif c == 3:
+                # Si el color fue 3
                     h = 9
+                    # Se le asina a h 9
             elif n == "4":
                 # Si el usuario eligo calcetines
                 print("| Los Calcetines cuestan $40")
@@ -437,11 +527,17 @@ def shopping_cart(n,j,u,w):
                 i = 4
                 # Sirve como indice en la lista de productos
                 if c == 1:
+                # Si el color fue 1
                     h = 10
+                    # Se le asinga a h 10
                 elif c == 2:
+                # Si el color fue 2
                     h = 11
+                    # Se le asinga a h 11
                 elif c == 3:
+                # Si el color es 3
                     h = 12
+                    # Se le asinga a h 12
             elif n == "5":
                 # Si el usuario eligio pants
                 print("| Los Pants cuestan $400")
@@ -453,11 +549,17 @@ def shopping_cart(n,j,u,w):
                 i = 5
                 # Sirve como indice en la lista de productos
                 if c == 1:
+                # Si el color es 1
                     h = 13
+                    # Se le asigna a h 13
                 elif c == 2:
+                # Si el color es 2
                     h = 14
+                    # Se le asinga a h 14
                 elif c == 3:
+                # Si el color es 3
                     h = 15
+                    # Se le asinga a h 15
 
         except ValueError :
         #con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo#con esto se detecta el error que tuvo el usuario para asi poder regresarlo y que lo pueda intentar de nuevo
@@ -490,6 +592,7 @@ def shopping_cart(n,j,u,w):
                 print("| Se agrego:", Shopping_Cart_Amount, ProductName, imprNot_opt[i][c] , u , "$",TotalProductPrice, " a tu carrito de compras.")
                 #aqui se le notifica al usario el total de productos que tiene en su carrito de compra
                 ProductListCSV[h][v]-=Shopping_Cart_Amount
+                # Se le resta la cantidad de articulos elegidos a el inventario
                 Shopping_Cart_AmountSTR = str(Shopping_Cart_Amount)
                 # Se convierte el valor del shoppint cart a una string para poder imprimirlo en la nota
                 TempShopping_Cart_List.append(Shopping_Cart_AmountSTR)
@@ -514,7 +617,7 @@ def shopping_cart(n,j,u,w):
                     TempShopping_Cart_List.append(TotalShoppingCartSTR)
                     # Se le agrega a una lista el Total de todos los productos
                     NoteShopping_Cart_List.append(TempShopping_Cart_List)
-                    print(NoteShopping_Cart_List)
+                    # Se agrega el carrito temporal al carrito de compras de la nota
                     Shopping_Cart_List.append(TempShopping_Cart_List)
                     # Se le agrega a el shopping cart principal la lista de los productos mas el precio total del shopping cart
                 elif j > 0:
@@ -524,15 +627,23 @@ def shopping_cart(n,j,u,w):
                     TotalShoppingCart = TotalShoppingCart + TotalProductPrice
                     # Se suma el valor total de Carrito de compras a el valor total de los productos elegidos ahorita
                     TotalShoppingCartSTR = str(TotalShoppingCart)
+                    # Combierte el valor de el shopping cart a string para poder mostrarlo mas facil
                     NoteShoppingTotal = int(NoteShopping_Cart_List[0][-1])
+                    # Combierte en integer el ultimo valor de la lista 1 que es el precio total
                     NoteShoppingTotal = NoteShoppingTotal + TotalProductPrice
+                    # Suma el precio total del shopping cart mas el precio del producto comprado
                     NoteShoppingTotalSTR = str(NoteShoppingTotal)
                     # Se convierte el total del carrito de compras a stirng para poder impirmirlo en la nota
                     del NoteShopping_Cart_List[0][-1]
+                    # borra el valor antiguo del shopping cart
                     NoteShopping_Cart_List[0].append(NoteShoppingTotalSTR)
+                    # y agrega el nuevo valor como una string para mostrarlo mas facil
                     NoteShopping_Cart_List.append(TempShopping_Cart_List)
+                    # Y lo agrega el valor a el carrito temporal
                     del Shopping_Cart_List[0][-1]
+                    # Borra el valor total de las compras
                     Shopping_Cart_List[0].append(TotalShoppingCartSTR)
+                    # Agregar el valor total nuevo que incluye el precio total de todas tus compras
                     Shopping_Cart_List.append(NoteShopping_Cart_List)
                     # Se agrega el valor de los productos nuevos al Carrito de compras
                 print(bar)
@@ -545,35 +656,64 @@ def shopping_cart(n,j,u,w):
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
 
 def Imprimir_Inv():
+# Se define la funcion de imprimir inventario
     while True:
-        TotalInv = 0
-        h = 0
-        print(bar)
-        print("| Inventario Total: ")
-        for i in range(5):
-              for m in range(3):
-                    h+=1
-                    s = 2
-                    for u in range(3):
-                          TotalInv += ProductListCSV[h][s]
-                          s+=1
-                    m += 1
-              print("|",ProductListCSV[h][0],TotalInv)
-              TotalInv = 0
-              i+=1
-        InvRes = input("| R- Regresar ")
-        if InvRes in imprNot_opt[0]:
-            return InvRes
-        else:
-            print("| Esa no es una opcion Porfavor eliga R")
+
+                # Se inicia un ciclo para repetir el menu si el usuario se equivoca
+        try:
+                # Se caputra cualquier error que se precente
+                TotalInv = 0
+                # El inventario empiza en 0
+                h = 0
+                # El contador empieza en 0
+                print(bar)
+                # Se impirme una barra para separar contenido
+                print("| Inventario Total: ")
+                # Se imprime el texto de inventario total
+                for i in range(5):
+                        # Este ciclo se va a repetir 5 veces porque tenemos 5 productos
+                        for m in range(3):
+                                # Este otro ciclo se repite 3 veces porque tenemos 3 colores cada uno con su propio inventario
+                                h+=1
+                                # Se agrega 1 al contador
+                                s = 2
+                                # Se empieza otro contador en 2
+                                for u in range(3):
+                                        # este otro ciclo se repite 3 veces porque tenemos 3 tallas diferentes y cada una tiene su inventario
+                                        TotalInv += ProductListCSV[h][s]
+                                        # Se agrega al total de inventario que indexa el producto y sus tallas
+                                        s+=1
+                                        # Se le agrega 1 al contador de s para moverse a la siguiente talla
+                                m += 1
+                                # Se le agrega 1 al otro contador para moverse al siguente paso
+                        print("|",ProductListCSV[h][0],TotalInv)
+                        # Se impirme el nombre del producto y se impirme el inventario total
+                        TotalInv = 0
+                        # Se reincia el inventario total
+                        i+=1
+                        # y se agrega 1 al contador
+                InvRes = input("| R- Regresar ")
+                # Se impirme el boton de regresar y una opcion al usuario para teclear
+                if InvRes in imprNot_opt[0]:
+                        # Si lo que puso el usuario esta en las opciones
+                        return InvRes
+                # Se rompe el ciclo y regresa el valor
+                else:
+                # Si no
+                        print("| Esa no es una opcion Porfavor eliga R")
+                        # Se impirme que esa no es una opcion
+        except ValueError:
+                # Si el usuario puso un caracter que no es una letra
+                print("| Caracter invalido")
+                # Le marca que es un caracter invalido
 
 def MontoTotalVentas():
     # Este es el menu de Monto total de ventas
     while True:
         # Se inicia un ciclo para repetir el menu si el usuario se equivoco
-            print("| Este es el monto total de todas las ventas de Session: ",Shopping_Cart[0][-1])
+            print("| Este es el monto total de todas las ventas de Session: ",Shopping_Cart_List[0][-1])
             # Se imprime monto total de ventas en la session
-            print("|",imprNot_opt[1][5])
+            print(ReturnPrint)
             # Se imprime la opcion de regresar
             MontoTotalOpcion=input("| Eliga Regresar para volver al menu principal: ")
             # Se le informa al usuario que hacer para regresar al menu principal
@@ -718,14 +858,17 @@ while True:
                 elif product_select == "R":
                         # Si el usuario eligio Regresar en la seleccion de productos
                         NoteShopping_Cart_List=[]
+                        # Reinicia la nota de compras
                         j=0
+                        # Pone el contador en 0
                         break
                 # Se regresa al menu principal
                 if Size_Select == 0 or Size_Select == "R":
                         # Si la talla es igual a 0
                         continue
+                        # Se regresa al menu de productos
                 else:
-                        Shopping_Cart = shopping_cart(product_select , j, Size_select, Color_selectRes)
+                        Shopping_CartRes = shopping_cart(product_select , j, Size_select, Color_selectRes)
                         # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
                         j+=1
                         # Se le agrega 1 al contador para que se vaya a la siguiente producto
@@ -747,7 +890,7 @@ while True:
                 # Se ejecuta el menu de Monto total de Ventas
                 if Monto_Ventas_Total == "R":
                     # Si el usuario eligio regresar al menu principal en Monto de ventas
-                    continue
+                        break
                     # Se regresa al menu principal
 
             elif MenuPrincipal == "Q" or "q":
