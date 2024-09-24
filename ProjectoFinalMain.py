@@ -13,7 +13,7 @@ import csv
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 if os.name == "nt":
         # Si el sistema operativo es windows
-        with open("C:\\Users\\alana\\Downloads\\python\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv", 'r+') as file:
+        with open("C:\\Users\\%USERNAME%\\Downloads\\python\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv", 'r') as file:
             # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
             Reader = csv.reader(file, delimiter=',')
             # Se guardan los datos del archivo en una variable llamada Reader
