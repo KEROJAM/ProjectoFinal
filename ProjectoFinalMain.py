@@ -12,7 +12,7 @@ import csv
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 User = os.getlogin()
-Path = "C:\\Users\\{i}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
+Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
 if os.name == "nt":
         # Si el sistema operativo es windows
         with open(Path, 'r') as file:
