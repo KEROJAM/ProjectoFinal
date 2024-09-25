@@ -657,6 +657,153 @@ def shopping_cart(n,j,u,w):
             print("| El numero seleccionado supera la cantidad de articulos que hay en stock , favor de seleccionar otra cantidad.")
             #si el usuario excede la cantidad permitida de articulos , se le notificara que no se puede proceder con su transaccion
 
+def AddInv(p,w,s):
+        c = int(w)
+        if p == "1":
+                # Si el usuario eligio Hoodies
+                print("| Las hoodies cuestan $600")
+                # Se le informa cuanto cuestan las Hoodies
+                ProductPrice = 600
+                # Se asigna el precio al producto para mostrarlo al final
+                ProductName = "Hoodies"
+                # Se le asigna El nombre de producto para mostrarlo
+                i = 1
+                # el contador i se le asigna 1
+                if c == 1:
+                # Si C / color es igual a 1
+                    h = 1
+                    # al contador se le asigna 1
+                elif c == 2:
+                # Si c / color es igual a 2
+                    h = 2
+                    # Se le asigna 2 al contador
+                elif c == 3:
+                # Si c / color es igual a 3
+                    h = 3
+                    # Se le asigna 3 al contador
+        elif p == "2":
+                # Si el usuario eligio Camisas
+                print("| Las camisas cuestan $350")
+                # Se le informa cuanto cuestan las camisas
+                ProductPrice = 350
+                # Se asigna el precio indicado
+                ProductName = "Camisetas"
+                # Se asigna el Producto para mostarlo al final
+                i = 2
+                # Sirve como indice en la lista de productos
+                if c == 1:
+                # Si el color es 1
+                    h = 4
+                    # Se le asinga 4 a la h
+                elif c == 2:
+                # Si el color es 2
+                    h = 5
+                    # Se le asigna 5 a h
+                elif c == 3:
+                # Si el color es 3
+                    h = 6
+                    # Se le asigna 5 a h
+        elif p == "3":
+                # Si el usuario eligio Jeans
+                print("| Los Jeans cuestan $360")
+                # Se le informa cuanto es el costo de los Jeans
+                ProductPrice = 360
+                # Se le asigna un valor al costo
+                ProductName = "Jeans"
+                # Se le asigna el Producto para mostrarlo en el carrito
+                i = 3
+                # Sirve como indice en la lista de productos
+                if c == 1:
+                # Si el color fue 1
+                    h = 7
+                    # Se le asigna a h 7
+                elif c == 2:
+                # Si el color fue 2
+                    h = 8
+                    # Se le asinga a h 8
+                elif c == 3:
+                # Si el color fue 3
+                    h = 9
+                    # Se le asina a h 9
+        elif p == "4":
+                # Si el usuario eligo calcetines
+                print("| Los Calcetines cuestan $40")
+                # Se le infroma al usuario el costo de los calcetines
+                ProductPrice = 40
+                # Se asigna el precio al producto
+                ProductName = "Clacetines"
+                # y se asigna el producto para mostarlo en el carrito de compras
+                i = 4
+                # Sirve como indice en la lista de productos
+                if c == 1:
+                # Si el color fue 1
+                    h = 10
+                    # Se le asinga a h 10
+                elif c == 2:
+                # Si el color fue 2
+                    h = 11
+                    # Se le asinga a h 11
+                elif c == 3:
+                # Si el color es 3
+                    h = 12
+                    # Se le asinga a h 12
+        elif p == "5":
+                # Si el usuario eligio pants
+                print("| Los Pants cuestan $400")
+                # Se le informa al usuario el costo de los Pants
+                ProductPrice = 400
+                # Se les asigna un valor a los pantalones
+                ProductName = "Pants"
+                # Se asigna un producto para poder mostar el producto en el carrito de compras
+                i = 5
+                # Sirve como indice en la lista de productos
+                if c == 1:
+                # Si el color es 1
+                    h = 13
+                    # Se le asigna a h 13
+                elif c == 2:
+                # Si el color es 2
+                    h = 14
+                    # Se le asinga a h 14
+                elif c == 3:
+                # Si el color es 3
+                    h = 15
+                    # Se le asinga a h 15
+        if s == "S":
+                    # Si la talla es S
+                    v = 2
+                    # el contador es 2
+        elif s == "M":
+                    # Si la talla es M
+                    v = 3
+                    # El contador es 3
+        elif s == "L":
+                    # Si la talla es l
+                    v = 4
+                    # El contador es 4
+                    #
+        while True:
+                    AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
+                    #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras
+
+                    if AddInv_Amount <= 0:
+                    # Si el carrito de compras es menor o igual a 0
+                            print("| No Puedes agregar 0 arcticulos.")
+                            # se le notificara que no tiene ningun producto en el carrito
+                            print(bar)
+                            # Se imprime la barra para separar el menu
+                    elif AddInv_Amount > 10:
+                    # Si el carrito de compras es mas de 10
+                            print("| No puedes agregar más de 10 artículos.")
+                            #como tenemos un stock de 10 para todos los productos no se le permitira comprar mas 10 productos simultaneamente
+                            print(bar)
+                            # Se imprime la barra para separar el menu
+                            time.sleep(2)
+                #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
+                    else:
+                            ProductListCSV[h][v] += AddInv_Amount
+                            break
+
 def Imprimir_Inv():
 # Se define la funcion de imprimir inventario
     while True:
@@ -876,7 +1023,17 @@ while True:
                         # Se le agrega 1 al contador para que se vaya a la siguiente producto
                         time.sleep(2)
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
-
+            elif MenuPrincipal == "2":
+                   product_select = Product_Type()
+                   if product_select == "R":
+                           break
+                   Color_selectRes = Color_select(product_select)
+                   if Color_selectRes == "R":
+                           break
+                   Size_select = Size_Select(product_select, Color_selectRes)
+                   if Size_select == "R":
+                           break
+                   AddInvRes = AddInv(product_select,Color_selectRes,Size_select)
             elif MenuPrincipal == "3":
                     # Si el usuario eligio en el menu 3
                 Imprimir_InvRes = Imprimir_Inv()
