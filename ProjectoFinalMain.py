@@ -792,9 +792,9 @@ def AddInv(p,w,s):
                             # se le notificara que no tiene ningun producto en el carrito
                             print(bar)
                             # Se imprime la barra para separar el menu
-                    elif AddInv_Amount > 10:
+                    elif AddInv_Amount > 30:
                     # Si el carrito de compras es mas de 10
-                            print("| No puedes agregar más de 10 artículos.")
+                            print("| Si agregas tantos articulos luego no se venderan , favor de seleccionar otra cantidad.")
                             #como tenemos un stock de 10 para todos los productos no se le permitira comprar mas 10 productos simultaneamente
                             print(bar)
                             # Se imprime la barra para separar el menu
