@@ -12,7 +12,9 @@ import csv
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
 User = os.getlogin()
+# Guarda el nombre del usuario para usarlo en la lista del directorio
 Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
+# Guarda el directorio de donde esta el archivo csv
 if os.name == "nt":
         # Si el sistema operativo es windows
         with open(Path, 'r') as file:
@@ -22,6 +24,7 @@ if os.name == "nt":
             ProductListCSV = list(Reader)
             # Y se hace una lista con el contenido
 else:
+        # Si el sistema operativo no es windows
         with open("DataBaseFinalProject.csv", 'r+') as file:
             # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
             Reader = csv.reader(file, delimiter=',')
@@ -61,8 +64,7 @@ NoteShopping_Cart_List=[]
 # Se inicia una lista para imprimir nota
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
-print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes",
-      "listo para otro dia de trabajo?")
+print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes","listo para otro dia de trabajo?")
 # mensaje de bienvenida
 print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Tenis")
 # ponemos una lista de los productos que hay en stock
@@ -197,11 +199,17 @@ def Imprimir_Nota(j,s=0):
             for i in range(LengthShopping):
                 # Se inicia un ciclo del tamaño de la tabla
                 Cant = s[i][0]
+                # Se guarda la cantidad del producto en la lista de carrito de compras
                 Prod = s[i][1]
+                # Se guarda el nombre del porducto que esta en el carrrito de compras
                 Car1 = s[i][2]
+                # Se guarda la caracteristica 1 del producto en el carrito de compras
                 Car2 = s[i][3]
+                # Se guarda la caracteristica 2 del producto en el carrito de compras
                 Precio = s[i][4]
+                # Se guarda el precio de la cantidad de producto
                 Total = s[0][5]
+                # Se guarda el precio total de todo el carrito de compras
                 print("|","{:^3}|{:^12}|{:^17}|{:^5}|{:^6}|{:^7}|".format(Cant,Prod,Car1,Car2,Precio,Total))
                 # Se impirme lo que hay en  el carrtio de compras mediante una lista que tiene un contador para mostar cada producto
                 i +=1
@@ -264,9 +272,13 @@ def Color_select(m):
             print("| Elige que Color quieres: ")
             #es el titulo del menu para empezar a escoger el color del producto que selecciono el usuario
             for i in range(3):
+                    # pro i en el rango de 3
                 i+=1
+                # a i se le suma 1
                 print("|",i,"-",ProductListCSV[h][1])
+                # Se imprime el color de la lista de productos de acuerdo con el indice e la i y h
                 h+=1
+                # Se le suma 1 a h
             print(ReturnPrint)
             # en las dos lineas anteriores a este comentario , el programa le da la oportunidad al usario de que escoja el color de la prenda que quiere, en este caso hoodies
             colorI = input("| ")
@@ -344,7 +356,7 @@ def Size_Select(m,h,o):
         elif k == 2:
         # Si k es igual a 2
            v = 11
-           # el contador es 11
+           # el contador es 11 
         elif k == 3:
         # Si k es igual a 3
            v = 12
@@ -407,7 +419,6 @@ def Size_Select(m,h,o):
             #se imprime una barra
             time.sleep(2)
             # Le da tiempo al usuario de leer el contenido
-
         elif o == 0 and TallaV == "S" and ProductListCSV[v][2] == 0:
         # Si la talla es S y no hay inventario en talla S en el color
             print(no_stock)
@@ -416,6 +427,7 @@ def Size_Select(m,h,o):
             #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
             TallaV = "no"
             # Declara la talla como no
+
         if TallaV == "M" and ProductListCSV[v][3] > 0:
             # Si la talla es M y el inventario es mayor de 0
             print("| Tenemos:", ProductListCSV[v][3], "En Talla M")
@@ -839,13 +851,15 @@ def AddInv(p,w,s):
                             time.sleep(2)
                 #se le da al programa una instruccion de esperar 2 segundos para que aparezca la siguiente opcion del programa
                     else:
+                        # Si no
                             ProductListCSV[h][v] += AddInv_Amount
+                            # Se le agrega al produco la cantidad que el usuario pidio
                             break
+                            # Se rompe el ciclo del programa para seguir comprando
 
 def Imprimir_Inv():
 # Se define la funcion de imprimir inventario
     while True:
-
                 # Se inicia un ciclo para repetir el menu si el usuario se equivoca
         try:
                 # Se caputra cualquier error que se precente
@@ -1069,18 +1083,31 @@ while True:
                         time.sleep(5)
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
             elif MenuPrincipal == "2":
+                # Si el usuario eligio en el menu 2
                    product_select = Product_Type()
+                   # Se ejecuta la funcion de producto para que eliga el producto que quiere
                    if product_select == "R":
+                        # Si dentro del producto el usuario elige r
                            break
+                        # Se regresa al menu principal
                    Color_selectRes = Color_select(product_select)
+                   # Se ejecuta la funcion de elegir color con el resultado de el producto elegido
                    if Color_selectRes == "R":
+                        # Si el usuario eligio R en color
                            break
+                          # Se regresa al menu anterior
                    o+=1
+                   # Se le agrega 1 al contador de o
                    Size_select = Size_Select(product_select, Color_selectRes,o)
+                   # Se ejecuta la funucion de seleccionar tamaño con el resultado de color producto y el contador o
                    if Size_select == "R":
+                        # Si el ususuario eligio R en la talla
                            break
+                        # Se regresa al menu anterior
                    AddInvRes = AddInv(product_select,Color_selectRes,Size_select)
+                   # Se ejecuta la funcion de agregar inventario con las respuestas de producto color y talla
                    o = 0
+                   # Se reinicia el contador de o
             elif MenuPrincipal == "3":
                     # Si el usuario eligio en el menu 3
                 Imprimir_InvRes = Imprimir_Inv()
@@ -1104,16 +1131,17 @@ while True:
                 if os.name == "nt":
                         # Si el sistema operativo es windows
                         with open(Path, 'w') as file:
-                                # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
+                                # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
-                                # Se guardan los datos del archivo en una variable llamada Reader
+                                # Se guarda la funcion de escribir en una variable para no escribirla completo
                                 Write.writerows(ProductListCSV)
                                 # Guarda la lista con inventario a el archivo
                 else:
+                # SI el sistema oprerativo no es windows
                         with open("DataBaseFinalProject.csv", 'w') as file:
-                                # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
+                                # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
-                                # Se guardan los datos del archivo en una variable llamada Reader
+                                # Se guarda la funcion de escribir en una variable para no escribirla completo
                                 Write.writerows(ProductListCSV)
                                 # Guarda la lista con inventario a el archivo
                 file.close()
