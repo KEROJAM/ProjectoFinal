@@ -11,11 +11,12 @@ import csv
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
-User = os.getlogin()
-# Guarda el nombre del usuario para usarlo en la lista del directorio
-Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
-# Guarda el directorio de donde esta el archivo csv
+
 if os.name == "nt":
+        User = os.getlogin()
+        # Guarda el nombre del usuario para usarlo en la lista del directorio
+        Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
+        # Guarda el directorio de donde esta el archivo csv
         # Si el sistema operativo es windows
         with open(Path, 'r') as file:
             # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
