@@ -466,7 +466,6 @@ def Size_Select(m,h,o):
             # Declara la talla como no
         if TallaV in size_options[0] or TallaV == "no":
         # Si la talla elegida esta en las opcinoes
-                print(TallaV)
                 return TallaV
             # Regresa el valor de Talla para poder usarse y pasar al siguiente menu
         else:
@@ -1079,7 +1078,6 @@ while True:
                         Shopping_CartRes = shopping_cart(product_select , j, Size_select, Color_selectRes)
                         # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
                         j+=1
-                        print(Shopping_Cart_List)
                         # Se le agrega 1 al contador para que se vaya a la siguiente producto
                         time.sleep(5)
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
