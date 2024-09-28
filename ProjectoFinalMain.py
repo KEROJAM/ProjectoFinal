@@ -573,7 +573,7 @@ def shopping_cart(n,j,u,w):
                 # Se le infroma al usuario el costo de los calcetines
                 ProductPrice = 40
                 # Se asigna el precio al producto
-                ProductName = "Clacetines"
+                ProductName = "Calcetines"
                 # y se asigna el producto para mostarlo en el carrito de compras
                 i = 4
                 # Sirve como indice en la lista de productos
