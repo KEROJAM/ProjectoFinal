@@ -1065,9 +1065,7 @@ while True:
                 elif product_select == "R":
                         # Si el usuario eligio Regresar en la seleccion de productos
                         NoteShopping_Cart_List=[]
-                        # Reinicia la nota de compras
-                        j=0
-                        # Pone el contador en 0
+                        # Reinicia la nota de compra
                         break
                 # Se regresa al menu principal
                 if Size_Select == 0 or Size_Select == "R":
