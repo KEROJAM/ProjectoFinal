@@ -833,7 +833,7 @@ def AddInv(p,w,s):
 
                     #
         while True:
-                    AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
+                    AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al inventario? "))
                     #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras
 
                     if AddInv_Amount <= 0:
