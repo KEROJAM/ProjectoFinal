@@ -1127,7 +1127,7 @@ while True:
             # Si la opcion del Menu Principal es Q
                 if os.name == "nt":
                         # Si el sistema operativo es windows
-                        with open(Path, 'w') as file:
+                        with open(Path, 'w', newline='') as file:
                                 # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
                                 # Se guarda la funcion de escribir en una variable para no escribirla completo
@@ -1135,7 +1135,7 @@ while True:
                                 # Guarda la lista con inventario a el archivo
                 else:
                 # SI el sistema oprerativo no es windows
-                        with open("DataBaseFinalProject.csv", 'w') as file:
+                        with open("DataBaseFinalProject.csv", 'w', newline='') as file:
                                 # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
                                 # Se guarda la funcion de escribir en una variable para no escribirla completo
