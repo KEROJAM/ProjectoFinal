@@ -1107,7 +1107,7 @@ while True:
                                 # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
                                 Write = csv.writer(file)
                                 # Se guardan los datos del archivo en una variable llamada Reader
-                                Write.writer.rows(ProductListCSV)
+                                Write.writerows(ProductListCSV)
                                 # Y se hace una lista con el contenido
                 else:
                         with open("DataBaseFinalProject.csv", 'w') as file:
