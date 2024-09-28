@@ -1108,14 +1108,15 @@ while True:
                                 Write = csv.writer(file)
                                 # Se guardan los datos del archivo en una variable llamada Reader
                                 Write.writerows(ProductListCSV)
-                                # Y se hace una lista con el contenido
+                                # Guarda la lista con inventario a el archivo
                 else:
                         with open("DataBaseFinalProject.csv", 'w') as file:
                                 # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
                                 Write = csv.writer(file)
                                 # Se guardan los datos del archivo en una variable llamada Reader
                                 Write.writerows(ProductListCSV)
-                                # Y se hace una lista con el contenido
+                                # Guarda la lista con inventario a el archivo
                 file.close()
+                # Y se cierra el archivo
                 Quit_Menu()
                 # Se ejectua la texto de salir del programa
