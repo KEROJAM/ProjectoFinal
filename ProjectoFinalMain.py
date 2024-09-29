@@ -57,6 +57,8 @@ j = 0
 # Se inicia un Contador para moverse entre la lista
 o = 0
 # Se inicia un contador para agregar inventario
+t = 0
+# Se inicia un contador para mostrar que ya se compro un producto
 Shopping_Cart_List=[]
 # Esta es la lista del carrito que tiene el usuario por session
 print(bar)
@@ -67,7 +69,7 @@ nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
 print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a: \n| Tecmi clothes","listo para otro dia de trabajo?")
 # mensaje de bienvenida
-print("| \n| Estos son los productos que tenemos disponibles:\n| Hoodies , Camisas , Jeans , Calcetines y Tenis")
+print("| \n| Estos son los productos que tenemos disponibles:\n| Hoodies , Camisas , Jeans , Calcetines y Pants")
 # ponemos una lista de los productos que hay en stock
 print("| \n| A continuacion te mostraremos el catalogo\n| Para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
@@ -915,7 +917,7 @@ def MontoTotalVentas(j):
         # Se inicia un ciclo para repetir el menu si el usuario se equivoco
             if j == 0:
                 print("| Tu monto Total de ventas es:",s,"{:>15}".format("|"))
-            elif j == 1:
+            elif j >= 1:
                 print("| Este es el monto total de todas las ventas de Session:",Shopping_Cart_List[0][-1])
             # Se imprime monto total de ventas en la session
             MontoTotalOpcion=input(ReturnPrint)
@@ -1066,6 +1068,8 @@ while True:
                         # Si el usuario eligio Regresar en la seleccion de productos
                         NoteShopping_Cart_List=[]
                         # Reinicia la nota de compra
+                        j = 0
+                        # Se reinicia el contador
                         break
                 # Se regresa al menu principal
                 if Size_Select == 0 or Size_Select == "R":
@@ -1077,6 +1081,8 @@ while True:
                         # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
                         j+=1
                         # Se le agrega 1 al contador para que se vaya a la siguiente producto
+                        t+=1
+                        # Se agrega 1 al contador para mostrar que ya tenemos un producto en el carrito
                         time.sleep(5)
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
             elif MenuPrincipal == "2":
@@ -1116,7 +1122,7 @@ while True:
 
             elif MenuPrincipal == "4":
                 # Si el usuario eligio Monto total de ventas en el menu principal
-                Monto_Ventas_Total = MontoTotalVentas(j)
+                Monto_Ventas_Total = MontoTotalVentas(t)
                 # Se ejecuta el menu de Monto total de Ventas
                 if Monto_Ventas_Total == "R":
                     # Si el usuario eligio regresar al menu principal en Monto de ventas
