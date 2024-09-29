@@ -65,11 +65,11 @@ NoteShopping_Cart_List=[]
 # Se inicia una lista para imprimir nota
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
-print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes","listo para otro dia de trabajo?")
+print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a: \n| Tecmi clothes","listo para otro dia de trabajo?")
 # mensaje de bienvenida
-print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Tenis")
+print("| \n| Estos son los productos que tenemos disponibles:\n| Hoodies , Camisas , Jeans , Calcetines y Tenis")
 # ponemos una lista de los productos que hay en stock
-print("| \n| A continuacion te mostraremos el catalogo para que selecciones tus productos !")
+print("| \n| A continuacion te mostraremos el catalogo\n| Para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
 LenProductListCSV = len(ProductListCSV) - 1
 # De la lista de la base de datos se lee la longitud(16) y se le quita uno para solo usar los datos
