@@ -11,11 +11,12 @@ import csv
 # 2024/08/23
 # El programa es un sistema de ventas para la compañia Tecmi Clothes
 # que vende ropa como: Hoodies, Camisas, Jeans, Tenis y Calcetines
-User = os.getlogin()
-# Guarda el nombre del usuario para usarlo en la lista del directorio
-Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
-# Guarda el directorio de donde esta el archivo csv
+
 if os.name == "nt":
+        User = os.getlogin()
+        # Guarda el nombre del usuario para usarlo en la lista del directorio
+        Path = "C:\\Users\\{}\\ProyectoFinalFundamentos\\DataBaseFinalProject.csv".format(User)
+        # Guarda el directorio de donde esta el archivo csv
         # Si el sistema operativo es windows
         with open(Path, 'r') as file:
             # Se abre el archivo de la base de datos de manera que podamos leer el contenido y poder escribir en el
@@ -56,6 +57,8 @@ j = 0
 # Se inicia un Contador para moverse entre la lista
 o = 0
 # Se inicia un contador para agregar inventario
+t = 0
+# Se inicia un contador para mostrar que ya se compro un producto
 Shopping_Cart_List=[]
 # Esta es la lista del carrito que tiene el usuario por session
 print(bar)
@@ -64,11 +67,11 @@ NoteShopping_Cart_List=[]
 # Se inicia una lista para imprimir nota
 nombre = input("| Porporcione el nombre del empleado : ")
 # aqui pedimos el nombre del usuario
-print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a Tecmi clothes","listo para otro dia de trabajo?")
+print("| \n| Hola!", nombre, "que gusto verte por aqui, bienvenido a: \n| Tecmi clothes","listo para otro dia de trabajo?")
 # mensaje de bienvenida
-print("| \n| Estos son los productos que tenemos disponibles : Hoodies , Camisas , Jeans , Calcetines y Tenis")
+print("| \n| Estos son los productos que tenemos disponibles:\n| Hoodies , Camisas , Jeans , Calcetines y Pants")
 # ponemos una lista de los productos que hay en stock
-print("| \n| A continuacion te mostraremos el catalogo para que selecciones tus productos !")
+print("| \n| A continuacion te mostraremos el catalogo\n| Para que selecciones tus productos !")
 # Se impirme este mensaje para informar al usuario de lo que va a pasar despues
 LenProductListCSV = len(ProductListCSV) - 1
 # De la lista de la base de datos se lee la longitud(16) y se le quita uno para solo usar los datos
@@ -572,7 +575,7 @@ def shopping_cart(n,j,u,w):
                 # Se le infroma al usuario el costo de los calcetines
                 ProductPrice = 40
                 # Se asigna el precio al producto
-                ProductName = "Clacetines"
+                ProductName = "Calcetines"
                 # y se asigna el producto para mostarlo en el carrito de compras
                 i = 4
                 # Sirve como indice en la lista de productos
@@ -832,7 +835,7 @@ def AddInv(p,w,s):
 
                     #
         while True:
-                    AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al carrito? "))
+                    AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al inventario? "))
                     #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras
 
                     if AddInv_Amount <= 0:
@@ -914,7 +917,7 @@ def MontoTotalVentas(j):
         # Se inicia un ciclo para repetir el menu si el usuario se equivoco
             if j == 0:
                 print("| Tu monto Total de ventas es:",s,"{:>15}".format("|"))
-            elif j == 1:
+            elif j >= 1:
                 print("| Este es el monto total de todas las ventas de Session:",Shopping_Cart_List[0][-1])
             # Se imprime monto total de ventas en la session
             MontoTotalOpcion=input(ReturnPrint)
@@ -1064,9 +1067,9 @@ while True:
                 elif product_select == "R":
                         # Si el usuario eligio Regresar en la seleccion de productos
                         NoteShopping_Cart_List=[]
-                        # Reinicia la nota de compras
-                        j=0
-                        # Pone el contador en 0
+                        # Reinicia la nota de compra
+                        j = 0
+                        # Se reinicia el contador
                         break
                 # Se regresa al menu principal
                 if Size_Select == 0 or Size_Select == "R":
@@ -1078,6 +1081,8 @@ while True:
                         # Se ejecuta la texto de carrito de compras y se guarda su resultado en una enunciado para poder usarse
                         j+=1
                         # Se le agrega 1 al contador para que se vaya a la siguiente producto
+                        t+=1
+                        # Se agrega 1 al contador para mostrar que ya tenemos un producto en el carrito
                         time.sleep(5)
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
             elif MenuPrincipal == "2":
@@ -1121,7 +1126,7 @@ while True:
 
             elif MenuPrincipal == "4":
                 # Si el usuario eligio Monto total de ventas en el menu principal
-                Monto_Ventas_Total = MontoTotalVentas(j)
+                Monto_Ventas_Total = MontoTotalVentas(t)
                 # Se ejecuta el menu de Monto total de Ventas
                 if Monto_Ventas_Total == "R":
                     # Si el usuario eligio regresar al menu principal en Monto de ventas
@@ -1132,7 +1137,7 @@ while True:
             # Si la opcion del Menu Principal es Q
                 if os.name == "nt":
                         # Si el sistema operativo es windows
-                        with open(Path, 'w') as file:
+                        with open(Path, 'w', newline='') as file:
                                 # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
                                 # Se guarda la funcion de escribir en una variable para no escribirla completo
@@ -1140,7 +1145,7 @@ while True:
                                 # Guarda la lista con inventario a el archivo
                 else:
                 # SI el sistema oprerativo no es windows
-                        with open("DataBaseFinalProject.csv", 'w') as file:
+                        with open("DataBaseFinalProject.csv", 'w', newline='') as file:
                                 # Se abre el archivo de la base de datos de manera que podamos escribir en el
                                 Write = csv.writer(file)
                                 # Se guarda la funcion de escribir en una variable para no escribirla completo
