@@ -213,8 +213,13 @@ def Imprimir_Nota(j,s=0):
                 # Se guarda el precio de la cantidad de producto
                 Total = s[0][5]
                 # Se guarda el precio total de todo el carrito de compras
-                print("|","{:^3}|{:^12}|{:^17}|{:^5}|{:^6}|{:^7}|".format(Cant,Prod,Car1,Car2,Precio,Total))
+                print("|","{:^3}|{:^12}|{:^17}|{:^5}|{:^6}|".format(Cant,Prod,Car1,Car2,Precio), end="")
                 # Se impirme lo que hay en  el carrtio de compras mediante una lista que tiene un contador para mostar cada producto
+                if i == 1:
+                        print("{:^7}|".format(Total))
+                else:
+                        LenTotal=len(Total)
+                        print("{:^7}|".format(" "*LenTotal))
                 i +=1
                 # Se le agrega 1 al contador cada vez que pase el ciclo
         # Se impirme el carrito de compras
@@ -835,6 +840,7 @@ def AddInv(p,w,s):
 
                     #
         while True:
+                try:
                     AddInv_Amount = int(input("| ¿Cuántos artículos quieres agregar al inventario? "))
                     #aqui se le pregunta al usuario cuantos productos va a agregar a su carrito de compras
 
@@ -858,7 +864,8 @@ def AddInv(p,w,s):
                             # Se le agrega al produco la cantidad que el usuario pidio
                             break
                             # Se rompe el ciclo del programa para seguir comprando
-
+                except ValueError:
+                       print("| Caracter Invalido")
 def Imprimir_Inv():
 # Se define la funcion de imprimir inventario
     while True:
@@ -1087,6 +1094,7 @@ while True:
                         # Le da al usuario tiempo de ver el precio de los productos que eligieron
             elif MenuPrincipal == "2":
                 # Si el usuario eligio en el menu 2
+                   o+=1
                    product_select = Product_Type()
                    # Se ejecuta la funcion de producto para que eliga el producto que quiere
                    if product_select == "6":
@@ -1103,7 +1111,6 @@ while True:
                         # Si el usuario eligio R en color
                            break
                           # Se regresa al menu anterior
-                   o+=1
                    # Se le agrega 1 al contador de o
                    Size_select = Size_Select(product_select, Color_selectRes,o)
                    # Se ejecuta la funucion de seleccionar tamaño con el resultado de color producto y el contador o
