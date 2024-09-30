@@ -1089,6 +1089,10 @@ while True:
                 # Si el usuario eligio en el menu 2
                    product_select = Product_Type()
                    # Se ejecuta la funcion de producto para que eliga el producto que quiere
+                   if product_select == "6":
+                        Imprimir_Nota_Res = Imprimir_Nota(j,NoteShopping_Cart_List)
+                        if Imprimir_Nota_Res == "R":
+                            break
                    if product_select == "R":
                         # Si dentro del producto el usuario elige r
                            break
